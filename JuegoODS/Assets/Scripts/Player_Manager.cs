@@ -11,7 +11,13 @@ public class Player_Manager : MonoBehaviour
 
     private Mover_Vehículos moverVehiculos;
 
-   
+    public GameObject activador;
+
+    private void Start()
+    {
+        activador.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Victory_Collider"))
@@ -21,7 +27,8 @@ public class Player_Manager : MonoBehaviour
             barrera3.SetActive(false);
             barrera4.SetActive(false);
 
-            return;
+            activador.SetActive(true);
+
         }
         
     }

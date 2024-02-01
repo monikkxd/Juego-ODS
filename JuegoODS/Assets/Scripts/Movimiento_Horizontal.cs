@@ -11,14 +11,13 @@ public class Movimiento_Horizontal : MonoBehaviour
     private float mZCoord;
     private Rigidbody rb;
 
-   
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true; 
     }
 
+  
     void OnMouseDown()
     {
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
@@ -50,4 +49,6 @@ public class Movimiento_Horizontal : MonoBehaviour
     {
         Vector3 normalDeColision = collision.contacts[0].normal;
     }
+
+    
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,15 +13,19 @@ public class Mover_Vehículos : MonoBehaviour
 
     private bool corutinaActivada = false;
 
+    public GameObject activador;
+
+    
+
     void Start()
     {
         posicionInicial = transform.position;
-        posicionActual = transform.position; // Inicializa la posición actual al inicio
+        posicionActual = transform.position; 
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (activador.gameObject.activeSelf)
         {
             ActivarCorutina();
         }
