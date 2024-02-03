@@ -5,17 +5,21 @@ public class MoverObjeto : MonoBehaviour
     public float velocidadMovimiento = 5f;
     public float velocidadDescenso = 2f;
     public float velocidadAscenso = 2f;
-    public GameObject objetoVacioRango;
-    public float alturaObjetoVacioRango = 5f;
+    public GameObject grabPoint;
+    public float alturaGrabPoint = 5f;
 
     private bool descenderActivado = false;
     private bool ascenderActivado = false;
     private bool permitirMovimientoHorizontal = true;
     private Transform objetoCogido; // Variable para mantener referencia al objeto cogido
 
+    public float velocidadRotacion = 30f;
+    private bool rotacionActiva = false;
+    private float anguloTotal = 0f;
+    private float anguloObjetivo = 90f;
     void Start()
     {
-        objetoVacioRango.transform.position = new Vector3(transform.position.x, alturaObjetoVacioRango, transform.position.z);
+        grabPoint.transform.position = new Vector3(transform.position.x, alturaGrabPoint, transform.position.z);
     }
 
     void Update()
@@ -51,6 +55,16 @@ public class MoverObjeto : MonoBehaviour
         {
             CogerObjeto();
         }
+
+        if (Input.GetKeyDown(KeyCode.G) && !rotacionActiva)
+        {
+            rotacionActiva = true;
+        }
+
+        if (rotacionActiva)
+        {
+            RotarObjetoCogidoEnY();
+        }
     }
 
     void MoverGrua()
@@ -70,7 +84,7 @@ public class MoverObjeto : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(objetoVacioRango.transform.position, Vector3.down, out hit))
+        if (Physics.Raycast(grabPoint.transform.position, Vector3.down, out hit))
         {
             if (hit.collider.CompareTag("Objeto_Grua"))
             {
@@ -94,7 +108,7 @@ public class MoverObjeto : MonoBehaviour
     void AscenderObjeto()
     {
         // Verifica si ya ha alcanzado el punto de descenso antes de permitir el ascenso
-        if (transform.position.y >= alturaObjetoVacioRango)
+        if (transform.position.y >= alturaGrabPoint)
         {
             ascenderActivado = false;
             permitirMovimientoHorizontal = true; // Permite el movimiento horizontal después del ascenso
@@ -108,7 +122,7 @@ public class MoverObjeto : MonoBehaviour
 
     void CogerObjeto()
     {
-        Collider[] colliders = Physics.OverlapSphere(objetoVacioRango.transform.position, objetoVacioRango.transform.localScale.x / 2);
+        Collider[] colliders = Physics.OverlapSphere(grabPoint.transform.position, grabPoint.transform.localScale.x / 2);
 
         foreach (Collider collider in colliders)
         {
@@ -129,6 +143,24 @@ public class MoverObjeto : MonoBehaviour
             objetoCogido.parent = null;
             objetoCogido.GetComponent<Rigidbody>().isKinematic = false;
             objetoCogido = null; // Restablecer la referencia al objeto cogido
+        }
+    }
+
+    void RotarObjetoCogidoEnY()
+    {
+        if (objetoCogido != null)
+        {
+            float pasoRotacion = velocidadRotacion * Time.deltaTime;
+
+            if (anguloTotal + pasoRotacion >= anguloObjetivo)
+            {
+                pasoRotacion = anguloObjetivo - anguloTotal;
+                anguloTotal = 0f; // Reiniciar el ángulo total después de completar la rotación
+                rotacionActiva = false;
+            }
+
+            objetoCogido.Rotate(Vector3.up, pasoRotacion);
+            anguloTotal += pasoRotacion;
         }
     }
 }
