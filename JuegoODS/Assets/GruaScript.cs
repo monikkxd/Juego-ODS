@@ -4,8 +4,20 @@ public class MoverObjeto : MonoBehaviour
 {
     public float velocidadMovimiento = 5f;
     public float velocidadDescenso = 2f;
+    public float velocidadAscenso = 2f;
+    public GameObject objetoVacioRango;
+    public float alturaObjetoVacioRango = 5f;
 
     private bool descenderActivado = false;
+    private bool ascenderActivado = false;
+    private bool permitirMovimientoHorizontal = true;
+    private Transform objetoCogido; // Variable para mantener referencia al objeto cogido
+
+    void Start()
+    {
+        objetoVacioRango.transform.position = new Vector3(transform.position.x, alturaObjetoVacioRango, transform.position.z);
+    }
+
     void Update()
     {
         MoverGrua();
@@ -15,37 +27,108 @@ public class MoverObjeto : MonoBehaviour
             DescenderObjeto();
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            AscenderObjeto();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SoltarObjeto();
+        }
+
         if (descenderActivado)
         {
             DescenderObjeto();
         }
-    }
 
+        if (ascenderActivado)
+        {
+            AscenderObjeto();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CogerObjeto();
+        }
+    }
 
     void MoverGrua()
     {
-        // Obtener la entrada del teclado
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-        float movimientoVertical = Input.GetAxis("Vertical");
+        if (permitirMovimientoHorizontal)
+        {
+            float movimientoHorizontal = Input.GetAxis("Horizontal");
+            float movimientoVertical = Input.GetAxis("Vertical");
 
-        // Calcular el movimiento en el eje x y z
-        Vector3 movimiento = new Vector3(movimientoHorizontal, 0f, movimientoVertical);
+            Vector3 movimiento = new Vector3(movimientoHorizontal, 0f, movimientoVertical);
 
-        // Aplicar el movimiento al objeto
-        transform.Translate(movimiento * velocidadMovimiento * Time.deltaTime);
+            transform.Translate(movimiento * velocidadMovimiento * Time.deltaTime);
+        }
     }
+
     void DescenderObjeto()
     {
-        transform.Translate(Vector3.down * velocidadDescenso * Time.deltaTime);
-
-        // Verificar si hay colisión con un objeto que tenga el tag deseado
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+
+        if (Physics.Raycast(objetoVacioRango.transform.position, Vector3.down, out hit))
         {
             if (hit.collider.CompareTag("Objeto_Grua"))
             {
-                descenderActivado = false; // Desactivar el descenso si se detecta el objeto con el tag deseado
+                transform.Translate(Vector3.down * velocidadDescenso * Time.deltaTime);
+                descenderActivado = true;
+                permitirMovimientoHorizontal = false;
             }
+            else
+            {
+                descenderActivado = false;
+            }
+        }
+        else
+        {
+            transform.Translate(Vector3.down * velocidadDescenso * Time.deltaTime);
+            descenderActivado = true;
+            permitirMovimientoHorizontal = false;
+        }
+    }
+
+    void AscenderObjeto()
+    {
+        // Verifica si ya ha alcanzado el punto de descenso antes de permitir el ascenso
+        if (transform.position.y >= alturaObjetoVacioRango)
+        {
+            ascenderActivado = false;
+            permitirMovimientoHorizontal = true; // Permite el movimiento horizontal después del ascenso
+            return;
+        }
+
+        transform.Translate(Vector3.up * velocidadAscenso * Time.deltaTime);
+        ascenderActivado = true;
+        permitirMovimientoHorizontal = false; // Bloquear el movimiento horizontal durante el ascenso
+    }
+
+    void CogerObjeto()
+    {
+        Collider[] colliders = Physics.OverlapSphere(objetoVacioRango.transform.position, objetoVacioRango.transform.localScale.x / 2);
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Objeto_Grua"))
+            {
+                objetoCogido = collider.transform; // Almacenar la referencia al objeto cogido
+                objetoCogido.parent = transform;
+                objetoCogido.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+    }
+
+    void SoltarObjeto()
+    {
+        if (objetoCogido != null)
+        {
+            // Suelta el objeto, restablece su kinematic y quítale como hijo de la grúa
+            objetoCogido.parent = null;
+            objetoCogido.GetComponent<Rigidbody>().isKinematic = false;
+            objetoCogido = null; // Restablecer la referencia al objeto cogido
         }
     }
 }
