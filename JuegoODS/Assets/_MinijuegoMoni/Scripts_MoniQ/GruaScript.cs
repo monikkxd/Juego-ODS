@@ -11,33 +11,22 @@ public class MoverObjeto : MonoBehaviour
     private bool descenderActivado = false;
     private bool ascenderActivado = false;
     private bool permitirMovimientoHorizontal = true;
-    private Transform objetoCogido; // Variable para mantener referencia al objeto cogido
+    private Transform objetoCogido;
 
     public float velocidadRotacion = 30f;
     private bool rotacionActiva = false;
     private float anguloTotal = 0f;
     private float anguloObjetivo = 90f;
 
-    public Transform carrilesParent;
-    public Transform[] carrilesPositions;
+    private float tamanoCasilla = 1;
 
-    public Transform carrilPositionActual;
-
-    public int carrilActualIndex = 1; //carriles 0, 1 y 2
-
-    public float playerHorizontalSpeed = 10f;
+    private bool permitirMovimientoHorizontal_ = true;
+    private float tiempoEspera = 0.5f;
+    private float tiempoUltimoMovimiento = 0f;
 
     void Start()
     {
         grabPoint.transform.position = new Vector3(transform.position.x, alturaGrabPoint, transform.position.z);
-
-        carrilesPositions = new Transform[carrilesParent.childCount];
-        for (int i = 0; i < carrilesParent.childCount; i++)
-        {
-            carrilesPositions[i] = carrilesParent.GetChild(i);
-        }
-
-        carrilPositionActual = carrilesPositions[carrilActualIndex];
     }
 
     void Update()
@@ -84,24 +73,7 @@ public class MoverObjeto : MonoBehaviour
             RotarObjetoCogidoEnY();
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (carrilActualIndex > 0)
-            {
-                carrilActualIndex--;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (carrilActualIndex < carrilesPositions.Length - 1)
-            {
-                carrilActualIndex++;
-            }
-        }
-        carrilPositionActual = carrilesPositions[carrilActualIndex];
-
-        transform.position = Vector3.MoveTowards(transform.position, carrilPositionActual.position, playerHorizontalSpeed * Time.deltaTime);
-
+        MoverGrua();
     }
 
     void MoverGrua()
@@ -111,10 +83,54 @@ public class MoverObjeto : MonoBehaviour
             float movimientoHorizontal = Input.GetAxis("Horizontal");
             float movimientoVertical = Input.GetAxis("Vertical");
 
-            Vector3 movimiento = new Vector3(movimientoHorizontal, 0f, movimientoVertical);
+            Vector3 direccionMovimiento = new Vector3(
+                Mathf.Abs(movimientoHorizontal) > Mathf.Abs(movimientoVertical) ? movimientoHorizontal : 0f,
+                0f,
+                Mathf.Abs(movimientoVertical) > Mathf.Abs(movimientoHorizontal) ? movimientoVertical : 0f
+            ).normalized;
 
-            transform.Translate(movimiento * velocidadMovimiento * Time.deltaTime);
+            float tiempoActual = Time.time;
+
+            if (tiempoActual - tiempoUltimoMovimiento >= tiempoEspera)
+            {
+                Vector3 nuevaPosicion = CalcularNuevaPosicion(transform.position, direccionMovimiento);
+
+                if (EstaEnCasilla(nuevaPosicion))
+                {
+                    transform.position = nuevaPosicion;
+                    tiempoUltimoMovimiento = tiempoActual;
+                }
+            }
         }
+    }
+
+    Vector3 CalcularNuevaPosicion(Vector3 posicionActual, Vector3 direccionMovimiento)
+    {
+        Vector3 posicionCasilla = new Vector3(
+            Mathf.Round(posicionActual.x / tamanoCasilla) * tamanoCasilla,
+            posicionActual.y,
+            Mathf.Round(posicionActual.z / tamanoCasilla) * tamanoCasilla
+        );
+
+        Vector3 nuevaPosicion = posicionCasilla + direccionMovimiento * tamanoCasilla;
+
+        return nuevaPosicion;
+    }
+
+    bool EstaEnCasilla(Vector3 posicion)
+    {
+        Casillas divisor = FindObjectOfType<Casillas>();
+
+        Renderer renderer = divisor.GetComponent<Renderer>();
+        Bounds bounds = renderer.bounds;
+
+        if (posicion.x >= bounds.min.x && posicion.x <= bounds.max.x &&
+            posicion.z >= bounds.min.z && posicion.z <= bounds.max.z)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     void DescenderObjeto()
@@ -144,17 +160,16 @@ public class MoverObjeto : MonoBehaviour
 
     void AscenderObjeto()
     {
-        // Verifica si ya ha alcanzado el punto de descenso antes de permitir el ascenso
         if (transform.position.y >= alturaGrabPoint)
         {
             ascenderActivado = false;
-            permitirMovimientoHorizontal = true; // Permite el movimiento horizontal después del ascenso
+            permitirMovimientoHorizontal = true;
             return;
         }
 
         transform.Translate(Vector3.up * velocidadAscenso * Time.deltaTime);
         ascenderActivado = true;
-        permitirMovimientoHorizontal = false; // Bloquear el movimiento horizontal durante el ascenso
+        permitirMovimientoHorizontal = false;
     }
 
     void CogerObjeto()
@@ -165,7 +180,7 @@ public class MoverObjeto : MonoBehaviour
         {
             if (collider.CompareTag("Objeto_Grua"))
             {
-                objetoCogido = collider.transform; // Almacenar la referencia al objeto cogido
+                objetoCogido = collider.transform;
                 objetoCogido.parent = transform;
                 objetoCogido.GetComponent<Rigidbody>().isKinematic = true;
             }
@@ -176,10 +191,9 @@ public class MoverObjeto : MonoBehaviour
     {
         if (objetoCogido != null)
         {
-            // Suelta el objeto, restablece su kinematic y quítale como hijo de la grúa
             objetoCogido.parent = null;
             objetoCogido.GetComponent<Rigidbody>().isKinematic = false;
-            objetoCogido = null; // Restablecer la referencia al objeto cogido
+            objetoCogido = null;
         }
     }
 
@@ -192,7 +206,7 @@ public class MoverObjeto : MonoBehaviour
             if (anguloTotal + pasoRotacion >= anguloObjetivo)
             {
                 pasoRotacion = anguloObjetivo - anguloTotal;
-                anguloTotal = 0f; // Reiniciar el ángulo total después de completar la rotación
+                anguloTotal = 0f;
                 rotacionActiva = false;
             }
 
