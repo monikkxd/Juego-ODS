@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
 
 public class MoverObjeto : MonoBehaviour
 {
+    [Header("Movement Variables")]
     public float velocidadMovimiento = 5f;
     public float velocidadDescenso = 2f;
     public float velocidadAscenso = 2f;
+
+    [Header("Grab Point")]
     public GameObject grabPoint;
     public float alturaGrabPoint = 5f;
 
@@ -13,6 +18,7 @@ public class MoverObjeto : MonoBehaviour
     private bool permitirMovimientoHorizontal = true;
     private Transform objetoCogido;
 
+    [Header("Rotación")]
     public float velocidadRotacion = 30f;
     private bool rotacionActiva = false;
     private float anguloTotal = 0f;
@@ -20,9 +26,14 @@ public class MoverObjeto : MonoBehaviour
 
     private float tamanoCasilla = 1;
 
+
     private bool permitirMovimientoHorizontal_ = true;
     private float tiempoEspera = 0.5f;
     private float tiempoUltimoMovimiento = 0f;
+
+    
+
+    float tiempoDeMovimiento = 0.3f;
 
     void Start()
     {
@@ -31,11 +42,17 @@ public class MoverObjeto : MonoBehaviour
 
     void Update()
     {
+        
+      
         MoverGrua();
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            
             DescenderObjeto();
+            
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -97,24 +114,25 @@ public class MoverObjeto : MonoBehaviour
 
                 if (EstaEnCasilla(nuevaPosicion))
                 {
-                    transform.position = nuevaPosicion;
-                    tiempoUltimoMovimiento = tiempoActual;
+                    StartCoroutine(MoverConLerp(transform.position, nuevaPosicion, tiempoDeMovimiento));
+                    tiempoUltimoMovimiento = tiempoActual + tiempoDeMovimiento; // Ajustar según tus necesidades
                 }
             }
         }
     }
 
-    Vector3 CalcularNuevaPosicion(Vector3 posicionActual, Vector3 direccionMovimiento)
+    IEnumerator MoverConLerp(Vector3 origen, Vector3 destino, float duracion)
     {
-        Vector3 posicionCasilla = new Vector3(
-            Mathf.Round(posicionActual.x / tamanoCasilla) * tamanoCasilla,
-            posicionActual.y,
-            Mathf.Round(posicionActual.z / tamanoCasilla) * tamanoCasilla
-        );
+        float tiempoPasado = 0f;
 
-        Vector3 nuevaPosicion = posicionCasilla + direccionMovimiento * tamanoCasilla;
+        while (tiempoPasado < duracion)
+        {
+            transform.position = Vector3.Lerp(origen, destino, tiempoPasado / duracion);
+            tiempoPasado += Time.deltaTime;
+            yield return null;
+        }
 
-        return nuevaPosicion;
+        transform.position = destino;
     }
 
     bool EstaEnCasilla(Vector3 posicion)
@@ -133,17 +151,34 @@ public class MoverObjeto : MonoBehaviour
         return false;
     }
 
+    Vector3 CalcularNuevaPosicion(Vector3 posicionActual, Vector3 direccionMovimiento)
+    {
+        Vector3 posicionCasilla = new Vector3(
+            Mathf.Round(posicionActual.x / tamanoCasilla) * tamanoCasilla,
+            posicionActual.y,
+            Mathf.Round(posicionActual.z / tamanoCasilla) * tamanoCasilla
+        );
+
+        Vector3 nuevaPosicion = posicionCasilla + direccionMovimiento * tamanoCasilla;
+
+        return nuevaPosicion;
+    }
+
+
     void DescenderObjeto()
     {
+        //Modificar para que desciende una altura determinada
         RaycastHit hit;
 
         if (Physics.Raycast(grabPoint.transform.position, Vector3.down, out hit))
         {
             if (hit.collider.CompareTag("Objeto_Grua"))
             {
+               
                 transform.Translate(Vector3.down * velocidadDescenso * Time.deltaTime);
                 descenderActivado = true;
                 permitirMovimientoHorizontal = false;
+               
             }
             else
             {
@@ -156,6 +191,8 @@ public class MoverObjeto : MonoBehaviour
             descenderActivado = true;
             permitirMovimientoHorizontal = false;
         }
+
+        
     }
 
     void AscenderObjeto()
