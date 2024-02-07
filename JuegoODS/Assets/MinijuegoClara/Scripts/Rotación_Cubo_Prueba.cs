@@ -6,11 +6,6 @@ public class Rotación_Cubo_Prueba : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            transform.Rotate(_rotation * Time.deltaTime);
-        }
-        
-        Debug.Log("SimpleRotate Activado...");
+        transform.Rotate(_rotation * Time.deltaTime);
     }
 }
