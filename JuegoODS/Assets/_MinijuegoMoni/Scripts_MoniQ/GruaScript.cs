@@ -17,9 +17,27 @@ public class MoverObjeto : MonoBehaviour
     private bool rotacionActiva = false;
     private float anguloTotal = 0f;
     private float anguloObjetivo = 90f;
+
+    public Transform carrilesParent;
+    public Transform[] carrilesPositions;
+
+    public Transform carrilPositionActual;
+
+    public int carrilActualIndex = 1; //carriles 0, 1 y 2
+
+    public float playerHorizontalSpeed = 10f;
+
     void Start()
     {
         grabPoint.transform.position = new Vector3(transform.position.x, alturaGrabPoint, transform.position.z);
+
+        carrilesPositions = new Transform[carrilesParent.childCount];
+        for (int i = 0; i < carrilesParent.childCount; i++)
+        {
+            carrilesPositions[i] = carrilesParent.GetChild(i);
+        }
+
+        carrilPositionActual = carrilesPositions[carrilActualIndex];
     }
 
     void Update()
@@ -65,6 +83,25 @@ public class MoverObjeto : MonoBehaviour
         {
             RotarObjetoCogidoEnY();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (carrilActualIndex > 0)
+            {
+                carrilActualIndex--;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (carrilActualIndex < carrilesPositions.Length - 1)
+            {
+                carrilActualIndex++;
+            }
+        }
+        carrilPositionActual = carrilesPositions[carrilActualIndex];
+
+        transform.position = Vector3.MoveTowards(transform.position, carrilPositionActual.position, playerHorizontalSpeed * Time.deltaTime);
+
     }
 
     void MoverGrua()
