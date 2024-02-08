@@ -4,6 +4,11 @@ using UnityEngine;
 public class Lógica_Cubo_Puzzle : MonoBehaviour
 {
     public GameObject rubikCube; // Asigna el objeto vacío que contiene los 8 cubos
+    public GameObject cubeOfVictory1; // Asigna el primer cubo de la victoria
+    
+    public GameObject cubeOfVictory2; // Asigna el segundo cubo de la victoria
+    
+    public Color victoryColor = Color.green; // Color para los cubos de la victoria
     public float rotationSpeed = 5f; // Velocidad de rotación
 
     private bool isRotating = false; // Variable de estado para indicar si se está realizando una rotación
@@ -16,11 +21,35 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
 
     private Color originalColor; // Color original de los cubos
 
+    private Vector3 victoryPosition1; // Posición de victoria del primer cubo
+    private Vector3 victoryPosition2; // Posición de victoria del segundo cubo
+
+    public Transform[] victoryPositions; // Posiciones de victoria
+
+    // Resto de las variables...
+
     void Start()
     {
+        // Asignar el color de victoria a los cubos desde el principio
+        cubeOfVictory1.GetComponent<Renderer>().material.color = victoryColor;
+        cubeOfVictory2.GetComponent<Renderer>().material.color = victoryColor;
+
         // Iniciar seleccionando la parte superior y almacenar el color original
         SelectTop();
         originalColor = rubikCube.GetComponent<Renderer>().material.color;
+
+        // Inicializar las posiciones de victoria
+        InitializeVictoryPositions();
+    }
+
+    void InitializeVictoryPositions()
+    {
+        // Puedes ajustar las posiciones según tus necesidades
+        victoryPositions = new Transform[2];
+        victoryPositions[0] = new GameObject().transform;
+        victoryPositions[0].position = new Vector3(1f, 1f, 1f); // Ejemplo de posición
+        victoryPositions[1] = new GameObject().transform;
+        victoryPositions[1].position = new Vector3(-1f, -1f, -1f); // Ejemplo de posición
     }
 
     void Update()
@@ -84,12 +113,30 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                RotateSelectedPart(Vector3.forward, -90f);
+                RotateSelectedPart(Vector3.forward, 90f);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                RotateSelectedPart(Vector3.forward, 90f);
+                RotateSelectedPart(Vector3.forward, -90f);
             }
+        }
+
+        // Verificar la condición de victoria después de cada rotación
+        CheckVictoryCondition();
+
+        CheckVictory();
+    }
+
+    void CheckVictoryCondition()
+    {
+        // Verificar si ambos cubos de la victoria están en sus posiciones correctas
+        bool isVictory = cubeOfVictory1.transform.position == victoryPosition1 &&
+                         cubeOfVictory2.transform.position == victoryPosition2;
+
+        // Si es victoria, mostrar el mensaje y puedes hacer otras acciones
+        if (isVictory)
+        {
+            Debug.Log("¡Victoria!");
         }
     }
 
@@ -169,16 +216,30 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
             if (childCube != rubikCube.transform)
             {
                 Renderer cubeRenderer = childCube.GetComponent<Renderer>();
-                cubeRenderer.material.color =
-                    isTopSelected ? (childCube.position.y > rubikCube.transform.position.y ? color : originalColor) :
-                    isBottomSelected ? (childCube.position.y < rubikCube.transform.position.y ? color : originalColor) :
-                    isLeftSelected ? (childCube.position.x < rubikCube.transform.position.x ? color : originalColor) :
-                    isRightSelected ? (childCube.position.x > rubikCube.transform.position.x ? color : originalColor) :
-                    isFrontSelected ? (childCube.position.z > rubikCube.transform.position.z ? color : originalColor) :
-                    isBackSelected ? (childCube.position.z < rubikCube.transform.position.z ? color : originalColor) :
-                    originalColor;
+
+                // Evitar cambiar el color de los cubos de victoria
+                if (childCube.gameObject != cubeOfVictory1 && childCube.gameObject != cubeOfVictory2)
+                {
+                    cubeRenderer.material.color =
+                        isTopSelected ? (childCube.position.y > rubikCube.transform.position.y ? color : originalColor) :
+                        isBottomSelected ? (childCube.position.y < rubikCube.transform.position.y ? color : originalColor) :
+                        isLeftSelected ? (childCube.position.x < rubikCube.transform.position.x ? color : originalColor) :
+                        isRightSelected ? (childCube.position.x > rubikCube.transform.position.x ? color : originalColor) :
+                        isFrontSelected ? (childCube.position.z > rubikCube.transform.position.z ? color : originalColor) :
+                        isBackSelected ? (childCube.position.z < rubikCube.transform.position.z ? color : originalColor) :
+                        originalColor;
+                }
             }
         }
+    }
+    void SetVictoryCubeColor()
+    {
+        // Establecer el color de los cubos de la victoria
+        Renderer victoryCubeRenderer1 = cubeOfVictory1.GetComponent<Renderer>();
+        Renderer victoryCubeRenderer2 = cubeOfVictory2.GetComponent<Renderer>();
+
+        victoryCubeRenderer1.material.color = victoryColor;
+        victoryCubeRenderer2.material.color = victoryColor;
     }
 
     void RotateSelectedPart(Vector3 axis, float angle)
@@ -305,5 +366,28 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
 
         // Marcar que la rotación ha terminado
         onRotationComplete?.Invoke();
+    }
+
+    void CheckVictory()
+    {
+        // Verificar si los cubos de la victoria están cerca de alguna posición de victoria
+        bool victoryAchieved = false;
+        foreach (Transform victoryPosition in victoryPositions)
+        {
+            float distance1 = Vector3.Distance(cubeOfVictory1.transform.position, victoryPosition.position);
+            float distance2 = Vector3.Distance(cubeOfVictory2.transform.position, victoryPosition.position);
+
+            if (distance1 < 0.5f && distance2 < 0.5f)
+            {
+                victoryAchieved = true;
+                break;
+            }
+        }
+
+        // Mostrar mensaje de victoria si se logra la victoria
+        if (victoryAchieved)
+        {
+            Debug.Log("¡Victoria!");
+        }
     }
 }
