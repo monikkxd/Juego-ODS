@@ -2,33 +2,54 @@ using UnityEngine;
 
 public class RaycastDetection : MonoBehaviour
 {
-    public string targetTag = "TuTag"; // Reemplaza "TuTag" con el tag que deseas detectar
-    public GameObject objeto1; // Asigna tu GameObject en el Inspector
+    public GameObject objeto1;
+    public GameObject objeto2;
+
+    private bool hitObjeto1 = false;
+    private bool hitObjeto2 = false;
 
     void Update()
     {
-        // Llamar al método de detección cuando sea necesario
-        CheckRaycastHit(objeto1, targetTag);
-    }
+        
+        hitObjeto1 = IsHitByRaycast(objeto1);
+        hitObjeto2 = IsHitByRaycast(objeto2);
 
-    void CheckRaycastHit(GameObject objeto, string tag)
-    {
-        // Lanzar un rayo desde el objeto
-        Ray ray = new Ray(objeto.transform.position, objeto.transform.forward);
-        RaycastHit hit;
 
-        // Realizar el raycast
-        if (Physics.Raycast(ray, out hit))
+
+        
+        if (hitObjeto1 && hitObjeto2)
         {
-            // Verificar si el objeto impactado tiene el tag deseado
-            if (hit.collider.CompareTag(tag))
+            
+            Debug.Log("Victoria");
+            
+        }
+        else
+        {
+            // Mostrar mensajes individuales
+            if (hitObjeto1)
             {
-                Debug.Log(objeto.name + " está siendo impactado por un raycast con el tag " + tag);
+                Debug.Log("Objeto1 golpeado");
             }
-            else
+
+            if (hitObjeto2)
             {
-                Debug.Log(objeto.name + " no está siendo impactado por un raycast con el tag " + tag);
+                Debug.Log("Objeto2 golpeado");
             }
         }
     }
+
+    bool IsHitByRaycast(GameObject objeto)
+    {
+        RaycastHit hit;
+
+        // Lanzar un raycast desde la posición actual hacia adelante
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            // Comprobar si el objeto es golpeado por el raycast con el tag "Raycast"
+            return hit.collider.CompareTag("Raycast") && hit.collider.gameObject == objeto;
+        }
+
+        return false;
+    }
+
 }
