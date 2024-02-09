@@ -7,6 +7,8 @@ public class RaycastDetector : MonoBehaviour
 {
     public float raycastDistance = 10f;
 
+    public string mensageDetección;
+
     // Tag del objeto que queremos detectar
     public string targetTag = "Victory_Cube";
 
@@ -25,8 +27,7 @@ public class RaycastDetector : MonoBehaviour
             // Verificar si el objeto impactado tiene el tag deseado
             if (hit.collider.CompareTag(targetTag))
             {
-                MensageDetección();
-                // Puedes agregar aquí el código adicional que deseas ejecutar cuando se detecta el objeto.
+                Debug.Log(mensageDetección);
             }
         }
     }
@@ -44,8 +45,5 @@ public class RaycastDetector : MonoBehaviour
         Gizmos.DrawRay(raycastOrigin, raycastDirection * raycastDistance);
     }
 
-    private void MensageDetección()
-    {
-        Debug.Log("Cubo detectado");
-    }
+    
 }

@@ -9,6 +9,5 @@ public class SimpleRotator : MonoBehaviour
     void Update()
     {
         transform.Rotate(_rotation *  Time.deltaTime);
-        Debug.Log("SimpleRotate Activado...");
     }
 }
