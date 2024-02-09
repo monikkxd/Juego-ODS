@@ -6,7 +6,7 @@ public class CasillasWinScript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("WinTag"))
+        if(other.CompareTag("Victory_Collider"))
         {
             Debug.Log("Victoria");
         }
