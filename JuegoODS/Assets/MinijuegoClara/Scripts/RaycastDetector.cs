@@ -14,6 +14,7 @@ public class RaycastDetector : MonoBehaviour
     public Vector3 raycastDirection2 = Vector3.forward;
     public float raycastDistance2 = 5f;
 
+
     void Update()
     {
         bool detectedByRaycast1 = PerformRaycastAndDetectTag(raycastSource1, raycastDirection1, raycastDistance1);

@@ -6,23 +6,21 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
 {
     public Color highlightColor = Color.yellow;
     public float selectionDistance = 2f;
-    public float rotationSpeed = 5f; // Velocidad de rotación
+    public float rotationSpeed = 5f;
     private float targetRotation = 0f;
 
     private List<Transform> selectableObjects = new List<Transform>();
     private List<Color> originalColors = new List<Color>();
     private int selectedIndex = 0;
 
-    private bool isRotating = false; // Variable para rastrear si el objeto está en proceso de rotación
+    private bool isRotating = false;
 
     private void Start()
     {
-        // Obtén todos los hijos del objeto vacío
         foreach (Transform child in transform)
         {
             selectableObjects.Add(child);
 
-            // Almacena el color original de cada objeto
             Renderer renderer = child.GetComponent<Renderer>();
             if (renderer != null)
             {
@@ -30,11 +28,10 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
             }
             else
             {
-                originalColors.Add(Color.white); // Puedes ajustar esto según el color predeterminado que desees
+                originalColors.Add(Color.white);
             }
         }
 
-        // Selecciona el primer objeto por defecto
         if (selectableObjects.Count > 0)
         {
             SelectObject(selectedIndex);
@@ -43,17 +40,15 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
 
     private void Update()
     {
-        // Detecta las teclas A y D para cambiar la selección
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ChangeSelection(-1); // Moverse al objeto anterior
+            ChangeSelection(-1);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            ChangeSelection(1); // Moverse al siguiente objeto
+            ChangeSelection(1);
         }
 
-        // Detecta las teclas Q y E para rotar suavemente el objeto seleccionado en el eje Y
         if (!isRotating && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E)))
         {
             targetRotation = selectableObjects[selectedIndex].eulerAngles.y + (Input.GetKeyDown(KeyCode.Q) ? -90f : 90f);
@@ -63,19 +58,21 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
 
     private void ChangeSelection(int direction)
     {
-        // Deselecciona el objeto actual
+        // Si está rotando, no permitir cambiar la selección
+        if (isRotating)
+        {
+            return;
+        }
+
         DeselectObject(selectedIndex);
 
-        // Cambia el índice de selección
         selectedIndex = (selectedIndex + direction + selectableObjects.Count) % selectableObjects.Count;
 
-        // Selecciona el nuevo objeto
         SelectObject(selectedIndex);
     }
 
     private void SelectObject(int index)
     {
-        // Resalta el objeto seleccionado con el color de selección
         Renderer renderer = selectableObjects[index].GetComponent<Renderer>();
         if (renderer != null)
         {
@@ -85,7 +82,6 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
 
     private void DeselectObject(int index)
     {
-        // Restaura el color original del objeto deseleccionado
         Renderer renderer = selectableObjects[index].GetComponent<Renderer>();
         if (renderer != null)
         {
@@ -109,7 +105,6 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
             yield return null;
         }
 
-        // Aseguramos que la rotación sea exacta después de completar la rutina
         selectableObjects[selectedIndex].rotation = Quaternion.Euler(0f, targetRotation, 0f);
 
         isRotating = false;
