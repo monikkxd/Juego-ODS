@@ -1,49 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class RaycastDetector : MonoBehaviour
 {
-    public float raycastDistance = 10f;
+    // Variables públicas para almacenar los objetos y configurar los raycasts
+    public GameObject raycastSource1;
+    public GameObject raycastSource2;
 
-    public string mensageDetección;
+    // Configuración para el raycast desde el objeto 1
+    public Vector3 raycastDirection1 = Vector3.forward;
+    public float raycastDistance1 = 5f;
 
-    // Tag del objeto que queremos detectar
-    public string targetTag = "Victory_Cube";
-
-    // Dirección del raycast configurable desde el Inspector
-    public Vector3 raycastDirection = -Vector3.right;
+    // Configuración para el raycast desde el objeto 2
+    public Vector3 raycastDirection2 = Vector3.forward;
+    public float raycastDistance2 = 5f;
 
     void Update()
     {
-        // Origen del raycast
-        Vector3 raycastOrigin = transform.position;
+        bool detectedByRaycast1 = PerformRaycastAndDetectTag(raycastSource1, raycastDirection1, raycastDistance1);
+        bool detectedByRaycast2 = PerformRaycastAndDetectTag(raycastSource2, raycastDirection2, raycastDistance2);
 
-        // Lanzar el raycast
-        RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
+        // Verificar si ambos objetos detectan el tag en el mismo frame
+        if (detectedByRaycast1 && detectedByRaycast2)
         {
-            // Verificar si el objeto impactado tiene el tag deseado
-            if (hit.collider.CompareTag(targetTag))
-            {
-                Debug.Log(mensageDetección);
-            }
+            Debug.Log("¡Victoria!");
         }
     }
 
-    // Dibujar el raycast en la escena con Gizmos
-    private void OnDrawGizmos()
+    bool PerformRaycastAndDetectTag(GameObject raycastSource, Vector3 raycastDirection, float raycastDistance)
     {
-        // Color del raycast en la escena
-        Gizmos.color = Color.red;
+        bool detected = false;
 
-        // Origen del raycast
-        Vector3 raycastOrigin = transform.position;
+        if (raycastSource != null)
+        {
+            // Obtener la posición del objeto fuente del raycast
+            Vector3 raycastOrigin = raycastSource.transform.position;
 
-        // Dibujar el raycast
-        Gizmos.DrawRay(raycastOrigin, raycastDirection * raycastDistance);
+            // Realizar el Raycast
+            RaycastHit hit;
+            if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
+            {
+                // Verificar si el objeto impactado tiene el tag deseado
+                if (hit.collider.CompareTag("Victory_Cube"))
+                {
+                    Debug.Log($"{raycastSource.name} detectó un objeto con el tag 'Victory_Cube'");
+                    detected = true;
+                }
+            }
+
+            // Visualizar el Raycast en la escena a través de Gizmos
+            Debug.DrawRay(raycastOrigin, raycastDirection * raycastDistance, Color.green);
+        }
+
+        return detected;
     }
-
-    
 }
