@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaycastDetector : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class RaycastDetector : MonoBehaviour
         if (detectedByRaycast1 && detectedByRaycast2)
         {
             Debug.Log("¡Victoria!");
+            Invoke("CambioEscena", 2f);
         }
     }
 
@@ -53,5 +55,10 @@ public class RaycastDetector : MonoBehaviour
         }
 
         return detected;
+    }
+
+    void CambioEscena()
+    {
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
 }

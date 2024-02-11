@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RayCast_Tuercas : MonoBehaviour
 {
@@ -52,6 +54,7 @@ public class RayCast_Tuercas : MonoBehaviour
                 {
                     Debug.Log("¡Victoria!");
                     PintarObjeto(colorAUsar);
+                    Invoke("CambioEscena", 2f);                    
                 }
             }
 
@@ -81,5 +84,11 @@ public class RayCast_Tuercas : MonoBehaviour
             // Mostrar un mensaje de error si el objeto no tiene un componente Renderer
             Debug.LogError("El objeto no tiene un componente Renderer.");
         }
+
+    }
+
+    void CambioEscena()
+    {
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
 }
