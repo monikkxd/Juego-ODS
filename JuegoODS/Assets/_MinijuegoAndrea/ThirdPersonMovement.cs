@@ -10,6 +10,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+    //public float jumpForce = 8f; // Nueva variable para controlar la fuerza del salto
+
+    //private bool isGrounded; // Variable para verificar si el personaje está en el suelo
 
     private void Update()
     {
@@ -26,5 +29,16 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        /*
+        // Verificar si el personaje está en el suelo
+        isGrounded = controller.isGrounded;
+
+        if (isGrounded && Input.GetButtonDown("Jump")) // Si está en el suelo y se presiona el botón de salto
+        {
+            // Aplicar una fuerza hacia arriba para simular el salto
+            controller.Move(Vector3.up * jumpForce * Time.deltaTime);
+        }
+        */
     }
 }
