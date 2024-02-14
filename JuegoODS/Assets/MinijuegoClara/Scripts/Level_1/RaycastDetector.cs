@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class RaycastDetector : MonoBehaviour
 {
-    // Variables públicas para almacenar los objetos y configurar los raycasts
+    [Header("Fuente Raycast")]
     public GameObject raycastSource1;
     public GameObject raycastSource2;
 
-    // Configuración para el raycast desde el objeto 1
+    [Header("Configuración Raycast 1")]
     public Vector3 raycastDirection1 = Vector3.forward;
     public float raycastDistance1 = 5f;
 
-    // Configuración para el raycast desde el objeto 2
+    [Header("Configuración Raycast 2")]
     public Vector3 raycastDirection2 = Vector3.forward;
     public float raycastDistance2 = 5f;
 
