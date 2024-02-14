@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
     public List<Cliente> clientes;
     public List<Cocinero> cocineros;
     public Jugador jugador;
-    public Transform barraDePlatos;  
+    public Transform barraDePlatos;
     public float tiempoEntreApariciones = 4f;
     public float tiempoEntreAparicionesClientes = 4f;
-    public Transform puntoDeInstanciaCocineros;  
-    public Transform puntoDeInstanciaClientes;  
+    public Transform puntoDeInstanciaCocineros;
+    public Transform puntoDeInstanciaClientes;
 
     void Start()
     {
@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (Cocinero cocinero in cocineros)
         {
-            cocinero.MoverCocinero(puntoDeInstanciaCocineros.position);  
+            Transform puntoEnLaBarra = ObtenerPuntoAleatorioEnLaBarra();
+            cocinero.MoverCocinero(puntoDeInstanciaCocineros.position, puntoEnLaBarra);
         }
     }
 
@@ -32,18 +33,35 @@ public class GameManager : MonoBehaviour
     {
         foreach (Cliente cliente in clientes)
         {
-            
             Mesa mesaAsignada = mesas[Random.Range(0, mesas.Count)];
-            
-            cliente.MoverCliente(puntoDeInstanciaClientes.position, mesaAsignada);
+            InstanciarCliente(puntoDeInstanciaClientes.position, mesaAsignada.transform);
         }
     }
-    void Update()
+
+    // Método para instanciar el cliente
+    void InstanciarCliente(Vector3 posicionDeInstancia, Transform posicionMesa)
     {
-        
+        GameObject nuevoCliente = Instantiate(clientes[0].gameObject, posicionDeInstancia, Quaternion.identity);
+        Cliente clienteScript = nuevoCliente.GetComponent<Cliente>();
+        clienteScript.IniciarMovimiento(posicionDeInstancia, posicionMesa);
     }
 
-    
+    Transform ObtenerPuntoAleatorioEnLaBarra()
+    {
+        if (barraDePlatos.childCount > 0)
+        {
+            int indiceAleatorio = Random.Range(0, barraDePlatos.childCount);
+            return barraDePlatos.GetChild(indiceAleatorio);
+        }
+        else
+        {
+            Debug.LogError("No hay puntos en la barra de platos.");
+            return null;
+        }
+    }
 
-
+    void Update()
+    {
+        // Lógica del juego (verificar pedidos, entregar platos, etc.)
+    }
 }

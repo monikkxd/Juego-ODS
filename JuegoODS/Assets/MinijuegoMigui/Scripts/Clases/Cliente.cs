@@ -1,30 +1,34 @@
 using UnityEngine;
-using System;
-using System.Collections;
 
 public class Cliente : MonoBehaviour
 {
     public float velocidadMovimiento = 3f;
     public Mesa mesaAsignada;
 
-    public void MoverCliente(Vector3 posicionDeInstancia, Mesa mesaAsignada)
+    // Método para iniciar el movimiento del cliente
+    public void IniciarMovimiento(Vector3 posicionDeInstancia, Transform posicionMesa)
     {
-        this.mesaAsignada = mesaAsignada;
-        
-        GameObject nuevoCliente = Instantiate(gameObject, posicionDeInstancia, Quaternion.identity);
-       
-        StartCoroutine(MoverHaciaLaMesa(nuevoCliente.transform, mesaAsignada.transform.position));
+        // Asigna la mesa al cliente
+        mesaAsignada = posicionMesa.GetComponent<Mesa>();
+
+        // Llama al método para mover el cliente hacia la mesa
+        MoverHaciaLaMesa(posicionDeInstancia, posicionMesa.position);
     }
 
-    IEnumerator MoverHaciaLaMesa(Transform clienteTransform, Vector3 posicionMesa)
+    // Método para mover el cliente hacia la mesa
+    void MoverHaciaLaMesa(Vector3 posicionDeInstancia, Vector3 posicionMesa)
     {
-        while (Vector3.Distance(clienteTransform.position, posicionMesa) > 0.1f)
+        transform.position = posicionDeInstancia;
+
+        while (Vector3.Distance(transform.position, posicionMesa) > 0.1f)
         {
-            clienteTransform.position = Vector3.MoveTowards(clienteTransform.position, posicionMesa, velocidadMovimiento * Time.deltaTime);
-            yield return null;
+            transform.position = Vector3.MoveTowards(transform.position, posicionMesa, velocidadMovimiento * Time.deltaTime);
         }
-        
-    }
 
-   
+        // Puedes realizar acciones adicionales aquí, como asignar al cliente a la mesa, etc.
+        // mesaAsignada.AsignarCliente(this);
+
+        // Destruye el objeto cliente una vez que llega a la mesa
+        Destroy(gameObject);
+    }
 }
