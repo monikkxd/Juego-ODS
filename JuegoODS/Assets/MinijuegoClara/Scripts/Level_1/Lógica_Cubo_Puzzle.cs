@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class Lógica_Cubo_Puzzle : MonoBehaviour
 {
+    [Header("Almacen Cubos")]
     public GameObject rubikCube;
+
+    [Header("Cubos Victoria")]
     public GameObject cubeOfVictory1;
     public GameObject cubeOfVictory2;
 
+    [Header("Color Victoria")]
     public Color victoryColor = Color.green;
+
+    [Header("Velocidad Rotación")]
     public float rotationSpeed = 5f;
 
     private bool isRotating = false;
