@@ -6,17 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class RayCast_Tuercas : MonoBehaviour
 {
+    [Header("Objetos Raycast")]
     public GameObject childObject1;
     public GameObject childObject2;
     public GameObject childObject3;
 
     private int lockCountForObject1 = 0;
 
+    [Header("Objetos Check Victoria")]
     public GameObject cerradura_1;
     public GameObject cerradura_2;
     public GameObject cerradura_3;
     public GameObject cerradura_Final;
-    
+
+    [Header("Color Victoria")]
     public Color colorAUsar = Color.red;
 
     void Update()

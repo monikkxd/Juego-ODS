@@ -154,10 +154,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 144453687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da050353a53d694bab1ddc3041a152b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cc4513ed182b0040a952db25e57bcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  gravity: -9.81
+  jumpHeight: 2
 --- !u!143 &144453689
 CharacterController:
   m_ObjectHideFlags: 0
