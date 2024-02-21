@@ -1,3 +1,4 @@
+// GameManager
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,10 @@ public class GameManager : MonoBehaviour
     public List<Cocinero> cocineros;
     public Jugador jugador;
     public Transform barraDePlatos;
+
     public float tiempoEntreApariciones = 4f;
     public float tiempoEntreAparicionesClientes = 4f;
+
     public Transform puntoDeInstanciaCocineros;
     public Transform puntoDeInstanciaClientes;
 
@@ -24,40 +27,30 @@ public class GameManager : MonoBehaviour
     {
         foreach (Cocinero cocinero in cocineros)
         {
-            Transform puntoEnLaBarra = ObtenerPuntoAleatorioEnLaBarra();
-            cocinero.MoverCocinero(puntoDeInstanciaCocineros.position, puntoEnLaBarra);
+            cocinero.MoverCocinero(puntoDeInstanciaCocineros.position);
         }
     }
 
     void AparecerCliente()
     {
-        foreach (Cliente cliente in clientes)
+        Debug.Log("Apareciendo Cliente");
+
+        if (clientes.Count > 0 && clientes[0] != null)
         {
             Mesa mesaAsignada = mesas[Random.Range(0, mesas.Count)];
             InstanciarCliente(puntoDeInstanciaClientes.position, mesaAsignada.transform);
         }
+        else
+        {
+            Debug.LogError("Prefab de cliente no asignado en la lista de clientes del GameManager.");
+        }
     }
 
-    // Método para instanciar el cliente
     void InstanciarCliente(Vector3 posicionDeInstancia, Transform posicionMesa)
     {
         GameObject nuevoCliente = Instantiate(clientes[0].gameObject, posicionDeInstancia, Quaternion.identity);
         Cliente clienteScript = nuevoCliente.GetComponent<Cliente>();
         clienteScript.IniciarMovimiento(posicionDeInstancia, posicionMesa);
-    }
-
-    Transform ObtenerPuntoAleatorioEnLaBarra()
-    {
-        if (barraDePlatos.childCount > 0)
-        {
-            int indiceAleatorio = Random.Range(0, barraDePlatos.childCount);
-            return barraDePlatos.GetChild(indiceAleatorio);
-        }
-        else
-        {
-            Debug.LogError("No hay puntos en la barra de platos.");
-            return null;
-        }
     }
 
     void Update()
