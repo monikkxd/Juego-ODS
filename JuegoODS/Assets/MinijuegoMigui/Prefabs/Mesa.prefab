@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6979703568158846512}
   - component: {fileID: 5216808542467568013}
-  m_Layer: 0
+  - component: {fileID: 4175358193228636982}
+  m_Layer: 6
   m_Name: Mesa
-  m_TagString: Untagged
+  m_TagString: Mesa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ocupada: 0
+--- !u!136 &4175358193228636982
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94596261977748926}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0179168
+  m_Height: 2.124866
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.13147902, z: 0.00382936}
 --- !u!1 &1129744880622012228
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +82,7 @@ GameObject:
   - component: {fileID: 8326861725312892173}
   - component: {fileID: 7052543949950061704}
   - component: {fileID: 5130904444271072726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +189,7 @@ GameObject:
   - component: {fileID: 8968366523440559170}
   - component: {fileID: 7870786804375477812}
   - component: {fileID: 8490772317127327091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

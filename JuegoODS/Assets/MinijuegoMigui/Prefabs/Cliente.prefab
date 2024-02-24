@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4092041299034743971}
   - component: {fileID: 2182391246957084959}
   - component: {fileID: 5565395078272704750}
-  - component: {fileID: 1653017417504988461}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -85,29 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1653017417504988461
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495824138127934411}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5386651086731153317
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3709539846987586921}
   - component: {fileID: -1387888113318251864}
+  - component: {fileID: 2927574877577684380}
   m_Layer: 0
   m_Name: Cliente
   m_TagString: Cliente
@@ -184,6 +161,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e564bcf1be5cf7449af6a8da5aa2da51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 3
-  mesaAsignada: {fileID: 5216808542467568013, guid: 8264bc7b73a978943896d9c6c53549a9,
-    type: 3}
+--- !u!136 &2927574877577684380
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023647438544722526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

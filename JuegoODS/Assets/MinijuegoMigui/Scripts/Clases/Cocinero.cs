@@ -1,49 +1,104 @@
-// Cocinero
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cocinero : MonoBehaviour
 {
-    public List<GameObject> platosDisponibles;
-    public float velocidadMovimiento = 5f;
+    public GameObject platoPrefab;    // Prefab del plato a instanciar
+    public Transform holder;          // Transform del "holder" del camarero
+    public string barraTag = "Barra"; // Tag del objeto de la barra
+    public LayerMask barraLayer;      // LayerMask para detectar la barra
 
-    private void Start()
-    {
-        Debug.Log("Active? " + gameObject.activeInHierarchy);
-    }
+    bool llevandoPlato = true;        // Cambiado a true para que el camarero lleve el plato desde el inicio
+    GameObject platoActual;           // Referencia al plato instanciado
+    Transform barra;                  // Referencia a la barra
 
-    public void MoverCocinero(Vector3 puntoEnLaBarra)
+    void Start()
     {
-        if (platosDisponibles.Count > 0)
+        barra = GameObject.FindWithTag(barraTag)?.transform; // Busca el objeto de la barra por tag
+
+        if (barra == null)
         {
-            GameObject platoAleatorio = platosDisponibles[Random.Range(0, platosDisponibles.Count)];
+            Debug.LogError("No se pudo encontrar la barra. Asegúrate de que tenga el tag correcto.");
+        }
 
-            // Instancia solo el cocinero (el objeto padre)
-            GameObject nuevoCocinero = Instantiate(gameObject, puntoEnLaBarra, Quaternion.identity);
-
-            // Mueve el cocinero hacia la barra
-            StartCoroutine(MoverHaciaLaBarra(nuevoCocinero.transform, puntoEnLaBarra));
+        if (llevandoPlato)
+        {
+            LlevarPlatoInicial();
         }
     }
 
-    IEnumerator MoverHaciaLaBarra(Transform cocineroTransform, Vector3 puntoEnLaBarra)
+    void Update()
     {
-        while (Vector3.Distance(cocineroTransform.position, puntoEnLaBarra) > 0.1f)
+        // Si el camarero está llevando un plato y colisiona con la barra, lo deja
+        if (llevandoPlato && DetectarColisionConBarra())
         {
-            cocineroTransform.position = Vector3.MoveTowards(cocineroTransform.position, puntoEnLaBarra, velocidadMovimiento * Time.deltaTime);
-            yield return null;
+            DejarPlatoEnBarra();
         }
-
-        // Deja el plato en la barra
-        DejarPlatoEnBarra(cocineroTransform);
-
-        Destroy(cocineroTransform.gameObject);
     }
 
-    void DejarPlatoEnBarra(Transform cocineroTransform)
+    void LlevarPlatoInicial()
     {
-        cocineroTransform.GetChild(0).position = cocineroTransform.position;
-        cocineroTransform.GetChild(0).parent = null;
+        // Instancia el plato en la posición del "holder"
+        platoActual = Instantiate(platoPrefab, holder.position, Quaternion.identity);
+        platoActual.transform.SetParent(holder);  // Hace que el plato sea hijo del "holder"
+    }
+
+    bool DetectarColisionConBarra()
+    {
+        // Si la referencia a la barra no es nula
+        if (barra != null)
+        {
+            // Obtén todos los colliders en el objeto del camarero que colisionan con la capa de la barra
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, barraLayer);
+
+            // Si hay al menos un collider en la capa de la barra, devuelve true
+            return colliders.Length > 0;
+        }
+
+        return false;
+    }
+
+    void DejarPlatoEnBarra()
+    {
+        llevandoPlato = false;
+
+        // Encuentra la posición más cercana entre los hijos de la barra
+        Vector3 posicionMasCercana = EncontrarPosicionMasCercanaEnBarra();
+
+        // Cambia la jerarquía y posición del plato para que sea hijo de la barra
+        platoActual.transform.SetParent(null);  // Desvincula el plato del "holder"
+        platoActual.transform.position = posicionMasCercana;  // Coloca el plato en la posición más cercana de la barra
+    }
+
+    Vector3 EncontrarPosicionMasCercanaEnBarra()
+    {
+        Transform posicionMasCercana = null;
+        float distanciaMinima = float.MaxValue;
+
+        // Itera a través de las posiciones de la barra para encontrar la más cercana al camarero
+        for (int i = 0; i < barra.childCount; i++)
+        {
+            Transform posicionActual = barra.GetChild(i);
+            Vector3 direccion = posicionActual.position - transform.position;
+            float distanciaActual = direccion.magnitude;
+
+            // Si la posición actual es más cercana, actualiza la posición más cercana
+            if (distanciaActual < distanciaMinima)
+            {
+                posicionMasCercana = posicionActual;
+                distanciaMinima = distanciaActual;
+            }
+        }
+
+        // Si se encontró una posición cercana, devuelve su posición
+        if (posicionMasCercana != null)
+        {
+            return posicionMasCercana.position;
+        }
+
+        // Si no hay hijos, coloca el plato en la posición de la barra.
+        return barra.position;
     }
 }

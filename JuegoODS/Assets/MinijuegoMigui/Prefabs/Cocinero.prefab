@@ -117,7 +117,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8306775430688550373}
-  - component: {fileID: 6531130907032194653}
+  - component: {fileID: 2670575676065309596}
+  - component: {fileID: 7316910272501703521}
   m_Layer: 0
   m_Name: Cocinero
   m_TagString: Untagged
@@ -135,14 +136,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297847686595931208}
   - {fileID: 3577815902365345099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6531130907032194653
+--- !u!114 &2670575676065309596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,12 +155,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341c75578bf098942b19db8e474a154b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platosDisponibles:
-  - {fileID: 8329717272216815514, guid: 89dfcc4f3e233be45986ebc97dbf50b1, type: 3}
-  - {fileID: 8656394956252878577, guid: 3690d3f2d747df448aab66197490cee9, type: 3}
-  - {fileID: 2333964955780960653, guid: 11d4de3d28a3fc44a93bdb0fb1939baf, type: 3}
-  barraDePlatos: {fileID: 3577815902365345099}
-  velocidadMovimiento: 5
+  platoPrefab: {fileID: 8329717272216815514, guid: 89dfcc4f3e233be45986ebc97dbf50b1,
+    type: 3}
+  holder: {fileID: 1913294953869684832}
+  barraTag: Barra
+  barraLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!136 &7316910272501703521
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374821927363694744}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4226692012990101155
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 4226692012990101155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.466, y: 0, z: 0}
+  m_LocalPosition: {x: 0.466, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
