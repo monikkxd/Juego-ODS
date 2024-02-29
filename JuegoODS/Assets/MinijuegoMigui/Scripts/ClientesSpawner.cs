@@ -52,11 +52,26 @@ public class ClienteSpawner : MonoBehaviour
         // El cliente ha llegado a la mesa
         Debug.Log("Cliente ha llegado a la mesa en " + mesa.name);
 
+        // Selecciona una silla aleatoria de las sillas hijas de la mesa
+        Transform sillaAleatoria = mesa.GetChild(Random.Range(0, mesa.childCount));
+
+        // Teletransporta al cliente a la posición de la silla aleatoria
+        TeletransportarCliente(cliente, sillaAleatoria);
+
+        // El cliente se ha teletransportado a la silla
+        Debug.Log("Cliente se ha teletransportado a una silla en " + sillaAleatoria.name);
+
         // Espera 9 segundos antes de destruir el cliente y volver al punto de spawn
         yield return new WaitForSeconds(9f);
 
         // Destruye al cliente
         Destroy(cliente);
+    }
+
+    void TeletransportarCliente(GameObject cliente, Transform silla)
+    {
+        // Establece la posición del cliente directamente en la posición de la silla
+        cliente.transform.position = silla.position;
     }
 
     bool DetectarColisionConMesa(GameObject cliente, Transform mesa)
@@ -67,9 +82,7 @@ public class ClienteSpawner : MonoBehaviour
         RaycastHit hit;
 
         // Comprueba si el rayo colisiona con el collider de la mesa
-        // Comprueba si el rayo colisiona con el collider de la mesa
         if (Physics.Raycast(ray, out hit, distanciaMaximaColision, mesaLayer))
-
         {
             // Verifica que el objeto golpeado sea la mesa
             if (hit.collider.CompareTag("Mesa"))

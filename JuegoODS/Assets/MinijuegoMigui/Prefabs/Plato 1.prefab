@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7533577159486985809}
   - component: {fileID: 9020918799958824135}
   - component: {fileID: 474375075737475651}
-  - component: {fileID: 5730600731222264923}
   m_Layer: 0
   m_Name: Hamburguer (1)
   m_TagString: Untagged
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5730600731222264923
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436443935514249387}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1656299610023159551
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +94,6 @@ GameObject:
   - component: {fileID: 1380525082816424057}
   - component: {fileID: 7538886979024206257}
   - component: {fileID: 1517867810692593536}
-  - component: {fileID: 5535474595485781834}
   m_Layer: 0
   m_Name: Hamburguer (6)
   m_TagString: Untagged
@@ -191,29 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5535474595485781834
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656299610023159551}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1820197077423057927
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +177,6 @@ GameObject:
   - component: {fileID: 8138729150645087791}
   - component: {fileID: 2811106774528306948}
   - component: {fileID: 6195423544046316581}
-  - component: {fileID: 5201977372209658070}
   m_Layer: 0
   m_Name: Hamburguer (4)
   m_TagString: Untagged
@@ -298,29 +249,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5201977372209658070
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820197077423057927}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5899960131942788974
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +260,6 @@ GameObject:
   - component: {fileID: 3138809121291447877}
   - component: {fileID: 5985631015632699233}
   - component: {fileID: 6544936581593981757}
-  - component: {fileID: 3262887410167925744}
   m_Layer: 0
   m_Name: Hamburguer (3)
   m_TagString: Untagged
@@ -405,29 +332,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3262887410167925744
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5899960131942788974}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5948913316922987112
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +343,6 @@ GameObject:
   - component: {fileID: 1525148516830165068}
   - component: {fileID: 8287481404360428087}
   - component: {fileID: 7147491209026734864}
-  - component: {fileID: 6795678610780614397}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -519,29 +422,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6795678610780614397
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948913316922987112}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6472190229195817059
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +433,6 @@ GameObject:
   - component: {fileID: 2926847713884780080}
   - component: {fileID: 5654066639296085395}
   - component: {fileID: 4136015514934427800}
-  - component: {fileID: 8436910525592509432}
   m_Layer: 0
   m_Name: Hamburguer (5)
   m_TagString: Untagged
@@ -626,29 +505,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8436910525592509432
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472190229195817059}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7454398683144704878
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +516,6 @@ GameObject:
   - component: {fileID: 6115551919454120433}
   - component: {fileID: 5281399626485634846}
   - component: {fileID: 5693239291922567176}
-  - component: {fileID: 4893436304064750432}
   m_Layer: 0
   m_Name: Hamburguer
   m_TagString: Untagged
@@ -733,29 +588,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4893436304064750432
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7454398683144704878}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7650890810000769059
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +599,6 @@ GameObject:
   - component: {fileID: 2840726966919110786}
   - component: {fileID: 2801019698790453491}
   - component: {fileID: 2179369423074921860}
-  - component: {fileID: 6340548896658470116}
   m_Layer: 0
   m_Name: Hamburguer (2)
   m_TagString: Untagged
@@ -840,29 +671,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6340548896658470116
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650890810000769059}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8329717272216815514
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,9 +681,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7868099232582693591}
   - component: {fileID: 2085979493915078879}
+  - component: {fileID: -4932992666550077019}
   m_Layer: 0
   m_Name: Plato 1
-  m_TagString: Untagged
+  m_TagString: Plato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,4 +717,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c97188a3f8542a44a05c7203b397fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 
+--- !u!65 &-4932992666550077019
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329717272216815514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4347558, y: 0.104540996, z: 0.4401164}
+  m_Center: {x: -0.0025884286, y: 0.02152254, z: 0.003888607}
