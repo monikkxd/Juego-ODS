@@ -15,13 +15,13 @@ public class WaterHose : MonoBehaviour
     void Update()
     {
         // Lanzar agua al presionar y mantener la tecla de espacio
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             isLaunching = true;
             LaunchWater();
         }
         // Dejar de lanzar agua al soltar la tecla de espacio
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             isLaunching = false;
         }
@@ -59,6 +59,18 @@ public class WaterHose : MonoBehaviour
         else
         {
             Debug.LogWarning("Falta asignar el prefab del agua o el punto de lanzamiento.");
+        }
+    }
+
+    // Cuando el agua colisiona con otro objeto
+    void OnCollisionEnter(Collision collision)
+    {
+        // Verificar si el objeto colisionado tiene que desaparecer
+        if (collision.gameObject.CompareTag("Fire"))
+        {
+            // Destruir el objeto que colisionó con el agua
+            Destroy(collision.gameObject);
+            Debug.Log("Objeto destruido: " + collision.gameObject.name);
         }
     }
 }
