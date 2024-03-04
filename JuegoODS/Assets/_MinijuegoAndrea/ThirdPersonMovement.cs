@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    /*
     public CharacterController controller;
     public Transform cam;
 
@@ -41,7 +42,7 @@ public class ThirdPersonMovement : MonoBehaviour
         verticalVelocity += gravity * Time.deltaTime;
         Vector3 gravityVector = new Vector3(0, verticalVelocity, 0) * Time.deltaTime;
         controller.Move(gravityVector);
-    }
+    }*/
 }
 
 
