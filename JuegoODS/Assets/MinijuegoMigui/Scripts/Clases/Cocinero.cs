@@ -1,18 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cocinero : MonoBehaviour
 {
-    public GameObject platoPrefab;    // Prefab del plato a instanciar
-    public Transform holder;          // Transform del "holder" del camarero
-    public string barraTag = "Barra"; // Tag del objeto de la barra
-    public LayerMask barraLayer;      // LayerMask para detectar la barra
+    public List<GameObject> platosDisponibles;
+    public Transform holder;
+    public string barraTag = "Barra";
+    public LayerMask barraLayer;
 
-    bool llevandoPlato = true;        // Cambiado a true para que el camarero lleve el plato desde el inicio
-    GameObject platoActual;           // Referencia al plato instanciado
-    Transform barra;                  // Referencia a la barra
+    bool llevandoPlato = true;
+    GameObject platoActual;
+    Transform barra;
 
     void Start()
     {
@@ -40,8 +39,11 @@ public class Cocinero : MonoBehaviour
 
     void LlevarPlatoInicial()
     {
+        // Selecciona aleatoriamente un prefab de plato de la lista
+        GameObject platoPrefabSeleccionado = platosDisponibles[Random.Range(0, platosDisponibles.Count)];
+
         // Instancia el plato en la posición del "holder"
-        platoActual = Instantiate(platoPrefab, holder.position, Quaternion.identity);
+        platoActual = Instantiate(platoPrefabSeleccionado, holder.position, Quaternion.identity);
         platoActual.transform.SetParent(holder);  // Hace que el plato sea hijo del "holder"
     }
 

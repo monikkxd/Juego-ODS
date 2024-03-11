@@ -155,7 +155,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.4899998, y: -1.03, z: 2.0500002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85617936, y: 1, z: 0.74074}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1551886651}
@@ -811,13 +811,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542929822}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 9.3, z: -0.4}
+  m_LocalRotation: {x: 0.40285987, y: -0, z: -0, w: 0.9152617}
+  m_LocalPosition: {x: 0, y: 5.07, z: -5.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.514, y: 0, z: 0}
 --- !u!114 &542929826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,6 +1017,10 @@ MonoBehaviour:
     m_Bits: 64
   spawnInterval: 8
   moveSpeed: 5
+  platosDisponibles:
+  - Plato 1
+  - Plato 2
+  - Plato 3
 --- !u!1 &595255848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1032,7 @@ GameObject:
   - component: {fileID: 595255849}
   - component: {fileID: 595255850}
   m_Layer: 0
-  m_Name: PlatoHolder (1)
+  m_Name: PlatoHolder_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,7 +1427,7 @@ GameObject:
   - component: {fileID: 1279420487}
   - component: {fileID: 1279420488}
   m_Layer: 0
-  m_Name: PlatoHolder (3)
+  m_Name: PlatoHolder_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,7 +1761,7 @@ GameObject:
   - component: {fileID: 1538315579}
   - component: {fileID: 1538315580}
   m_Layer: 0
-  m_Name: PlatoHolder (2)
+  m_Name: PlatoHolder_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2082,7 +2086,7 @@ GameObject:
   - component: {fileID: 2054109829}
   - component: {fileID: 2054109830}
   m_Layer: 0
-  m_Name: PlatoHolder
+  m_Name: PlatoHolder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2139,7 @@ GameObject:
   - component: {fileID: 2085172993}
   - component: {fileID: 2085172994}
   m_Layer: 0
-  m_Name: PlatoHolder (4)
+  m_Name: PlatoHolder_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

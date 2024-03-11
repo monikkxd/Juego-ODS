@@ -58,7 +58,7 @@ public class CogerPlatos : MonoBehaviour
     void DepositObject(GameObject table)
     {
         // Obtener la posición local deseada en la mesa
-        Vector3 depositPosition = new Vector3(0.0f, 0.25f, 0.0f); // Ajusta esto según tus necesidades
+        Vector3 depositPosition = new Vector3(0.0f, 0.3f, 0.0f); // Ajusta esto según tus necesidades
 
         // Establecer la posición y el padre del objeto que se está sosteniendo
         whatCanIPickUp.transform.SetParent(table.transform);

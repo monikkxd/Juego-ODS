@@ -10,6 +10,9 @@ public class ClienteSpawner : MonoBehaviour
     public float spawnInterval = 8f;   // Intervalo entre instancias de clientes
     public float moveSpeed = 5f;       // Velocidad de movimiento del cliente
 
+
+    private Transform ultimaMesaEnviada;
+    public List<string> platosDisponibles;
     void Start()
     {
         // Llama a la función SpawnCliente cada cierto intervalo
@@ -18,15 +21,20 @@ public class ClienteSpawner : MonoBehaviour
 
     void SpawnCliente()
     {
-        // Calcula una posición aleatoria de la lista de mesas
-        int randomIndex = Random.Range(0, mesas.Count);
-        Transform randomMesa = mesas[randomIndex];
+        // Calcula una posición aleatoria de la lista de mesas (asegurándote de que sea diferente a la última)
+        int randomIndex;
+        do
+        {
+            randomIndex = Random.Range(0, mesas.Count);
+        } while (mesas[randomIndex] == ultimaMesaEnviada);
+
+        ultimaMesaEnviada = mesas[randomIndex];
 
         // Instancia el prefab del cliente en la posición actual del Spawner
         GameObject clienteInstance = Instantiate(clientePrefab, transform.position, Quaternion.identity);
 
         // Mueve al cliente hacia la posición aleatoria de la mesa
-        StartCoroutine(MoveClienteToMesa(clienteInstance, randomMesa));
+        StartCoroutine(MoveClienteToMesa(clienteInstance, ultimaMesaEnviada));
     }
 
     IEnumerator MoveClienteToMesa(GameObject cliente, Transform mesa)
@@ -61,11 +69,7 @@ public class ClienteSpawner : MonoBehaviour
         // El cliente se ha teletransportado a la silla
         Debug.Log("Cliente se ha teletransportado a una silla en " + sillaAleatoria.name);
 
-        // Espera 9 segundos antes de destruir el cliente y volver al punto de spawn
-        yield return new WaitForSeconds(9f);
-
-        // Destruye al cliente
-        Destroy(cliente);
+        
     }
 
     void TeletransportarCliente(GameObject cliente, Transform silla)

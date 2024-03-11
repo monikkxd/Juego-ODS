@@ -11,20 +11,24 @@ public class CocinerosSpawner : MonoBehaviour
     void Start()
     {
         // Llama a la función SpawnObject al inicio del juego
-        //SpawnObject();
+        SpawnObject();
     }
 
     public void SpawnObject()
     {
-        // Calcula una posición aleatoria de la lista
-        int randomIndex = Random.Range(0, targetPositions.Count);
-        Transform randomTarget = targetPositions[randomIndex];
+        // Instancia 3 cocineros en posiciones diferentes
+        for (int i = 0; i < 3; i++)
+        {
+            // Calcula una posición aleatoria de la lista
+            int randomIndex = Random.Range(0, targetPositions.Count);
+            Transform randomTarget = targetPositions[randomIndex];
 
-        // Instancia el prefab en la posición actual del Spawner
-        GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+            // Instancia el prefab en la posición actual del Spawner
+            GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
 
-        // Mueve el objeto instanciado hacia la posición aleatoria
-        StartCoroutine(MoveObjectToTarget(spawnedObject, randomTarget));
+            // Mueve el objeto instanciado hacia la posición aleatoria
+            StartCoroutine(MoveObjectToTarget(spawnedObject, randomTarget));
+        }
     }
 
     IEnumerator MoveObjectToTarget(GameObject objToMove, Transform target)
@@ -41,8 +45,8 @@ public class CocinerosSpawner : MonoBehaviour
         // El objeto ha llegado al objeto objetivo
         Debug.Log("Objeto ha llegado al objeto objetivo en " + target.name);
 
-        // Espera 3 segundos antes de destruir el objeto y volver al punto de spawn
-        yield return new WaitForSeconds(3f);
+        // Espera 2 segundos antes de volver al punto de spawn
+        yield return new WaitForSeconds(2f);
 
         // Vuelve al punto de spawn
         StartCoroutine(MoveObjectToSpawn(objToMove));
@@ -64,8 +68,5 @@ public class CocinerosSpawner : MonoBehaviour
 
         // Destruye el objeto
         Destroy(objToMove);
-
-        // Llama a la función SpawnObject para instanciar otro camarero
-        //SpawnObject();
     }
 }
