@@ -28,7 +28,7 @@ public class MoverObjeto : MonoBehaviour
 
 
     private bool permitirMovimientoHorizontal_ = true;
-    private float tiempoEspera = 0.5f;
+    private float tiempoEspera = 0.3f;
     private float tiempoUltimoMovimiento = 0f;
 
     
@@ -48,11 +48,7 @@ public class MoverObjeto : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            
-            DescenderObjeto();
-            
-
-
+            DescenderObjeto(); 
         }
 
         if (Input.GetKeyDown(KeyCode.R))
