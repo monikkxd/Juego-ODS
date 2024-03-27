@@ -407,8 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad64c05c85bb534980b53cf1e4c44ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs: []
-  lanes: []
+  obstaclePrefabs:
+  - {fileID: 6981822397490576237, guid: 7808b1d38477b3e4bb4f97865215a1ee, type: 3}
+  lanes:
+  - {fileID: 896322795}
   spawnInterval: 1
   spawnOffset: 5
 --- !u!4 &896322795
