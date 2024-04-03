@@ -124,9 +124,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3709539846987586921}
-  - component: {fileID: -1387888113318251864}
   - component: {fileID: 2927574877577684380}
   - component: {fileID: 5874241650135587203}
+  - component: {fileID: -1387888113318251864}
   m_Layer: 0
   m_Name: Cliente
   m_TagString: Cliente
@@ -150,18 +150,6 @@ Transform:
   - {fileID: 4092041299034743971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1387888113318251864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6023647438544722526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e564bcf1be5cf7449af6a8da5aa2da51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &2927574877577684380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -212,3 +200,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-1387888113318251864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023647438544722526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e564bcf1be5cf7449af6a8da5aa2da51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedido: 

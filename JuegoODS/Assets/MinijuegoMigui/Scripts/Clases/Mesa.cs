@@ -15,22 +15,6 @@ public class Mesa : MonoBehaviour
             // Obtener el componente Cliente del objeto Cliente que ha llegado a la mesa
             clienteActual = other.GetComponent<Cliente>();
         }
-
-        if (other.CompareTag("Plato"))
-        {
-            Debug.Log("Plato detectado");
-
-            // Verificar si el cliente actual tiene un plato entregado
-            if (clienteActual != null)
-            {
-                // Notificar al cliente que se ha entregado un plato
-                clienteActual.PlatoEntregado();
-            }
-            else
-            {
-                Debug.Log("Cliente actual no encontrado al detectar el plato");
-            }
-        }
     }
 
     void OnTriggerExit(Collider other)
@@ -42,6 +26,21 @@ public class Mesa : MonoBehaviour
 
             // Limpiar la referencia al cliente actual al salir
             clienteActual = null;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (clienteEnMesa && clienteActual != null)
+        {
+            Plato_Class plato = other.GetComponent<Plato_Class>();
+
+            // Verificar si el objeto en la mesa es un plato
+            if (plato != null)
+            {
+                // Notificar al cliente que se ha entregado un plato, pasando el componente del plato
+                clienteActual.PlatoEntregado(plato);
+            }
         }
     }
 }

@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    public List<Plato> platosRecogidos = new List<Plato>();
+    public List<Plato_1> platosRecogidos = new List<Plato_1>();
     
-
     void Update()
     {
         
