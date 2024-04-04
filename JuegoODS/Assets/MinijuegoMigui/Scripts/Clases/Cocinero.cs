@@ -12,6 +12,14 @@ public class Cocinero : MonoBehaviour
     bool llevandoPlato = true;
     GameObject platoActual;
     Transform barra;
+    Transform targetPosition;
+    Transform plateDropPosition;
+
+    public void SetTargetPositions(Transform target, Transform plateDrop)
+    {
+        targetPosition = target;
+        plateDropPosition = plateDrop;
+    }
 
     void Start()
     {
@@ -66,41 +74,8 @@ public class Cocinero : MonoBehaviour
     {
         llevandoPlato = false;
 
-        // Encuentra la posición más cercana entre los hijos de la barra
-        Vector3 posicionMasCercana = EncontrarPosicionMasCercanaEnBarra();
-
         // Cambia la jerarquía y posición del plato para que sea hijo de la barra
         platoActual.transform.SetParent(null);  // Desvincula el plato del "holder"
-        platoActual.transform.position = posicionMasCercana;  // Coloca el plato en la posición más cercana de la barra
-    }
-
-    Vector3 EncontrarPosicionMasCercanaEnBarra()
-    {
-        Transform posicionMasCercana = null;
-        float distanciaMinima = float.MaxValue;
-
-        // Itera a través de las posiciones de la barra para encontrar la más cercana al camarero
-        for (int i = 0; i < barra.childCount; i++)
-        {
-            Transform posicionActual = barra.GetChild(i);
-            Vector3 direccion = posicionActual.position - transform.position;
-            float distanciaActual = direccion.magnitude;
-
-            // Si la posición actual es más cercana, actualiza la posición más cercana
-            if (distanciaActual < distanciaMinima)
-            {
-                posicionMasCercana = posicionActual;
-                distanciaMinima = distanciaActual;
-            }
-        }
-
-        // Si se encontró una posición cercana, devuelve su posición
-        if (posicionMasCercana != null)
-        {
-            return posicionMasCercana.position;
-        }
-
-        // Si no hay hijos, coloca el plato en la posición de la barra.
-        return barra.position;
+        platoActual.transform.position = plateDropPosition.position;  // Coloca el plato en la posición más cercana de la barra
     }
 }

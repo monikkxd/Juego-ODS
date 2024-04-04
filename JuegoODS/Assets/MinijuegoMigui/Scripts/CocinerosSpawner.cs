@@ -6,7 +6,9 @@ public class CocinerosSpawner : MonoBehaviour
 {
     public GameObject prefabToSpawn; // El prefab que quieres instanciar
     public List<Transform> targetPositions; // Lista de posiciones a las que puede ir el camarero
+    public List<Transform> plateDropPositions; // Lista de posiciones donde los cocineros dejarán los platos
     public float moveSpeed = 5f;      // Velocidad de movimiento del objeto instanciado
+    public int numberOfCooks = 3;     // Número de cocineros a instanciar
 
     void Start()
     {
@@ -16,18 +18,23 @@ public class CocinerosSpawner : MonoBehaviour
 
     public void SpawnObject()
     {
-        // Instancia 3 cocineros en posiciones diferentes
-        for (int i = 0; i < 3; i++)
+        // Instancia cocineros en posiciones diferentes
+        for (int i = 0; i < Mathf.Min(numberOfCooks, targetPositions.Count); i++)
         {
-            // Calcula una posición aleatoria de la lista
-            int randomIndex = Random.Range(0, targetPositions.Count);
-            Transform randomTarget = targetPositions[randomIndex];
-
             // Instancia el prefab en la posición actual del Spawner
             GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
 
-            // Mueve el objeto instanciado hacia la posición aleatoria
-            StartCoroutine(MoveObjectToTarget(spawnedObject, randomTarget));
+            // Obtén la posición de destino en la barra para este cocinero
+            Transform plateDropPosition = plateDropPositions[i % plateDropPositions.Count];
+
+            // Obtén la posición de destino general para este cocinero
+            Transform targetPosition = targetPositions[i];
+
+            // Configura las posiciones de destino para el cocinero
+            spawnedObject.GetComponent<Cocinero>().SetTargetPositions(targetPosition, plateDropPosition);
+
+            // Mueve el objeto instanciado hacia la posición correspondiente
+            StartCoroutine(MoveObjectToTarget(spawnedObject, targetPosition));
         }
     }
 
