@@ -10,8 +10,6 @@ public class EffectObject : MonoBehaviour
     {
         
     }
-
-    
     void Update()
     {
         Destroy(gameObject, TiempoVida);
