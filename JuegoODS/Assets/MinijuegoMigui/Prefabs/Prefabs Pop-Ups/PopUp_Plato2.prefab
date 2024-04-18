@@ -346,10 +346,9 @@ GameObject:
   - component: {fileID: 8983156396131023535}
   - component: {fileID: 1459803036983049937}
   - component: {fileID: 6209300743698424256}
-  - component: {fileID: -1401878658473953741}
-  - component: {fileID: -4880922975329869301}
+  - component: {fileID: -7146146152846701555}
   m_Layer: 0
-  m_Name: Plato 2
+  m_Name: PopUp_Plato2
   m_TagString: Plato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,7 +418,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-1401878658473953741
+--- !u!114 &-7146146152846701555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,19 +427,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8656394956252878577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e7dd71f62b1764db6d7c6bb8c80b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombrePlato: Plato2
---- !u!114 &-4880922975329869301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8656394956252878577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9e8fc820973ee5499a5cc578d602e11, type: 3}
+  m_Script: {fileID: 11500000, guid: db0fe81ee2dd0a249882d22093794b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

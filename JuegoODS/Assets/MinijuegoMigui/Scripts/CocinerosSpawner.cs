@@ -9,11 +9,15 @@ public class CocinerosSpawner : MonoBehaviour
     public List<Transform> plateDropPositions; // Lista de posiciones donde los cocineros dejarán los platos
     public float moveSpeed = 5f;      // Velocidad de movimiento del objeto instanciado
     public int numberOfCooks = 3;     // Número de cocineros a instanciar
+    public float checkInterval = 10f; // Intervalo de tiempo para verificar las posiciones de plato
 
-    void Start()
+    private void Start()
     {
         // Llama a la función SpawnObject al inicio del juego
         SpawnObject();
+
+        // Inicia la rutina para verificar posiciones cada cierto intervalo
+        StartCoroutine(VerificarPosicionesDePlato());
     }
 
     public void SpawnObject()
@@ -75,5 +79,69 @@ public class CocinerosSpawner : MonoBehaviour
 
         // Destruye el objeto
         Destroy(objToMove);
+    }
+
+    IEnumerator VerificarPosicionesDePlato()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(checkInterval);
+
+            // Contar cuántos platos faltan en todas las posiciones de plato
+            int platesNeeded = 0;
+            foreach (Transform plateDropPos in plateDropPositions)
+            {
+                PlatoDetector detector = plateDropPos.GetComponentInChildren<PlatoDetector>();
+                if (detector != null && !detector.TienePlato())
+                {
+                    platesNeeded++;
+                }
+            }
+
+            // Instanciar cocineros adicionales para reponer los platos faltantes
+            for (int i = 0; i < platesNeeded; i++)
+            {
+                Transform newPlateDropPosition = GetNextAvailablePlateDropPosition();
+                Transform newTargetPosition = GetNextAvailableTargetPosition();
+
+                if (newPlateDropPosition != null && newTargetPosition != null)
+                {
+                    // Instancia un nuevo cocinero
+                    GameObject newCook = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+
+                    // Configura las posiciones de destino para el nuevo cocinero
+                    newCook.GetComponent<Cocinero>().SetTargetPositions(newTargetPosition, newPlateDropPosition);
+
+                    // Mueve el nuevo cocinero hacia la posición correspondiente
+                    StartCoroutine(MoveObjectToTarget(newCook, newTargetPosition));
+                }
+            }
+        }
+    }
+
+    private Transform GetNextAvailablePlateDropPosition()
+    {
+        foreach (Transform plateDropPos in plateDropPositions)
+        {
+            PlatoDetector detector = plateDropPos.GetComponentInChildren<PlatoDetector>();
+            if (detector != null && !detector.TienePlato())
+            {
+                return plateDropPos;
+            }
+        }
+        return null;
+    }
+
+    private Transform GetNextAvailableTargetPosition()
+    {
+        foreach (Transform targetPos in targetPositions)
+        {
+            // Verificar si el targetPosition está libre
+            if (!targetPos.GetComponentInChildren<Cocinero>())
+            {
+                return targetPos;
+            }
+        }
+        return null;
     }
 }

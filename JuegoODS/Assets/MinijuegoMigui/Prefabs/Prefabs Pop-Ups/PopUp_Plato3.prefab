@@ -94,10 +94,9 @@ GameObject:
   - component: {fileID: 7983920104262167536}
   - component: {fileID: 2818022221786438210}
   - component: {fileID: -7505904523474200697}
-  - component: {fileID: -5502749088222606916}
-  - component: {fileID: 3254627504056273707}
+  - component: {fileID: -8755184420008507458}
   m_Layer: 0
-  m_Name: Plato 3
+  m_Name: PopUp_Plato3
   m_TagString: Plato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +166,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-5502749088222606916
+--- !u!114 &-8755184420008507458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,20 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2333964955780960653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed188f697201684092d727b763c025c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombrePlato: Plato3
---- !u!114 &3254627504056273707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2333964955780960653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9e8fc820973ee5499a5cc578d602e11, type: 3}
+  m_Script: {fileID: 11500000, guid: db0fe81ee2dd0a249882d22093794b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3192466897638188830

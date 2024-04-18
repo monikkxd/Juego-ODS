@@ -29,7 +29,7 @@ public class Mesa : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
+    /*void OnTriggerStay(Collider other)
     {
         if (clienteEnMesa && clienteActual != null)
         {
@@ -42,5 +42,5 @@ public class Mesa : MonoBehaviour
                 clienteActual.PlatoEntregado(plato);
             }
         }
-    }
+    }*/
 }

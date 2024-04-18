@@ -10,34 +10,31 @@ public class ClienteSpawner : MonoBehaviour
     public float spawnInterval = 8f;   // Intervalo entre instancias de clientes
     public float moveSpeed = 5f;       // Velocidad de movimiento del cliente
 
-
-    private Transform ultimaMesaEnviada;
-    public List<string> platosDisponibles;
-    void Start()
+    private void Start()
     {
         // Llama a la función SpawnCliente cada cierto intervalo
         InvokeRepeating("SpawnCliente", 0f, spawnInterval);
     }
 
-    void SpawnCliente()
+    private void SpawnCliente()
     {
         // Calcula una posición aleatoria de la lista de mesas (asegurándote de que sea diferente a la última)
         int randomIndex;
         do
         {
             randomIndex = Random.Range(0, mesas.Count);
-        } while (mesas[randomIndex] == ultimaMesaEnviada);
+        } while (mesas[randomIndex] == null);
 
-        ultimaMesaEnviada = mesas[randomIndex];
+        Transform mesa = mesas[randomIndex];
 
         // Instancia el prefab del cliente en la posición actual del Spawner
         GameObject clienteInstance = Instantiate(clientePrefab, transform.position, Quaternion.identity);
 
-        // Mueve al cliente hacia la posición aleatoria de la mesa
-        StartCoroutine(MoveClienteToMesa(clienteInstance, ultimaMesaEnviada));
+        // Mueve al cliente hacia la posición de la mesa de manera asincrónica
+        StartCoroutine(MoverClienteAMesa(clienteInstance, mesa));
     }
 
-    IEnumerator MoveClienteToMesa(GameObject cliente, Transform mesa)
+    private IEnumerator MoverClienteAMesa(GameObject cliente, Transform mesa)
     {
         // Espera un frame antes de iniciar el movimiento
         yield return null;
@@ -60,25 +57,11 @@ public class ClienteSpawner : MonoBehaviour
         // El cliente ha llegado a la mesa
         Debug.Log("Cliente ha llegado a la mesa en " + mesa.name);
 
-        // Selecciona una silla aleatoria de las sillas hijas de la mesa
-        Transform sillaAleatoria = mesa.GetChild(Random.Range(0, mesa.childCount));
-
-        // Teletransporta al cliente a la posición de la silla aleatoria
-        TeletransportarCliente(cliente, sillaAleatoria);
-
-        // El cliente se ha teletransportado a la silla
-        Debug.Log("Cliente se ha teletransportado a una silla en " + sillaAleatoria.name);
-
-        
+        // Realiza el pedido al llegar a la mesa
+        cliente.GetComponent<Cliente>().RealizarPedido();
     }
 
-    void TeletransportarCliente(GameObject cliente, Transform silla)
-    {
-        // Establece la posición del cliente directamente en la posición de la silla
-        cliente.transform.position = silla.position;
-    }
-
-    bool DetectarColisionConMesa(GameObject cliente, Transform mesa)
+    private bool DetectarColisionConMesa(GameObject cliente, Transform mesa)
     {
         float distanciaMaximaColision = 0.4f;
         // Configura el rayo desde la posición actual del cliente hacia la mesa

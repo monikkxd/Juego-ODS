@@ -50,9 +50,8 @@ public class Cocinero : MonoBehaviour
         // Selecciona aleatoriamente un prefab de plato de la lista
         GameObject platoPrefabSeleccionado = platosDisponibles[Random.Range(0, platosDisponibles.Count)];
 
-        // Instancia el plato en la posición del "holder"
-        platoActual = Instantiate(platoPrefabSeleccionado, holder.position, Quaternion.identity);
-        platoActual.transform.SetParent(holder);  // Hace que el plato sea hijo del "holder"
+        // Instancia el plato en la posición del "holder" como hijo del cocinero (este objeto)
+        platoActual = Instantiate(platoPrefabSeleccionado, holder.position, Quaternion.identity, transform);
     }
 
     bool DetectarColisionConBarra()

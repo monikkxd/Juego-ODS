@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 166274077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4899998, y: -1.03, z: 2.0500002}
+  m_LocalPosition: {x: -2.4899998, y: -1.56, z: 2.0500002}
   m_LocalScale: {x: 0.85617936, y: 1, z: 0.74074}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -219,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 185078145}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21999997, y: -0.38, z: 1.4489999}
+  m_LocalPosition: {x: 0.21999997, y: 0, z: 1.4489999}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,6 +390,7 @@ MonoBehaviour:
   - {fileID: 2085172993}
   moveSpeed: 5
   numberOfCooks: 5
+  checkInterval: 10
 --- !u!1001 &319850025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -529,7 +530,7 @@ Transform:
   m_GameObject: {fileID: 346654133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48796368, y: -0.38, z: 1.4890001}
+  m_LocalPosition: {x: 0.48796368, y: 0, z: 1.4890001}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -995,7 +996,7 @@ Transform:
   m_GameObject: {fileID: 565360818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.419, y: 0.71, z: 4.576}
+  m_LocalPosition: {x: 0.419, y: 0.8, z: 4.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1024,10 +1025,6 @@ MonoBehaviour:
     m_Bits: 64
   spawnInterval: 8
   moveSpeed: 5
-  platosDisponibles:
-  - Plato 1
-  - Plato 2
-  - Plato 3
 --- !u!1 &595255848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 595255849}
   - component: {fileID: 595255850}
+  - component: {fileID: 595255851}
   m_Layer: 0
   m_Name: PlatoHolder_2
   m_TagString: Untagged
@@ -1054,7 +1052,7 @@ Transform:
   m_GameObject: {fileID: 595255848}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.666634, z: 0}
+  m_LocalPosition: {x: 0, y: 3.666634, z: 2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,12 +1073,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &595255851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595255848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712787508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1116,7 @@ Transform:
   m_GameObject: {fileID: 712787508}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.49, y: -1.03, z: 2.0500002}
+  m_LocalPosition: {x: 0.49, y: -1.57, z: 2.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1170,7 +1180,7 @@ Transform:
   m_GameObject: {fileID: 795427012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.28999996, y: -0.38, z: -1.7600002}
+  m_LocalPosition: {x: 0.28999996, y: 0, z: -1.7600002}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1202,7 +1212,7 @@ Transform:
   m_GameObject: {fileID: 803918581}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.892527, y: -0.34000003, z: 1.7255046}
+  m_LocalPosition: {x: -3.892527, y: -0.34000003, z: 1.28}
   m_LocalScale: {x: 0.17593163, y: 0.17593162, z: 0.17593163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1330,7 +1340,7 @@ Transform:
   m_GameObject: {fileID: 964026813}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5800004, y: -0.38, z: -0.22000015}
+  m_LocalPosition: {x: -1.5800004, y: 0, z: -0.22000015}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1362,7 +1372,7 @@ Transform:
   m_GameObject: {fileID: 1016107649}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5803986, y: -0.34000003, z: 1.7255046}
+  m_LocalPosition: {x: -2.5803986, y: -0.34000003, z: 1.28}
   m_LocalScale: {x: 0.17593163, y: 0.17593162, z: 0.17593163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1415,7 +1425,7 @@ Transform:
   m_GameObject: {fileID: 1016209426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5620365, y: -1.03, z: 2.01}
+  m_LocalPosition: {x: 3.5620365, y: -1.45, z: 2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1433,6 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1279420487}
   - component: {fileID: 1279420488}
+  - component: {fileID: 1279420489}
   m_Layer: 0
   m_Name: PlatoHolder_4
   m_TagString: Untagged
@@ -1449,7 +1460,7 @@ Transform:
   m_GameObject: {fileID: 1279420486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.666634, z: 0}
+  m_LocalPosition: {x: 0, y: 3.666634, z: 2.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1470,12 +1481,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1279420489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279420486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1307899903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1555,7 @@ Transform:
   m_GameObject: {fileID: 1307899903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52796364, y: -0.38, z: -1.72}
+  m_LocalPosition: {x: 0.52796364, y: 0, z: -1.72}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1564,7 +1587,7 @@ Transform:
   m_GameObject: {fileID: 1379976934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.577969, y: -0.34000003, z: 1.7255046}
+  m_LocalPosition: {x: 2.577969, y: -0.34000003, z: 1.28}
   m_LocalScale: {x: 0.17593163, y: 0.17593162, z: 0.17593163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1773,6 +1796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538315579}
   - component: {fileID: 1538315580}
+  - component: {fileID: 1538315581}
   m_Layer: 0
   m_Name: PlatoHolder_3
   m_TagString: Untagged
@@ -1789,7 +1813,7 @@ Transform:
   m_GameObject: {fileID: 1538315578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.666634, z: 0}
+  m_LocalPosition: {x: 0, y: 3.666634, z: 2.078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1810,12 +1834,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1538315581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538315578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551886647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +1908,7 @@ Transform:
   m_GameObject: {fileID: 1551886647}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13800025, y: -0.38, z: 1.88}
+  m_LocalPosition: {x: -0.13800025, y: 0, z: 1.88}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1934,7 +1970,7 @@ Transform:
   m_GameObject: {fileID: 1638482960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02000022, y: -0.38, z: -1.7600002}
+  m_LocalPosition: {x: -0.02000022, y: 0, z: -1.7600002}
   m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2002,7 +2038,7 @@ Transform:
   m_GameObject: {fileID: 1748177923}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63724667, y: -0.34, z: 1.7255046}
+  m_LocalPosition: {x: -0.63724667, y: -0.34, z: 1.28}
   m_LocalScale: {x: 0.17593163, y: 0.17593162, z: 0.17593163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2062,7 +2098,7 @@ Transform:
   m_GameObject: {fileID: 1975114052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2858729, y: -0.34000003, z: 1.7255046}
+  m_LocalPosition: {x: 1.2858729, y: -0.34000003, z: 1.28}
   m_LocalScale: {x: 0.17593163, y: 0.17593162, z: 0.17593163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2090,6 +2126,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2003679057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003679059}
+  - component: {fileID: 2003679058}
+  m_Layer: 0
+  m_Name: DetectorPlatos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2003679058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003679057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2003679059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003679057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.53659034, y: 1.0252196, z: -2.7990508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054109828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2054109829}
   - component: {fileID: 2054109830}
+  - component: {fileID: 2054109831}
   m_Layer: 0
   m_Name: PlatoHolder_1
   m_TagString: Untagged
@@ -2116,7 +2197,7 @@ Transform:
   m_GameObject: {fileID: 2054109828}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.666634, z: 0}
+  m_LocalPosition: {x: 0, y: 3.666634, z: 2.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2137,12 +2218,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2054109831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054109828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2085172992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085172993}
   - component: {fileID: 2085172994}
+  - component: {fileID: 2085172995}
   m_Layer: 0
   m_Name: PlatoHolder_5
   m_TagString: Untagged
@@ -2169,7 +2263,7 @@ Transform:
   m_GameObject: {fileID: 2085172992}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.666634, z: 0}
+  m_LocalPosition: {x: 0, y: 3.666634, z: 2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2190,12 +2284,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2085172995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085172992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d35d8385db3a4b9e04f465379a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2101105082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,3 +2423,4 @@ SceneRoots:
   - {fileID: 489980800}
   - {fileID: 389054241}
   - {fileID: 1467710312}
+  - {fileID: 2003679059}
