@@ -877,6 +877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesa_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4175358193228636982, guid: 8264bc7b73a978943896d9c6c53549a9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6979703568158846512, guid: 8264bc7b73a978943896d9c6c53549a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1687,6 +1692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mesa_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175358193228636982, guid: 8264bc7b73a978943896d9c6c53549a9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6979703568158846512, guid: 8264bc7b73a978943896d9c6c53549a9,
         type: 3}
