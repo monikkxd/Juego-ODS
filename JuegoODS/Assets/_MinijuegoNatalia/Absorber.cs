@@ -6,6 +6,8 @@ public class Absorber : MonoBehaviour
 {
     public KeyCode absorberKey = KeyCode.Space; // Tecla para activar el absorber
     public float absorberRadius = 5f; // Radio del collider de absorción
+    public string objectTag = "Basura"; // Tag de los objetos a absorber
+    public Transform targetPosition; // Posición a la que se moverán los objetos absorbidos
 
     private bool isAbsorbing = false;
 
@@ -37,15 +39,16 @@ public class Absorber : MonoBehaviour
     // Este método se llama cuando otro objeto entra en el collider de absorción
     void OnTriggerEnter(Collider other)
     {
-        if (isAbsorbing)
+        if (isAbsorbing && other.gameObject.CompareTag(objectTag))
         {
             // Realiza alguna acción con el objeto absorbido
             Debug.Log("Objeto absorbido: " + other.gameObject.name);
 
-            // Puedes hacer lo que quieras con el objeto absorbido aquí
-            // Por ejemplo, puedes destruirlo, desactivarlo, cambiar su posición, etc.
-            // other.gameObject.SetActive(false);
-            // Destroy(other.gameObject);
+            // Mueve el objeto absorbido a la posición predefinida
+            other.transform.position = targetPosition.position;
+
+            // Destruye el objeto absorbido después de un breve retraso
+            Destroy(other.gameObject, 0.5f);
         }
     }
 }
