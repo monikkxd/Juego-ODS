@@ -53,30 +53,26 @@ public class Cliente : MonoBehaviour
                 return;
         }
 
-        // Asignar el objeto de pedido como hijo del cliente y ajustar su posición relativa
+        
         if (pedidoObjeto != null)
         {
             pedidoObjeto.transform.parent = transform;
-            pedidoObjeto.transform.localPosition = Vector3.up; // Posición relativa 1 unidad sobre el cliente en el eje Y
+            pedidoObjeto.transform.localPosition = Vector3.up; 
         }
     }
 
     private string ObtenerPedidoBasadoEnPlatosDisponibles()
     {
-        // Detectar todos los platos disponibles en la escena
         Plato_1[] platosTipo1 = FindObjectsOfType<Plato_1>();
         Plato_2[] platosTipo2 = FindObjectsOfType<Plato_2>();
         Plato_3[] platosTipo3 = FindObjectsOfType<Plato_3>();
 
-        // Determinar los tipos de platos disponibles
         bool hayPlato1 = platosTipo1.Length > 0;
         bool hayPlato2 = platosTipo2.Length > 0;
         bool hayPlato3 = platosTipo3.Length > 0;
 
-        // Determinar el pedido en función de los platos disponibles
         if (hayPlato1 && hayPlato2 && hayPlato3)
         {
-            // Todos los tipos de platos disponibles
             return tiposDePlato[Random.Range(0, tiposDePlato.Length)];
         }
         else if (hayPlato1 && hayPlato2)
@@ -119,13 +115,11 @@ public class Cliente : MonoBehaviour
         pedidoCompletado = true;
         Debug.Log("¡Pedido completado por el cliente en la mesa!");
 
-        // Mover al cliente de vuelta a su posición de spawn
         VolverASpawn();
     }
 
     private void VolverASpawn()
     {
-        // Implementa el código para mover al cliente de vuelta a la posición de spawn
-        // Puedes utilizar el mismo método VolverASpawn que se discutió anteriormente
+        
     }
 }

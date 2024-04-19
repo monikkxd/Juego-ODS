@@ -29,7 +29,7 @@ public class Mesa : MonoBehaviour
         }
     }
 
-    /*void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (clienteEnMesa && clienteActual != null)
         {
@@ -38,9 +38,8 @@ public class Mesa : MonoBehaviour
             // Verificar si el objeto en la mesa es un plato
             if (plato != null)
             {
-                // Notificar al cliente que se ha entregado un plato, pasando el componente del plato
-                clienteActual.PlatoEntregado(plato);
+                clienteActual.PedidoCompletado();
             }
         }
-    }*/
+    }
 }
