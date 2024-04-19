@@ -727,6 +727,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1668648695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668648683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cfb512e6eefdd4cbefd8ae5c483be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 100
 --- !u!1001 &4136312397945923791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 6607169246577972555, guid: 85fa0d5ba5cdb474b9603cbbc5943edc,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6786270755358792306, guid: 85fa0d5ba5cdb474b9603cbbc5943edc, type: 3}
     m_RemovedGameObjects:
@@ -800,6 +819,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1000083067}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5911818750140964568, guid: 85fa0d5ba5cdb474b9603cbbc5943edc,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1668648695}
     - targetCorrespondingSourceObject: {fileID: 5911818750140964568, guid: 85fa0d5ba5cdb474b9603cbbc5943edc,
         type: 3}
       insertIndex: -1
