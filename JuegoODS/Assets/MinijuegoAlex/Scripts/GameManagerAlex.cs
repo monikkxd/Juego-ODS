@@ -36,6 +36,8 @@ public class GameManagerAlex : MonoBehaviour
     public GameObject VentanaResultados;
     public Text PorcentajeText, HitText, GoodText, PerfeText, MissedText, RankText, PuntuacionFinalText;
 
+    public BarraPuntuaciónScritp barraPuntuaciónScritp;
+
     void Start()
     {
         instance = this;
@@ -45,9 +47,10 @@ public class GameManagerAlex : MonoBehaviour
         PuntosTexto.text = "Puntuación: 0";
 
         TotalFichas = FindObjectsOfType<FichasObject>().Length;
+        barraPuntuaciónScritp.SetMaxValueSlider(60000);
     }
 
-    
+
     void Update()
     {
         if (!Empezarmusica)
@@ -63,7 +66,7 @@ public class GameManagerAlex : MonoBehaviour
         }
         else
         {
-            if(!Musica.isPlaying && !VentanaResultados.activeInHierarchy)
+            if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy)
             {
                 VentanaResultados.SetActive(true);
 
@@ -79,11 +82,11 @@ public class GameManagerAlex : MonoBehaviour
 
                 string RankVal = "F";
 
-                if(Porcentaje < 40)
+                if (Porcentaje < 40)
                 {
                     RankVal = "E";
                 }
-                else if (Porcentaje >=40 && Porcentaje < 55)
+                else if (Porcentaje >= 40 && Porcentaje < 55)
                 {
                     RankVal = "D";
                 }
@@ -109,12 +112,18 @@ public class GameManagerAlex : MonoBehaviour
                 PuntuacionFinalText.text = PuntosActuales.ToString();
             }
         }
+
+        if(PuntosActuales >= 60000)
+        {
+            //Lógica cambio de escena
+            Debug.Log("Minijuego Completado");
+        }
     }
 
     public void Hitted()
     {
 
-        if (MultiActual -1 < MultiArchivador.Length)
+        if (MultiActual - 1 < MultiArchivador.Length)
         {
             MultiplierTracker++;
 
@@ -128,6 +137,7 @@ public class GameManagerAlex : MonoBehaviour
         MultiText.text = "Multiplicador: x" + MultiActual;
 
         PuntosTexto.text = "Puntuación: " + PuntosActuales.ToString();
+        barraPuntuaciónScritp.SetValue(PuntosActuales);
     }
 
     public void NormalHit()
