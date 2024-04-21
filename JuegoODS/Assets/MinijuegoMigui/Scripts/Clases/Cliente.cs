@@ -1,11 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class Cliente : MonoBehaviour
 {
-    private string[] tiposDePlato = { "Plato1", "Plato2", "Plato3" };
+    private string tipoPedido; // Tipo de plato pedido por el cliente
     private bool pedidoCompletado = false;
     private Vector3 posicionSpawn; // Posición de spawn del cliente
     public Transform mesaAsignada; // Mesa a la que debe dirigirse el cliente
+    public float velocidadVueltaSpawn = 3f; // Velocidad de regreso al spawn
 
     public GameObject pedido_1; // Objeto a instanciar para el pedido Plato1
     public GameObject pedido_2; // Objeto a instanciar para el pedido Plato2
@@ -17,27 +19,25 @@ public class Cliente : MonoBehaviour
         posicionSpawn = transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Mesa") && !pedidoCompletado)
-        {
-            // Realizar el pedido al llegar a la mesa
-            RealizarPedido();
-        }
-    }
-
     public void RealizarPedido()
     {
+        // Verificar si ya se ha realizado un pedido
+        if (tipoPedido != null)
+        {
+            Debug.Log("El cliente ya ha realizado su pedido.");
+            return;
+        }
+
         // Determinar qué objeto de pedido instanciar según los platos disponibles en la escena
-        string pedido = ObtenerPedidoBasadoEnPlatosDisponibles();
-        if (pedido == null)
+        tipoPedido = ObtenerPedidoBasadoEnPlatosDisponibles();
+        if (tipoPedido == null)
         {
             Debug.LogError("No hay platos disponibles en la escena.");
             return;
         }
 
         GameObject pedidoObjeto = null;
-        switch (pedido)
+        switch (tipoPedido)
         {
             case "Plato1":
                 pedidoObjeto = Instantiate(pedido_1, transform.position + Vector3.up, Quaternion.identity);
@@ -53,11 +53,11 @@ public class Cliente : MonoBehaviour
                 return;
         }
 
-        
         if (pedidoObjeto != null)
         {
             pedidoObjeto.transform.parent = transform;
-            pedidoObjeto.transform.localPosition = Vector3.up; 
+            pedidoObjeto.transform.localPosition = Vector3.up;
+            Debug.Log("El cliente ha realizado el pedido de: " + tipoPedido);
         }
     }
 
@@ -73,7 +73,14 @@ public class Cliente : MonoBehaviour
 
         if (hayPlato1 && hayPlato2 && hayPlato3)
         {
-            return tiposDePlato[Random.Range(0, tiposDePlato.Length)];
+            // Todos los tipos de plato están disponibles
+            int randomIndex = Random.Range(0, 3);
+            switch (randomIndex)
+            {
+                case 0: return "Plato1";
+                case 1: return "Plato2";
+                case 2: return "Plato3";
+            }
         }
         else if (hayPlato1 && hayPlato2)
         {
@@ -110,16 +117,37 @@ public class Cliente : MonoBehaviour
         return null;
     }
 
+    public bool PedidoEsCorrecto(string tipoPlatoEntregado)
+    {
+        return tipoPlatoEntregado == tipoPedido;
+    }
+
     public void PedidoCompletado()
     {
         pedidoCompletado = true;
         Debug.Log("¡Pedido completado por el cliente en la mesa!");
 
-        VolverASpawn();
+        // Iniciar el movimiento de vuelta al spawn
+        StartCoroutine(MoverHaciaSpawn());
     }
 
-    private void VolverASpawn()
+    private IEnumerator MoverHaciaSpawn()
     {
-        
+        while (Vector3.Distance(transform.position, posicionSpawn) > 0.1f)
+        {
+            // Calcula la nueva posición interpolada hacia el spawn
+            transform.position = Vector3.Lerp(transform.position, posicionSpawn, velocidadVueltaSpawn * Time.deltaTime);
+
+            yield return null;
+        }
+
+        // Ajustar la posición exacta al spawn al finalizar
+        transform.position = posicionSpawn;
+
+        // Limpiar el pedido y reiniciar el cliente
+        tipoPedido = null;
+        pedidoCompletado = false;
+
+        Debug.Log("Cliente ha vuelto al punto de spawn.");
     }
 }

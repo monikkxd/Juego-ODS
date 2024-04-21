@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Plato_1 : Plato_Class
+public class Plato_1 : MonoBehaviour
 {
-    public string nombrePlato = "Plato1";
+    public string tipoPlato = "Plato_1";
 }
