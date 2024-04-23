@@ -14,7 +14,7 @@ public class Absorber : MonoBehaviour
     void Update()
     {
         // Comprueba si se ha presionado la tecla para activar el absorber
-        if (Input.GetKeyDown(absorberKey))
+        if (Input.GetKey(absorberKey))
         {
             ToggleAbsorber();
         }
