@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interacter : MonoBehaviour
+public class IslaInteractuador : MonoBehaviour
 {
     private Transform interactuador;
 
@@ -32,10 +32,10 @@ public class Interacter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(interactuador.position, interactuador.forward, out hit, rangoInteraccion))
         {
-            
+
             if (hit.collider.CompareTag("Interactable"))
             {
-                hit.collider.GetComponent<InteractableObject>().Interactuar();
+                hit.collider.GetComponent<IslaInteractable>().Interactuar();
             }
         }
     }
