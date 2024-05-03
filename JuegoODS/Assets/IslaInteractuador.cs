@@ -32,11 +32,18 @@ public class IslaInteractuador : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(interactuador.position, interactuador.forward, out hit, rangoInteraccion))
         {
-
-            if (hit.collider.CompareTag("Interactable"))
+            if (hit.collider.CompareTag("Minijuego Andrea"))
             {
-                hit.collider.GetComponent<IslaInteractable>().Interactuar();
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAndrea();
             }
+            /*else if (hit.collider.CompareTag("Minijuego Natalia"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoNatalia();
+            }
+            else if (hit.collider.CompareTag("Minijuego Alex"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
+            }*/
         }
     }
 }

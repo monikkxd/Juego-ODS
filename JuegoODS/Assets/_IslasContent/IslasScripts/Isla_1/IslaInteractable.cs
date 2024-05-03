@@ -5,8 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class IslaInteractable : MonoBehaviour
 {
-    public void Interactuar()
+    public GameObject boolMinijuego1;
+    public GameObject boolMinijuego2;
+    public void CargarMinijuegoNatalia()
     {
-        Debug.Log("Interactuando con: " + gameObject.name);
+        boolMinijuego1.SetActive(true);
+        SceneManager.LoadScene("Lobby Minijuegos Clara");
+    }
+    public void CargarMinijuegoAndrea()
+    {
+        boolMinijuego2.SetActive(true);
+        SceneManager.LoadScene("MinijuegoAndrea");
+    }
+    public void CargarMinijuegoAlex()
+    {
+        SceneManager.LoadScene("MinijuegoAlex");
     }
 }
