@@ -139,6 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642992179}
+  - component: {fileID: 642992178}
   - component: {fileID: 642992180}
   m_Layer: 0
   m_Name: GameManager
@@ -147,6 +148,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &642992178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642992177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52634cf4c50995e4ab4a22a84e266fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minijuegoNatalia: {fileID: 727965809}
+  minijuegoAndrea: {fileID: 2116858686}
+  minijuegoAlex: {fileID: 1176456582}
 --- !u!4 &642992179
 Transform:
   m_ObjectHideFlags: 0
@@ -171,12 +187,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 642992177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61375f437997b0d46886d97f2d5de2df, type: 3}
+  m_Script: {fileID: 11500000, guid: c78bed9e091ade9429aea0814fb8e712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijuegoNatalia: {fileID: 727965809}
-  minijuegoAndrea: {fileID: 2116858686}
-  minijuegoAlex: {fileID: 1176456582}
+  minijuegoNatalia: {fileID: 0}
+  minijuegoAndrea: {fileID: 0}
+  minijuegoAlex: {fileID: 0}
 --- !u!1 &727965809
 GameObject:
   m_ObjectHideFlags: 0
