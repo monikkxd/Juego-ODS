@@ -15,7 +15,7 @@ public class GameManagerIslas2 : MonoBehaviour
             ActivarMinijuegoAlex();
         }
 
-        if (CambioEscenaAndrea.previousSceneName == "MinijuegoMónicaQ")
+        if (CambioEscenasIslas.previousSceneName == "MinijuegoMónicaQ")
         {
             minijuegoNatalia.SetActive(true);
         }
