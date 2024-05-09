@@ -11,8 +11,11 @@ public class ClienteSpawner : MonoBehaviour
     public float spawnInterval = 8f;   // Intervalo entre instancias de clientes
     public float moveSpeed = 5f;       // Velocidad de movimiento del cliente
 
+    private static readonly System.Random random = new System.Random(System.Environment.TickCount);
+
     private void Start()
     {
+        Shuffle(mesas);
         // Llama a la función SpawnCliente cada cierto intervalo
         InvokeRepeating("SpawnCliente", 0f, spawnInterval);
     }
@@ -31,13 +34,8 @@ public class ClienteSpawner : MonoBehaviour
             return;
         }
 
-        int randomIndex;
-        do
-        {
-            randomIndex = Random.Range(0, mesas.Count);
-        } while (mesas[randomIndex] == null);
-
-        Transform mesa = mesas[randomIndex];
+        Transform mesa = mesas[0];
+        mesas.RemoveAt(0);
 
         // Instancia el prefab del cliente en la posición actual del Spawner
         GameObject clienteInstance = Instantiate(clientePrefab, transform.position, Quaternion.identity);
@@ -68,5 +66,18 @@ public class ClienteSpawner : MonoBehaviour
 
         // Realiza el pedido al llegar a la mesa
         cliente.GetComponent<Cliente>().RealizarPedido();
+    }
+
+    private static void Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = random.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }
