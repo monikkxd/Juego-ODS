@@ -7,7 +7,7 @@ public class Cliente : MonoBehaviour
     private bool pedidoCompletado = false;
     private Vector3 posicionSpawn; // Posición de spawn del cliente
     public Transform mesaAsignada; // Mesa a la que debe dirigirse el cliente
-    public float velocidadVueltaSpawn = 3f; // Velocidad de regreso al spawn
+    public float velocidadVueltaSpawn = 1f; // Velocidad de regreso al spawn
 
     public GameObject pedido_1; // Objeto a instanciar para el pedido Plato1
     public GameObject pedido_2; // Objeto a instanciar para el pedido Plato2
