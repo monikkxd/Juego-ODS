@@ -5,12 +5,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 19b59af228c5990428a04a9060d3eb97, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19b59af228c5990428a04a9060d3eb97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61,7 +60,22 @@ PrefabInstance:
       value: Tronco_PARTIDO_RAMITA Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b59af228c5990428a04a9060d3eb97, type: 3}
+--- !u!1 &6290977650650003874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 19b59af228c5990428a04a9060d3eb97, type: 3}
+  m_PrefabInstance: {fileID: 6597600858570425587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8355706218929575277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290977650650003874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3294798, y: 1.4331833, z: 1.4541713}
+  m_Center: {x: 0.0003604889, y: -0.00000002980233, z: 0}

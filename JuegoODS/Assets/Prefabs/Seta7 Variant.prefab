@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a183e7c2c2dfb714da43c8265a164a71, type: 3}
@@ -61,7 +60,22 @@ PrefabInstance:
       value: Seta7 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a183e7c2c2dfb714da43c8265a164a71, type: 3}
+--- !u!1 &1554023864191522137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a183e7c2c2dfb714da43c8265a164a71, type: 3}
+  m_PrefabInstance: {fileID: 1824074025426528264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &-2043202677322509573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554023864191522137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20750257, y: 0.206964, z: 0.34546155}
+  m_Center: {x: -0.000000018626451, y: 0.000000007450582, z: -0.000000014901165}
