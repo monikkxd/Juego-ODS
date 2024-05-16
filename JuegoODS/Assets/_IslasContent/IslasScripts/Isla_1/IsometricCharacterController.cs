@@ -1,59 +1,63 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class IsometricCharacterController : MonoBehaviour 
+public class IsometricCharacterController : MonoBehaviour
 {
-
     public float walkSpeed = 4f;
+    public Animator animator; // Referencia al componente Animator
 
-    Vector3 forward, right;
+    private Vector3 forward, right;
     private float moveSpeed;
 
-	// Use this for initialization
-	void Start () 
+    void Start()
     {
-
         forward = Camera.main.transform.forward;
-        forward.y = 0;
+        forward.y = 0f;
         forward = Vector3.Normalize(forward);
 
-        // -45 degrees from the world x axis
-        right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
+        // -45 grados desde el eje x del mundo
+        right = Quaternion.Euler(new Vector3(0f, 90f, 0f)) * forward;
 
-        // Initial speed
+        // Velocidad inicial
         moveSpeed = walkSpeed;
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
 
-        // Movement
-        if (Input.anyKey) {
+        // Obtener el componente Animator adjunto al objeto
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        // Si se presiona alguna tecla de movimiento, mover y activar la animación
+        if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
+        {
             Move();
+
+            // Activar la animación "CorrerPrincipal"
+            animator.SetBool("isRunning", true);
         }
+        else
+        {
+            // Si no hay entrada de movimiento, desactivar la animación
+            animator.SetBool("isRunning", false);
+        }
+    }
 
-	}
-
-    void Move() 
+    void Move()
     {
+        // Movimiento horizontal y vertical
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        // Movement speed
-        Vector3 rightMovement = right * moveSpeed * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * moveSpeed * Input.GetAxis("Vertical");
+        Vector3 rightMovement = right * moveSpeed * horizontalInput;
+        Vector3 upMovement = forward * moveSpeed * verticalInput;
 
-        // Calculate what is forward
+        // Calcular dirección de movimiento
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
-        // Set new position
-        Vector3 newPosition = transform.position;
-        newPosition += rightMovement;
-        newPosition += upMovement;
+        // Calcular nueva posición
+        Vector3 newPosition = transform.position + rightMovement + upMovement;
 
-        // Smoothly move the new position
+        // Mover suavemente a la nueva posición
         transform.forward = heading;
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime);
-
     }
 }

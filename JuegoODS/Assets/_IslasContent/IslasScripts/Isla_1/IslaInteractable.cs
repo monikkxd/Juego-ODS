@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class IslaInteractable : MonoBehaviour
 {
     public GameObject boolMinijuego1;
-    public GameObject boolMinijuego2;
     public void CargarMinijuegoNatalia()
     {
         boolMinijuego1.SetActive(true);
@@ -14,7 +13,6 @@ public class IslaInteractable : MonoBehaviour
     }
     public void CargarMinijuegoAndrea()
     {
-        boolMinijuego2.SetActive(true);
         SceneManager.LoadScene("MinijuegoAndrea");
     }
     public void CargarMinijuegoAlex()

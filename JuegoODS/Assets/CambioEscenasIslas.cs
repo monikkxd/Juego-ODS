@@ -7,12 +7,14 @@ public class CambioEscenasIslas : MonoBehaviour
 {
     public static string previousSceneName = "";
 
+    public string islaACargar;
+
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I))
         {
-            LoadScene("");
+            LoadScene(islaACargar);
         }
     }
     public void LoadScene(string sceneName)

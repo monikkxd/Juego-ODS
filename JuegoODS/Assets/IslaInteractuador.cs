@@ -36,14 +36,14 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAndrea();
             }
-            /*else if (hit.collider.CompareTag("Minijuego Natalia"))
+            else if (hit.collider.CompareTag("Minijuego  Natalia"))
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoNatalia();
             }
             else if (hit.collider.CompareTag("Minijuego Alex"))
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
-            }*/
+            }
         }
     }
 }
