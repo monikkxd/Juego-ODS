@@ -17,7 +17,7 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
         // Movimiento horizontal
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveInput = -Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // Movimiento vertical
