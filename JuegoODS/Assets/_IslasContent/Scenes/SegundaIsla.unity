@@ -334,6 +334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chincheta Juego Hugo
       objectReference: {fileID: 0}
+    - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6349337334037164633, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_TagString
@@ -840,10 +845,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minijuegoMonicaG: {fileID: 697735525}
-  minijuegoMario: {fileID: 721744103}
-  arbolesMal: {fileID: 0}
-  arbolesBien: {fileID: 0}
-  bolsasBasura: {fileID: 0}
+  minijuegoMario: {fileID: 1200510390}
+  minijuegoHugo: {fileID: 0}
+  edificiosMal: {fileID: 1196312463}
+  edificiosMal2: {fileID: 1196312462}
+  edificiosBien: {fileID: 1196312461}
+  bolsasBasura: {fileID: 1196312460}
 --- !u!1 &695694632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4496702499042796347, guid: 73d01f9a81ee5534f9cb2852219af255,
@@ -878,12 +885,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
     type: 3}
   m_PrefabInstance: {fileID: 1429738000}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &721744103 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
-    type: 3}
-  m_PrefabInstance: {fileID: 1468395533}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &727965809
 GameObject:
@@ -1182,8 +1183,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2824824750807904414, guid: 739e31d67c819c2449eb99976238ea54,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824824750807904414, guid: 739e31d67c819c2449eb99976238ea54,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.04
+      value: -8.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824824750807904414, guid: 739e31d67c819c2449eb99976238ea54,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.63
       objectReference: {fileID: 0}
     - target: {fileID: 2978528111101777852, guid: 739e31d67c819c2449eb99976238ea54,
         type: 3}
@@ -1721,6 +1732,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1196312458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196312460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8012094413598379698, guid: 739e31d67c819c2449eb99976238ea54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196312458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196312461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7390975500569135728, guid: 739e31d67c819c2449eb99976238ea54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196312458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196312462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8455949841223325853, guid: 739e31d67c819c2449eb99976238ea54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196312458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196312463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 266565349828889532, guid: 739e31d67c819c2449eb99976238ea54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196312458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1200510390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468395533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1402441716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7208967619179435163, guid: 739e31d67c819c2449eb99976238ea54,
@@ -2051,6 +2092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chincheta Juego Mario
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}

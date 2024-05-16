@@ -7,34 +7,25 @@ public class GameManagerIslas2 : MonoBehaviour
 {
     public GameObject minijuegoMonicaG;
     public GameObject minijuegoMario;
+    public GameObject minijuegoHugo;
 
-    public GameObject arbolesMal;
-    public GameObject arbolesBien;
+
+    public GameObject edificiosMal;
+    public GameObject edificiosMal2;
+    public GameObject edificiosBien;
     public GameObject bolsasBasura;
     void Start()
     {
 
-        if (CambioEscenasIslas.previousSceneName == "MinijuegoAndrea")
+        if (CambioEscenasIslas.previousSceneName == "MinijuegoMonica")
         {
             minijuegoMario.SetActive(true);
-            bolsasBasura.SetActive(true);
-            arbolesMal.SetActive(false);
-            arbolesBien.SetActive(true);
         }
-        else if (CambioEscenasIslas.previousSceneName == "Lobby Minijuegos Clara")
+        else if (CambioEscenasIslas.previousSceneName == "MinijuegoMario")
         {
-            ActivarMinijuegoAlex();
-            arbolesMal.SetActive(false);
-            bolsasBasura.SetActive(false);
-            arbolesBien.SetActive(true);
+            minijuegoHugo.SetActive(true);
         }
 
-    }
-
-    private void ActivarMinijuegoAlex()
-    {
-        Debug.Log("Minijuego Alex activado");
-        minijuegoMonicaG.SetActive(true);
     }
 
 }
