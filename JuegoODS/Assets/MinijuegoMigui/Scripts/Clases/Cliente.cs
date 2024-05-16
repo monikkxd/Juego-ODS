@@ -13,12 +13,22 @@ public class Cliente : MonoBehaviour
     public GameObject pedido_2; // Objeto a instanciar para el pedido Plato2
     public GameObject pedido_3; // Objeto a instanciar para el pedido Plato3
 
+    private GameManager gameManager;
+
+
+
     private void Start()
     {
         // Guardar la posición de spawn del cliente
         posicionSpawn = transform.position;
+
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
+    private void Update()
+    {
+        
+    }
     public void RealizarPedido()
     {
         // Verificar si ya se ha realizado un pedido
@@ -127,6 +137,7 @@ public class Cliente : MonoBehaviour
         pedidoCompletado = true;
         Debug.Log("¡Pedido completado por el cliente en la mesa!");
 
+        gameManager.SumarPedidosRealizados();
         // Iniciar el movimiento de vuelta al spawn
         StartCoroutine(MoverHaciaSpawn());
     }

@@ -2,13 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     private List<string> tiposDePlatoDisponibles = new List<string>();
 
+    public int numerosPedidos = 0;
+
+    public TMP_Text numeroPedidosText;
+
     void Start()
     {
+        numeroPedidosText.text = "Número pedidos realizados : " + numerosPedidos.ToString();
         // Buscar todos los objetos en la escena que tengan componentes de platos
         Plato_Class[] platosEnEscena = FindObjectsOfType<Plato_Class>();
 
@@ -21,6 +26,11 @@ public class GameManager : MonoBehaviour
                 tiposDePlatoDisponibles.Add(tipoPlato);
             }
         }
+    }
+
+    private void Update()
+    {
+        numeroPedidosText.text = "Número pedidos realizados : " + numerosPedidos.ToString();
     }
 
     private string ObtenerTipoPlato(Plato_Class plato)
@@ -55,5 +65,10 @@ public class GameManager : MonoBehaviour
         {
             return "PlatoDefault"; // Si no hay platos disponibles, se devuelve un pedido genérico
         }
+    }
+
+    public void SumarPedidosRealizados()
+    {
+        numerosPedidos += 1; 
     }
 }
