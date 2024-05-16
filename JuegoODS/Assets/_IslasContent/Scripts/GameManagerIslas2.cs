@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerIslas2 : MonoBehaviour
 {
     public GameObject minijuegoMonicaG;
-    public GameObject minijuegoHugo;
+    public GameObject minijuegoMario;
 
     public GameObject arbolesMal;
     public GameObject arbolesBien;
@@ -16,7 +16,7 @@ public class GameManagerIslas2 : MonoBehaviour
 
         if (CambioEscenasIslas.previousSceneName == "MinijuegoAndrea")
         {
-            minijuegoHugo.SetActive(true);
+            minijuegoMario.SetActive(true);
             bolsasBasura.SetActive(true);
             arbolesMal.SetActive(false);
             arbolesBien.SetActive(true);
