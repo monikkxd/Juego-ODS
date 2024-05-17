@@ -15,13 +15,13 @@ public class WaterHose : MonoBehaviour
     void Update()
     {
         // Lanzar agua al presionar y mantener la tecla de espacio
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             isLaunching = true;
             LaunchWater();
         }
         // Dejar de lanzar agua al soltar la tecla de espacio
-        else if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyUp(KeyCode.R))
         {
             isLaunching = false;
         }
