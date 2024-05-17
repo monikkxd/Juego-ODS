@@ -800,6 +800,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.5303516, y: 5.5601244, z: 12.31329}
   m_Center: {x: -0.008856416, y: 0.014201403, z: -0.00000023841858}
+--- !u!1 &624010958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
+    type: 3}
+  m_PrefabInstance: {fileID: 170233262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642992177
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minijuegoMonicaG: {fileID: 697735525}
   minijuegoMario: {fileID: 1200510390}
-  minijuegoHugo: {fileID: 0}
+  minijuegoHugo: {fileID: 624010958}
   edificiosMal: {fileID: 1196312463}
   edificiosMal2: {fileID: 1196312462}
   edificiosBien: {fileID: 1196312461}
@@ -1874,12 +1880,12 @@ PrefabInstance:
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_TagString
-      value: MinijuegoMonicaG
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6349337334037164633, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_TagString
-      value: Minijuego Andrea
+      value: MinijuegoMonicaG
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

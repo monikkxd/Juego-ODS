@@ -19,13 +19,8 @@ public class GameManagerIslas2 : MonoBehaviour
 
         if (CambioEscenasIslas.previousSceneName == "MinijuegoMonica")
         {
-            minijuegoMario.SetActive(true);
-        }
-        else if (CambioEscenasIslas.previousSceneName == "MinijuegoMario")
-        {
             minijuegoHugo.SetActive(true);
         }
-
     }
 
 }

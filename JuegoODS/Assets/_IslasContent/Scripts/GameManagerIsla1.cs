@@ -14,14 +14,14 @@ public class GameManagerIslas1 : MonoBehaviour
     void Start()
     {
        
-        if (CambioEscenasIslas.previousSceneName == "MinijuegoAndrea")
+        if (CambioEscenasIslas.previousSceneName == "_MontajeEscenaAndrea")
         {
             minijuegoNatalia.SetActive(true);
             bolsasBasura.SetActive(true);
             arbolesMal.SetActive(false);
             arbolesBien.SetActive(true);
         }
-        else if (CambioEscenasIslas.previousSceneName == "Lobby Minijuegos Clara")
+        else if (CambioEscenasIslas.previousSceneName == "Lobby _MontajeEscenaNatalia Clara")
         {
             ActivarMinijuegoAlex();
             arbolesMal.SetActive(false);

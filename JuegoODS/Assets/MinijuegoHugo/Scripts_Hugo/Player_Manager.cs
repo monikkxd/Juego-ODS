@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Manager : MonoBehaviour
 {
@@ -23,8 +24,12 @@ public class Player_Manager : MonoBehaviour
             {
                 gameObjectList[i].SetActive(false);
             }
-
+            Invoke("CambiarEscena", 6f);
         }
-        
+    }
+
+    void CambiarEscena()
+    {
+        SceneManager.LoadScene("SegundaIsla2");
     }
 }

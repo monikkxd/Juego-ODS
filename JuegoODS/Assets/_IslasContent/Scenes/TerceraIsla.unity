@@ -132,6 +132,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 377093110801032030, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: MinijuegoMigui
+      objectReference: {fileID: 0}
     - target: {fileID: 7666925869446832599, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -204,6 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9163694947514993733, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163694947514993733, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+        type: 3}
       propertyPath: m_TagString
       value: MinijuegoMigui
       objectReference: {fileID: 0}
@@ -212,6 +222,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc, type: 3}
+--- !u!1 &7842114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9163694947514993733, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7842113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &357698839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +236,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 377093110801032030, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: MinijuegoClara
+      objectReference: {fileID: 0}
     - target: {fileID: 7666925869446832599, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -290,11 +311,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chincheta_Juego_Clara
       objectReference: {fileID: 0}
+    - target: {fileID: 9163694947514993733, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc, type: 3}
+--- !u!1 &357698840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9163694947514993733, guid: 5177fb4a4c6149a4c8eb4d845adbf5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 357698839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642992177
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,11 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c377d7bcdc71c44b8f8127e7fee1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijuegoClara: {fileID: 0}
-  minijuegoMigui: {fileID: 0}
-  arbolesMal: {fileID: 0}
-  arbolesBien: {fileID: 0}
-  bolsasBasura: {fileID: 0}
+  minijuegoClara: {fileID: 357698840}
+  minijuegoMigui: {fileID: 7842114}
 --- !u!1 &695694632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4496702499042796347, guid: 73d01f9a81ee5534f9cb2852219af255,
@@ -750,5 +779,5 @@ SceneRoots:
   - {fileID: 727965810}
   - {fileID: 776704820}
   - {fileID: 914245798}
-  - {fileID: 7842113}
   - {fileID: 357698839}
+  - {fileID: 7842113}
