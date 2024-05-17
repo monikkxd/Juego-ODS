@@ -44,6 +44,26 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
             }
+            else if (hit.collider.CompareTag("MinijuegoMonicaG"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoMonicaG();
+            }
+            else if (hit.collider.CompareTag("MinijuegoHugo"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoHugo();
+            }
+            else if (hit.collider.CompareTag("MinijuegoMario"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoMario();
+            }
+            else if (hit.collider.CompareTag("MinijuegoMigui"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoMigui();
+            }
+            else if (hit.collider.CompareTag("MinijuegoClara"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoClara();
+            }
         }
     }
 }

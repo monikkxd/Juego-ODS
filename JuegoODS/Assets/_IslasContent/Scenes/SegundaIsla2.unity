@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_Name
-      value: "Chincheta Juego M\xF3nica G"
+      value: Chincheta Juego Hugo
       objectReference: {fileID: 0}
     - target: {fileID: 6349337334037164633, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
@@ -578,8 +578,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minijuegoMonicaG: {fileID: 0}
   minijuegoMario: {fileID: 0}
-  arbolesMal: {fileID: 0}
-  arbolesBien: {fileID: 0}
+  minijuegoHugo: {fileID: 0}
+  edificiosMal: {fileID: 0}
+  edificiosMal2: {fileID: 0}
+  edificiosBien: {fileID: 0}
   bolsasBasura: {fileID: 0}
 --- !u!1 &695694632 stripped
 GameObject:
@@ -1890,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_Name
-      value: Chincheta Juego Andrea
+      value: Chincheta Juego MonigaG
       objectReference: {fileID: 0}
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
@@ -1900,7 +1902,7 @@ PrefabInstance:
     - target: {fileID: 6349337334037164633, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_TagString
-      value: Minijuego Andrea
+      value: MinijuegoMonicaG
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

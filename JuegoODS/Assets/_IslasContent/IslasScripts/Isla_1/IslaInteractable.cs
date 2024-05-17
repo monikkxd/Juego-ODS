@@ -9,14 +9,34 @@ public class IslaInteractable : MonoBehaviour
     public void CargarMinijuegoNatalia()
     {
         boolMinijuego1.SetActive(true);
-        SceneManager.LoadScene("Lobby Minijuegos Clara");
+        SceneManager.LoadScene("_MontajeEscenaNatalia");
     }
     public void CargarMinijuegoAndrea()
     {
-        SceneManager.LoadScene("MinijuegoAndrea");
+        SceneManager.LoadScene("_MontajeEscenaAndrea");
     }
     public void CargarMinijuegoAlex()
     {
         SceneManager.LoadScene("MinijuegoAlex");
+    }
+    public void CargarMinijuegoHugo()
+    {
+        SceneManager.LoadScene("MinijuegoHugo");
+    }
+    public void CargarMinijuegoMonicaG()
+    {
+        SceneManager.LoadScene("_testmonicag");
+    }
+    public void CargarMinijuegoMario()
+    {
+        SceneManager.LoadScene("MinijuegoAlex");
+    }
+    public void CargarMinijuegoMigui()
+    {
+        SceneManager.LoadScene("Minijuego Migui");
+    }
+    public void CargarMinijuegoClara()
+    {
+        SceneManager.LoadScene("Minijuego Clara");
     }
 }

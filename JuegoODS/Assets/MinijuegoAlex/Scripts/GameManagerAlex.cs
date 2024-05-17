@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerAlex : MonoBehaviour
@@ -117,6 +118,15 @@ public class GameManagerAlex : MonoBehaviour
         {
             //Lógica cambio de escena
             Debug.Log("Minijuego Completado");
+            if (CambioEscenasIslas.previousSceneName == "PrimeraIsla")
+            {
+                Invoke("CambiarEscenaIsla1", 3f);
+            }
+            if (CambioEscenasIslas.previousSceneName == "SegundaIsla2")
+            {
+                Invoke("CambiarEscenaIsla2", 3f);
+            }
+
         }
     }
 
@@ -174,4 +184,14 @@ public class GameManagerAlex : MonoBehaviour
 
         MissFichas++;
     }
+
+    private void CambiarEscenaIsla1()
+    {
+        SceneManager.LoadScene("SegundaIsla");
+    }
+    private void CambiarEscenaIsla2()
+    {
+        SceneManager.LoadScene("TerceraIsla");
+    }
+
 }

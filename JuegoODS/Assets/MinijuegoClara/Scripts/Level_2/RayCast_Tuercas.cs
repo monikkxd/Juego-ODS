@@ -92,6 +92,6 @@ public class RayCast_Tuercas : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("MinigameSelectionClara");
+        SceneManager.LoadScene("PrimeraIsla");
     }
 }
