@@ -8,6 +8,7 @@ public class Absorber : MonoBehaviour
     public float absorberRadius = 5f; // Radio del collider de absorción
     public string objectTag = "Basura"; // Tag de los objetos a absorber
     public Transform targetPosition; // Posición a la que se moverán los objetos absorbidos
+    public GameObject particulas;
 
     private bool isAbsorbing = false;
 
@@ -28,11 +29,16 @@ public class Absorber : MonoBehaviour
         {
             // Activa el collider de absorción
             GetComponent<SphereCollider>().enabled = true;
+            // Activa el game object de partículas
+            particulas.SetActive(true);
+
         }
         else
         {
             // Desactiva el collider de absorción
             GetComponent<SphereCollider>().enabled = false;
+            // Desactiva el game object de partículas
+            particulas.SetActive(false);
         }
     }
 

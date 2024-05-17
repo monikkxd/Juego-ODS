@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs; // Array de prefabs de obstáculos
     public Transform[] lanes; // Array de transformaciones que marcan los carriles
-    public float spawnInterval = 2f; // Intervalo de generación de obstáculos
+    public float spawnInterval = 5f; // Intervalo de generación de obstáculos
     public float spawnOffset = 5f; // Desplazamiento de la generación de obstáculos
 
     private float timer = 0f;

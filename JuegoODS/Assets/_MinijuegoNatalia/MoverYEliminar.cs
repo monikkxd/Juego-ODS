@@ -5,23 +5,19 @@ using UnityEngine;
 public class MoverYEliminar : MonoBehaviour
 {
     public float speed = 5f; // Velocidad de desplazamiento hacia adelante
-    private Renderer obstacleRenderer;
-
-    void Start()
-    {
-        obstacleRenderer = GetComponent<Renderer>();
-    }
+    public float destroyXPosition = -10f; // Posición en la que se destruirá el objeto
 
     void Update()
     {
         // Desplazamiento hacia adelante
         transform.Translate(Vector3.left * speed * Time.deltaTime); //para pasar al otro lado "right"
 
-        // Si el obstáculo ya no está visible en la pantalla, eliminarlo
-        if (!obstacleRenderer.isVisible)
+        // Si el objeto llega a la posición de destrucción, eliminarlo
+        if (transform.position.x <= destroyXPosition)
         {
             Destroy(gameObject);
         }
     }
 }
+
 
