@@ -40,8 +40,9 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoNatalia();
             }
-            else if (hit.collider.CompareTag("Minijuego Alex"))
+            else if (hit.collider.CompareTag("MinijuegoAlex"))
             {
+                Debug.Log("Cargando Juego Alex");
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
             }
             else if (hit.collider.CompareTag("MinijuegoMonicaG"))
