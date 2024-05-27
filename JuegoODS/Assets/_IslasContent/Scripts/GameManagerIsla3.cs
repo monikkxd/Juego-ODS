@@ -10,13 +10,10 @@ public class GameManagerIsla3 : MonoBehaviour
 
     void Start()
     {
-
-        if (CambioEscenasIslas.previousSceneName == "Minijuego Migui")
+        if (CambioEscenasIslas.previousSceneName == "Minijuego Clara 2")
         {
-            minijuegoClara.SetActive(true);
+            minijuegoMigui.SetActive(true);
         }
-       
-
     }
 
 }

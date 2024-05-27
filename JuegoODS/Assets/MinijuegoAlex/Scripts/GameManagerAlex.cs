@@ -118,15 +118,6 @@ public class GameManagerAlex : MonoBehaviour
         {
             //Lógica cambio de escena
             Debug.Log("Minijuego Completado");
-            if (CambioEscenasIslas.previousSceneName == "PrimeraIsla")
-            {
-                Invoke("CambiarEscenaIsla1", 3f);
-            }
-            if (CambioEscenasIslas.previousSceneName == "SegundaIsla2")
-            {
-                Invoke("CambiarEscenaIsla2", 3f);
-            }
-
         }
     }
 

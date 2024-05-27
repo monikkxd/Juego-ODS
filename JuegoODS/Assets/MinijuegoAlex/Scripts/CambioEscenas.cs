@@ -17,6 +17,6 @@ public class CambioEscenas : MonoBehaviour
 
     public void FinishBoulevar()
     {
-        SceneManager.LoadScene("SeleccionCancion");
+        SceneManager.LoadScene("TerceraIsla");
     }
 }
