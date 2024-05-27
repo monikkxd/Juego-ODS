@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Cliente : MonoBehaviour
 {
-    private string tipoPedido; // Tipo de plato pedido por el cliente
+    private string tipoPedido;
     private bool pedidoCompletado = false;
-    private Vector3 posicionSpawn; // Posición de spawn del cliente
-    public Transform mesaAsignada; // Mesa a la que debe dirigirse el cliente
-    public float velocidadVueltaSpawn = 1f; // Velocidad de regreso al spawn
+    private Vector3 posicionSpawn; 
+    public Transform mesaAsignada; 
+    public float velocidadVueltaSpawn = 1f; 
 
-    public GameObject pedido_1; // Objeto a instanciar para el pedido Plato1
-    public GameObject pedido_2; // Objeto a instanciar para el pedido Plato2
-    public GameObject pedido_3; // Objeto a instanciar para el pedido Plato3
+    public GameObject pedido_1; 
+    public GameObject pedido_2;
+    public GameObject pedido_3; 
 
     private GameManager gameManager;
 
@@ -19,7 +19,6 @@ public class Cliente : MonoBehaviour
 
     private void Start()
     {
-        // Guardar la posición de spawn del cliente
         posicionSpawn = transform.position;
 
         gameManager = FindAnyObjectByType<GameManager>();

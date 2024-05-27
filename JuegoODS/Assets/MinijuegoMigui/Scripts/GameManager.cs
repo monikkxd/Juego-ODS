@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
                 // Detiene el temporizador cuando llega a cero
                 timeRemaining = 0;
                 timerIsRunning = false;
+                winText.SetActive(true);
                 UpdateTimerText();
                 // Aquí puedes añadir cualquier acción a realizar cuando el tiempo llegue a cero
                 Debug.Log("Time has run out!");
