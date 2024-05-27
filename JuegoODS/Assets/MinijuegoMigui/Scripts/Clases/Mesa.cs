@@ -5,6 +5,12 @@ public class Mesa : MonoBehaviour
     public bool clienteEnMesa = false;
     private Cliente clienteActual;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cliente"))
@@ -54,6 +60,7 @@ public class Mesa : MonoBehaviour
         }
         else
         {
+            gameManager.RestarDinero();
             Debug.Log("¡Pedido incorrecto! El cliente no solicitó este tipo de plato.");
         }
 

@@ -11,9 +11,17 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text numeroPedidosText;
 
+    public GameObject winText;
+
+    public TMP_Text timerText; // Referencia al componente de texto en la UI
+    private float timeRemaining = 60f; // Tiempo inicial en segundos
+    private bool timerIsRunning = false;
+
     void Start()
     {
-        numeroPedidosText.text = "Número pedidos realizados : " + numerosPedidos.ToString();
+        timerIsRunning = true;
+
+        numeroPedidosText.text = numerosPedidos.ToString();
         // Buscar todos los objetos en la escena que tengan componentes de platos
         Plato_Class[] platosEnEscena = FindObjectsOfType<Plato_Class>();
 
@@ -30,8 +38,31 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        numeroPedidosText.text = "Número pedidos realizados : " + numerosPedidos.ToString();
+        numeroPedidosText.text = numerosPedidos.ToString();
+
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                // Reduce el tiempo restante en cada frame
+                timeRemaining -= Time.deltaTime;
+                // Asegura que el tiempo no sea menor que cero
+                timeRemaining = Mathf.Clamp(timeRemaining, 0, Mathf.Infinity);
+                // Actualiza el texto de la UI
+                UpdateTimerText();
+            }
+            else
+            {
+                // Detiene el temporizador cuando llega a cero
+                timeRemaining = 0;
+                timerIsRunning = false;
+                UpdateTimerText();
+                // Aquí puedes añadir cualquier acción a realizar cuando el tiempo llegue a cero
+                Debug.Log("Time has run out!");
+            }
+        }
     }
+
 
     private string ObtenerTipoPlato(Plato_Class plato)
     {
@@ -67,8 +98,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SumarPedidosRealizados()
+    public void SumarDinero()
     {
-        numerosPedidos += 1; 
+        numerosPedidos += 5; 
     }
+
+    public void RestarDinero()
+    {
+        numerosPedidos -= 3;
+    }
+
+    private void UpdateTimerText()
+    {
+        // Formatea el tiempo restante en minutos y segundos
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 }

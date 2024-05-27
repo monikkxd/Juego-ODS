@@ -25,10 +25,6 @@ public class Cliente : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
-    private void Update()
-    {
-        
-    }
     public void RealizarPedido()
     {
         // Verificar si ya se ha realizado un pedido
@@ -137,7 +133,7 @@ public class Cliente : MonoBehaviour
         pedidoCompletado = true;
         Debug.Log("¡Pedido completado por el cliente en la mesa!");
 
-        gameManager.SumarPedidosRealizados();
+        gameManager.SumarDinero();
         // Iniciar el movimiento de vuelta al spawn
         StartCoroutine(MoverHaciaSpawn());
     }
