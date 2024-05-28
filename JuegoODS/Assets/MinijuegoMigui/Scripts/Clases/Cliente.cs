@@ -1,27 +1,33 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Cliente : MonoBehaviour
 {
     private string tipoPedido;
     private bool pedidoCompletado = false;
-    private Vector3 posicionSpawn; 
-    public Transform mesaAsignada; 
-    public float velocidadVueltaSpawn = 1f; 
+    private Vector3 posicionSpawn;
+    public Transform mesaAsignada;
+    public float velocidadVueltaSpawn = 1f;
 
-    public GameObject pedido_1; 
+    public GameObject pedido_1;
     public GameObject pedido_2;
-    public GameObject pedido_3; 
+    public GameObject pedido_3;
 
     private GameManager gameManager;
-
-
+    private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
         posicionSpawn = transform.position;
 
         gameManager = FindAnyObjectByType<GameManager>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        if (navMeshAgent == null)
+        {
+            Debug.LogError("NavMeshAgent component is missing on this GameObject.");
+        }
     }
 
     public void RealizarPedido()
@@ -139,16 +145,18 @@ public class Cliente : MonoBehaviour
 
     private IEnumerator MoverHaciaSpawn()
     {
-        while (Vector3.Distance(transform.position, posicionSpawn) > 0.1f)
+        if (navMeshAgent == null)
         {
-            // Calcula la nueva posición interpolada hacia el spawn
-            transform.position = Vector3.Lerp(transform.position, posicionSpawn, velocidadVueltaSpawn * Time.deltaTime);
-
-            yield return null;
+            Debug.LogError("NavMeshAgent component is missing on this GameObject.");
+            yield break;
         }
 
-        // Ajustar la posición exacta al spawn al finalizar
-        transform.position = posicionSpawn;
+        navMeshAgent.SetDestination(posicionSpawn);
+
+        while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+        {
+            yield return null;
+        }
 
         // Limpiar el pedido y reiniciar el cliente
         tipoPedido = null;

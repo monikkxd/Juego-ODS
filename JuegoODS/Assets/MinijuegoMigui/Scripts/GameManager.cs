@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject winText;
 
-    public TMP_Text timerText; // Referencia al componente de texto en la UI
-    private float timeRemaining = 60f; // Tiempo inicial en segundos
+    public TMP_Text timerText; 
+    private float timeRemaining = 60f;
     private bool timerIsRunning = false;
 
     void Start()
@@ -22,10 +23,8 @@ public class GameManager : MonoBehaviour
         timerIsRunning = true;
 
         numeroPedidosText.text = numerosPedidos.ToString();
-        // Buscar todos los objetos en la escena que tengan componentes de platos
         Plato_Class[] platosEnEscena = FindObjectsOfType<Plato_Class>();
 
-        // Recopilar tipos de platos únicos disponibles en la escena
         foreach (var plato in platosEnEscena)
         {
             string tipoPlato = ObtenerTipoPlato(plato);
@@ -44,21 +43,17 @@ public class GameManager : MonoBehaviour
         {
             if (timeRemaining > 0)
             {
-                // Reduce el tiempo restante en cada frame
                 timeRemaining -= Time.deltaTime;
-                // Asegura que el tiempo no sea menor que cero
                 timeRemaining = Mathf.Clamp(timeRemaining, 0, Mathf.Infinity);
-                // Actualiza el texto de la UI
                 UpdateTimerText();
             }
             else
             {
-                // Detiene el temporizador cuando llega a cero
                 timeRemaining = 0;
                 timerIsRunning = false;
                 winText.SetActive(true);
+                Invoke("CargarIsla3", 2f);
                 UpdateTimerText();
-                // Aquí puedes añadir cualquier acción a realizar cuando el tiempo llegue a cero
                 Debug.Log("Time has run out!");
             }
         }
@@ -117,4 +112,8 @@ public class GameManager : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void CargarIsla3()
+    {
+        SceneManager.LoadScene("CallejónMigui");
+    }
 }

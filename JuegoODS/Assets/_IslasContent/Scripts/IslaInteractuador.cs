@@ -65,6 +65,10 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoClara();
             }
+            else if(hit.collider.CompareTag("Mr.Mondongo"))
+            {
+                print("asdasd");
+            }
         }
     }
 }
