@@ -418,6 +418,7 @@ MonoBehaviour:
     type: 3}
   pedido_3: {fileID: 2333964955780960653, guid: 3516e829759f7574e92bcaac25763f62,
     type: 3}
+  animator: {fileID: 2168201288111323407}
 --- !u!195 &7345278031938827089
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -459,7 +460,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}

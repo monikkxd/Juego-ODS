@@ -13,12 +13,15 @@ public class ClienteSpawner : MonoBehaviour
 
     private static readonly System.Random random = new System.Random(System.Environment.TickCount);
 
+
+
     private void Start()
     {
         Shuffle(mesas);
         // Llama a la función SpawnCliente cada cierto intervalo
         InvokeRepeating("SpawnCliente", 0f, spawnInterval);
     }
+   
 
     private void SpawnCliente()
     {

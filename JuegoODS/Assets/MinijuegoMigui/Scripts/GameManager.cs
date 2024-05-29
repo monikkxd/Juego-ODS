@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text numeroPedidosText;
 
-    public GameObject winText;
+    public GameObject winAnimationTransiction;
+    public GameObject diálogoFinal;
+    public GameObject HUD;
 
     public TMP_Text timerText; 
     private float timeRemaining = 60f;
@@ -51,8 +53,10 @@ public class GameManager : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                winText.SetActive(true);
-                Invoke("CargarIsla3", 2f);
+                HUD.SetActive(false);
+                diálogoFinal.SetActive(true);
+                Invoke("ActivarTransición", 7.5f);
+                Invoke("CargarCallejónMigui", 9.5f);
                 UpdateTimerText();
                 Debug.Log("Time has run out!");
             }
@@ -112,8 +116,14 @@ public class GameManager : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void CargarIsla3()
+    public void CargarCallejónMigui()
     {
         SceneManager.LoadScene("CallejónMigui");
+    }
+
+    public void ActivarTransición()
+    {
+        winAnimationTransiction.SetActive(true);
+
     }
 }

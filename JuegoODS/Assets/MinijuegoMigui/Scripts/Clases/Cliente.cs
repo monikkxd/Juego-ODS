@@ -17,6 +17,10 @@ public class Cliente : MonoBehaviour
     private GameManager gameManager;
     private NavMeshAgent navMeshAgent;
 
+    public Animator animator;
+
+    private bool condición = true;
+
     private void Start()
     {
         posicionSpawn = transform.position;
@@ -145,6 +149,8 @@ public class Cliente : MonoBehaviour
 
     private IEnumerator MoverHaciaSpawn()
     {
+        ClienteSeLevanta();
+
         if (navMeshAgent == null)
         {
             Debug.LogError("NavMeshAgent component is missing on this GameObject.");
@@ -163,5 +169,19 @@ public class Cliente : MonoBehaviour
         pedidoCompletado = false;
 
         Debug.Log("Cliente ha vuelto al punto de spawn.");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Mesa") && condición == true)
+        {
+            animator.SetBool("SubirSilla", true);
+        }
+    }
+
+    public void ClienteSeLevanta()
+    {
+        condición = false;
+        animator.SetBool("SubirSilla", false);
     }
 }
