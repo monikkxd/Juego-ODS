@@ -32,7 +32,6 @@ public class Interacter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(interactuador.position, interactuador.forward, out hit, rangoInteraccion))
         {
-            
             if (hit.collider.CompareTag("Interactable"))
             {
                 hit.collider.GetComponent<InteractableObject>().Interactuar();

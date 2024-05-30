@@ -8,7 +8,7 @@ public class ClienteSpawner : MonoBehaviour
     public GameObject clientePrefab;   // Prefab del cliente que quieres instanciar
     public List<Transform> mesas;      // Lista de mesas a las que pueden ir los clientes
     public LayerMask mesaLayer;        // LayerMask para detectar las mesas
-    private float spawnInterval = 20f;   // Intervalo entre instancias de clientes
+    private float spawnInterval = 10f;   // Intervalo entre instancias de clientes
     public float moveSpeed = 5f;       // Velocidad de movimiento del cliente
 
     private static readonly System.Random random = new System.Random(System.Environment.TickCount);
