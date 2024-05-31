@@ -69,6 +69,7 @@ public class GameManagerAlex : MonoBehaviour
         {
             if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy)
             {
+                Debug.Log("Juego Terminado");
                 VentanaResultados.SetActive(true);
 
                 HitText.text = "" + NormalFichas;

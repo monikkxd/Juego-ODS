@@ -45,6 +45,11 @@ public class IslaInteractuador : MonoBehaviour
                 Debug.Log("Cargando Juego Alex");
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
             }
+            else if (hit.collider.CompareTag("MinijuegoAlex2"))
+            {
+                Debug.Log("Cargando Juego Alex");
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex2();
+            }
             else if (hit.collider.CompareTag("MinijuegoMonicaG"))
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoMonicaG();

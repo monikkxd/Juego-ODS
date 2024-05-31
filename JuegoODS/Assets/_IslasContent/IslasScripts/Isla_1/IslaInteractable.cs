@@ -19,6 +19,10 @@ public class IslaInteractable : MonoBehaviour
     {
         SceneManager.LoadScene("MinijuegoAlex");
     }
+    public void CargarMinijuegoAlex2()
+    {
+        SceneManager.LoadScene("MinijuegoAlex2");
+    }
     public void CargarMinijuegoHugo()
     {
         SceneManager.LoadScene("MinijuegoHugo");
