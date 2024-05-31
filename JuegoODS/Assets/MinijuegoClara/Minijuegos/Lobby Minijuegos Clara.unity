@@ -917,6 +917,7 @@ PrefabInstance:
     - {fileID: 7747728280318230141, guid: 5e851086c871f1e47897148ab231911a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1419540833595178531, guid: 5e851086c871f1e47897148ab231911a, type: 3}
+    - {fileID: 1934834760190031658, guid: 5e851086c871f1e47897148ab231911a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8133153043183167089, guid: 5e851086c871f1e47897148ab231911a,
@@ -942,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ef4035b4f2a1a409646ae2d704216c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangoInteraccion: 2
+  "transici\xF3n": {fileID: 1786352984}
 --- !u!1 &813148421
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,8 +973,8 @@ Transform:
   m_GameObject: {fileID: 813148421}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.94080096, z: -0.3389596, w: 0}
-  m_LocalPosition: {x: 1.7919581, y: -0.12644006, z: 0.148}
-  m_LocalScale: {x: 0.26882216, y: 0.15636468, z: 0.15636466}
+  m_LocalPosition: {x: 1.76, y: -0.12644006, z: 0.148}
+  m_LocalScale: {x: 0.20520204, y: 0.1826529, z: 0.1836259}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1702478038}
