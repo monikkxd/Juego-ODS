@@ -12,11 +12,33 @@ public class GameManagerHugo : MonoBehaviour
 
     public GameObject activador;
 
+    public GameObject SueloVerde;
+
+    public GameObject Vegetación;
+
+    public GameObject tuto;
+
+    public Animator animator_1;
+    public Animator animator_2;
+    public Animator animator_3;
+    public Animator animator_4;
+
+    private void Start()
+    {
+        Invoke("ActivarTuto", 2f);
+        Invoke("DesactivarTuto", 6f);
+    }
     private void Update()
     {
         if (activador.gameObject.activeSelf)
         {
             StartCoroutine(IncreaseWeight());
+            SueloVerde.SetActive(true);
+            Vegetación.SetActive(true);
+            animator_1.enabled = true;
+            animator_2.enabled = true;
+            animator_3.enabled = true;
+            animator_4.enabled = true;
         }
     }
 
@@ -45,5 +67,15 @@ public class GameManagerHugo : MonoBehaviour
         }
         greenFilter.weight = 0.75f;
         greyFilter.weight = 0f;
+    }
+
+    void ActivarTuto()
+    {
+        tuto.SetActive(true);
+    }
+
+    void DesactivarTuto()
+    {
+        tuto.SetActive(false);
     }
 }
