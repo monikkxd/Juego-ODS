@@ -5,19 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
 {
-    public GameObject transiciónPrefab;
+    public Animator transiciónPrefab;
+
+    private void Start()
+    {
+        transiciónPrefab.enabled = false;
+    }
     public void Jugar()
     {
-        transiciónPrefab.SetActive(true);
-        Invoke("CargarPrimeraIsla", 2f);
+        transiciónPrefab.enabled = true;
+        Invoke("CargarCinemáticaInicial", 2f);
     }
     public void Salir()
     {
         Application.Quit();
     }
-    public void CargarPrimeraIsla()
+    public void CargarCinemáticaInicial()
     {
-        SceneManager.LoadScene("PrimeraIsla");
+        SceneManager.LoadScene("CinemáticaInicial");
     }
 
 }

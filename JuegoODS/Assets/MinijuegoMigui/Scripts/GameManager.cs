@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void SumarDinero()
     {
-        numerosPedidos += 50; 
+        numerosPedidos += Random.Range(60, 75); 
     }
 
     public void RestarDinero()
