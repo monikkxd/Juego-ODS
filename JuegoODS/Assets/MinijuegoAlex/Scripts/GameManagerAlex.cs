@@ -39,6 +39,14 @@ public class GameManagerAlex : MonoBehaviour
 
     public BarraPuntuaciónScritp barraPuntuaciónScritp;
 
+    public Slider barraProgresionSlider; 
+    private float tiempoTotal = 140f; 
+    private float tiempoTranscurrido = 0f;
+
+    private bool JuegoEmpezado = false;
+
+    public GameObject bateríaCargada;
+
     void Start()
     {
         instance = this;
@@ -49,11 +57,21 @@ public class GameManagerAlex : MonoBehaviour
 
         TotalFichas = FindObjectsOfType<FichasObject>().Length;
         barraPuntuaciónScritp.SetMaxValueSlider(60000);
+        barraProgresionSlider.value = 0;
+        barraProgresionSlider.maxValue = 100;
     }
 
 
     void Update()
     {
+        if(JuegoEmpezado)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            float valorActual = Mathf.Clamp((tiempoTranscurrido / tiempoTotal) * 100, 0, 100);
+            barraProgresionSlider.value = valorActual;
+        }
+        
+
         if (!Empezarmusica)
         {
             if (Input.anyKeyDown)
@@ -61,6 +79,7 @@ public class GameManagerAlex : MonoBehaviour
                 Destroy(PressButtonStart);
                 Empezarmusica = true;
                 bs.StartGame = true;
+                JuegoEmpezado = true;
 
                 Musica.Play();
             }
@@ -117,7 +136,7 @@ public class GameManagerAlex : MonoBehaviour
 
         if(PuntosActuales >= 60000)
         {
-            //Lógica cambio de escena
+            bateríaCargada.SetActive(true);
             Debug.Log("Minijuego Completado");
         }
     }

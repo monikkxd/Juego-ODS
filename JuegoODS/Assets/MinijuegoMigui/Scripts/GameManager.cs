@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor.PackageManager;
 public class GameManager : MonoBehaviour
 {
     private List<string> tiposDePlatoDisponibles = new List<string>();
@@ -20,8 +21,16 @@ public class GameManager : MonoBehaviour
     private float timeRemaining = 60f;
     private bool timerIsRunning = false;
 
+    public GameObject tiempo;
+    public GameObject clientes;
+    public GameObject cocineros;
+    public GameObject tuto;
+
     void Start()
     {
+
+        Invoke("ComenzarMinijuego", 6f);
+        tuto.SetActive(true); 
         timerIsRunning = true;
 
         numeroPedidosText.text = numerosPedidos.ToString();
@@ -56,7 +65,7 @@ public class GameManager : MonoBehaviour
                 HUD.SetActive(false);
                 diálogoFinal.SetActive(true);
                 Invoke("ActivarTransición", 7.5f);
-                Invoke("CargarCallejónMigui", 9.5f);
+                Invoke("CargarCallejónMigui", 10.5f);
                 UpdateTimerText();
                 Debug.Log("Time has run out!");
             }
@@ -100,12 +109,12 @@ public class GameManager : MonoBehaviour
 
     public void SumarDinero()
     {
-        numerosPedidos += 5; 
+        numerosPedidos += 50; 
     }
 
     public void RestarDinero()
     {
-        numerosPedidos -= 3;
+        numerosPedidos -= 25;
     }
 
     private void UpdateTimerText()
@@ -125,5 +134,13 @@ public class GameManager : MonoBehaviour
     {
         winAnimationTransiction.SetActive(true);
 
+    }
+
+    void ComenzarMinijuego()
+    {
+        tiempo.SetActive(true);
+        clientes.SetActive(true);
+        cocineros.SetActive(true);
+        tuto.SetActive(false);
     }
 }
