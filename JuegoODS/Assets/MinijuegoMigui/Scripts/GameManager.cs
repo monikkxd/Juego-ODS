@@ -25,12 +25,18 @@ public class GameManager : MonoBehaviour
     public GameObject clientes;
     public GameObject cocineros;
     public GameObject tuto;
+    public GameObject cámaraBarra;
+    public GameObject dinero;
+    public GameObject dinero2;
 
     void Start()
     {
+        cámaraBarra.SetActive(false);
+        dinero.SetActive(false);
+        dinero2.SetActive(false);
 
         Invoke("ComenzarMinijuego", 6f);
-        tuto.SetActive(true); 
+        Invoke("ActivarTuto", 1f); 
         timerIsRunning = true;
 
         numeroPedidosText.text = numerosPedidos.ToString();
@@ -142,5 +148,13 @@ public class GameManager : MonoBehaviour
         clientes.SetActive(true);
         cocineros.SetActive(true);
         tuto.SetActive(false);
+        cámaraBarra.SetActive(true);
+        dinero.SetActive(true);
+        dinero2.SetActive(true);
+    }
+
+    void ActivarTuto()
+    {
+        tuto.SetActive(true);
     }
 }

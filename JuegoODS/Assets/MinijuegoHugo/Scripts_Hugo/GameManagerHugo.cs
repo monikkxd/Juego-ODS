@@ -23,6 +23,8 @@ public class GameManagerHugo : MonoBehaviour
     public Animator animator_3;
     public Animator animator_4;
 
+
+
     private void Start()
     {
         Invoke("ActivarTuto", 2f);
@@ -39,6 +41,8 @@ public class GameManagerHugo : MonoBehaviour
             animator_2.enabled = true;
             animator_3.enabled = true;
             animator_4.enabled = true;
+
+
         }
     }
 

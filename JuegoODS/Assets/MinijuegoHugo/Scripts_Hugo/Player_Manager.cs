@@ -7,6 +7,7 @@ public class Player_Manager : MonoBehaviour
 {
     public List<GameObject> gameObjectList = new List<GameObject>();
     public GameObject activador;
+    public GameObject transición;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class Player_Manager : MonoBehaviour
             {
                 gameObjectList[i].SetActive(false);
             }
+            transición.SetActive(true);
             Invoke("CambiarEscena", 6f);
         }
     }

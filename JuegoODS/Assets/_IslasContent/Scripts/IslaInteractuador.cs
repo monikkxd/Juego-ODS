@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IslaInteractuador : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class IslaInteractuador : MonoBehaviour
 
     // Rango de interacción
     public float rangoInteraccion = 2f;
+
+    public GameObject transición;
+    public GameObject diálogo;
 
     void Start()
     {
@@ -72,8 +76,19 @@ public class IslaInteractuador : MonoBehaviour
             }
             else if(hit.collider.CompareTag("Mr.Mondongo"))
             {
-                print("asdasd");
+                diálogo.SetActive(true);
+                Invoke("Transición", 2f);
+                Invoke("CambioEscena", 4.5f);
             }
         }
+    }
+
+    void Transición()
+    {
+        transición.SetActive(true);
+    }
+    void CambioEscena()
+    {
+        SceneManager.LoadScene("TerceraIsla2");
     }
 }

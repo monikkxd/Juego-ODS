@@ -6,24 +6,28 @@ public class CogerPlatos : MonoBehaviour
 {
     public GameObject whatCanIPickUp;
     public GameObject holder;
-    private bool holdingPlate = false; // Variable para rastrear si se está sosteniendo un plato
+    private bool holdingPlate = false; 
+
+    public Animator anim;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!holdingPlate && whatCanIPickUp != null) // Solo permitir recoger si no se está sosteniendo un plato y hay un plato disponible
+            if (!holdingPlate && whatCanIPickUp != null) 
             {
                 PickUpObject();
-                holdingPlate = true; // Ahora se está sosteniendo un plato
+                holdingPlate = true;
+                anim.SetBool("hasPlate", true);
             }
-            else if (holdingPlate) // Si ya se está sosteniendo un plato
+            else if (holdingPlate) 
             {
                 GameObject detectedTable = GetDetectedTable();
                 if (detectedTable != null)
                 {
                     DepositObject(detectedTable);
-                    holdingPlate = false; // Se depositó el plato, ya no se está sosteniendo
+                    holdingPlate = false;
+                    anim.SetBool("hasPlate", false);
                 }
             }
         }
@@ -41,19 +45,17 @@ public class CogerPlatos : MonoBehaviour
     void PickUpObject()
     {
         whatCanIPickUp.transform.SetParent(holder.transform);
-        whatCanIPickUp.transform.localPosition = Vector3.zero; // Ajusta la posición local al centro del holder
+        whatCanIPickUp.transform.localPosition = Vector3.zero;
     }
 
     void DepositObject(GameObject table)
     {
-        Vector3 depositPosition = new Vector3(0.0f, 0.3f, 0.0f); // Posición local en la mesa
+        Vector3 depositPosition = new Vector3(0.0f, 0.3f, 0.0f); 
 
         whatCanIPickUp.transform.SetParent(table.transform);
         whatCanIPickUp.transform.localPosition = depositPosition;
 
-        // Agrega cualquier lógica adicional al depositar el objeto
-
-        whatCanIPickUp = null; // Limpiar la referencia al plato que se depositó
+        whatCanIPickUp = null; 
     }
 
     GameObject GetDetectedTable()

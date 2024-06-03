@@ -1,35 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class IslaInteractable : MonoBehaviour
 {
     public GameObject boolMinijuego1;
+
+    public GameObject transición;
     public void CargarMinijuegoNatalia()
     {
         boolMinijuego1.SetActive(true);
-        SceneManager.LoadScene("_MontajeEscenaNatalia");
+        Invoke("CagarNatalia", 2.5f);
     }
     public void CargarMinijuegoAndrea()
     {
-        SceneManager.LoadScene("_MontajeEscenaAndrea");
+        transición.SetActive(true);
+        Invoke("CargarAndrea", 2.5f);
     }
     public void CargarMinijuegoAlex()
     {
-        SceneManager.LoadScene("MinijuegoAlex");
+        transición.SetActive(true);
+        Invoke("CagarAlex", 2.5f);
     }
     public void CargarMinijuegoAlex2()
     {
-        SceneManager.LoadScene("MinijuegoAlex2");
+        transición.SetActive(true);
+        Invoke("CagarAlex2", 2.5f);
     }
     public void CargarMinijuegoHugo()
     {
-        SceneManager.LoadScene("MinijuegoHugo");
+        transición.SetActive(true);
+        Invoke("CagarHugo", 2.5f);
     }
     public void CargarMinijuegoMonicaG()
     {
-        SceneManager.LoadScene("_testmonicag");
+        transición.SetActive(true);
+        Invoke("CagarMónicaG", 2.5f);
     }
     public void CargarMinijuegoMario()
     {
@@ -37,10 +45,51 @@ public class IslaInteractable : MonoBehaviour
     }
     public void CargarMinijuegoMigui()
     {
-        SceneManager.LoadScene("Minijuego Migui");
+        transición.SetActive(true);
+        Invoke("CagarMigui", 2.5f);
     }
     public void CargarMinijuegoClara()
     {
+        transición.SetActive(true);
+        Invoke("CagarMigui", 2.5f);
+    }
+
+    void CagarMigui()
+    {
+        SceneManager.LoadScene("Minijuego Migui");
+    }
+    void CagarHugo()
+    {
+        SceneManager.LoadScene("MinijuegoHugo");
+    }
+    void CagarMoni()
+    {
+
+    }
+    void CagarAlex()
+    {
+        SceneManager.LoadScene("MinijuegoAlex");
+    }
+    void CagarAlex2()
+    {
+        SceneManager.LoadScene("MinijuegoAlex2");
+    }
+    
+    void CagarMónicaG()
+    {
+        SceneManager.LoadScene("_testmonicag");
+    }
+    void CagarNatalia()
+    {
+        SceneManager.LoadScene("_MontajeEscenaNatalia");
+    }
+    void CagarClara()
+    {
         SceneManager.LoadScene("Minijuego Clara");
     }
+    void CargarAndrea()
+    {
+        SceneManager.LoadScene("_MontajeEscenaAndrea");
+    }
+    
 }
