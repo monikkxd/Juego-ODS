@@ -25,13 +25,19 @@ public class Player_Manager : MonoBehaviour
             {
                 gameObjectList[i].SetActive(false);
             }
-            transición.SetActive(true);
-            Invoke("CambiarEscena", 6f);
+           
+            Invoke("ActivarTransición", 2f);
+            Invoke("CambiarEscena", 4.5f);
         }
     }
 
     void CambiarEscena()
     {
         SceneManager.LoadScene("SegundaIsla2");
+    }
+
+    void ActivarTransición()
+    {
+        transición.SetActive(true);
     }
 }

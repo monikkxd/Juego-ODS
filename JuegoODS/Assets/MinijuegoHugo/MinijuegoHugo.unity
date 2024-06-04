@@ -8496,6 +8496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Transici\xF3n_In_Superman"
       objectReference: {fileID: 0}
+    - target: {fileID: 5780573933855392800, guid: badf14027adcd9e48b53131c77a4e73f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6275557214468463894, guid: badf14027adcd9e48b53131c77a4e73f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -23311,7 +23316,7 @@ MonoBehaviour:
   - {fileID: 535035451}
   - {fileID: 730806584}
   activador: {fileID: 551545284}
-  "transici\xF3n": {fileID: 0}
+  "transici\xF3n": {fileID: 2070004288}
 --- !u!4 &1948779835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8341697324239346405, guid: 3eea42a55b2364f46b2a9ea096ecc9a1,
@@ -24503,6 +24508,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 953773296}
+--- !u!1 &2070004288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5780573933855392800, guid: badf14027adcd9e48b53131c77a4e73f,
+    type: 3}
+  m_PrefabInstance: {fileID: 676031676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2075208424
 PrefabInstance:
   m_ObjectHideFlags: 0
