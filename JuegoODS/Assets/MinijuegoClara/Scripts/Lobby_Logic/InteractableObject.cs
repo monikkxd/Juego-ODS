@@ -5,15 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class InteractableObject : MonoBehaviour
 {
-    public GameObject Transición;
     public void Interactuar()
     {
-        Transición.SetActive(true);
-        Invoke("CargarMinijuego", 3f);
-    }
-
-    public void CargarMinijuego()
-    {
-        SceneManager.LoadScene("Minijuego Clara");
+        SceneManager.LoadScene("MinigameSelectionClara");
+        Debug.Log("Interactuando con: " + gameObject.name);
     }
 }

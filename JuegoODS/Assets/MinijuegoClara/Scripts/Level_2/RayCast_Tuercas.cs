@@ -22,8 +22,6 @@ public class RayCast_Tuercas : MonoBehaviour
     [Header("Color Victoria")]
     public Color colorAUsar = Color.red;
 
-    public GameObject transición;
-
     void Update()
     {
         PerformRaycastAndCountLocks(childObject1);
@@ -59,8 +57,7 @@ public class RayCast_Tuercas : MonoBehaviour
                 {
                     Debug.Log("¡Victoria!");
                     PintarObjeto(colorAUsar);
-                    Invoke("IniciarTransición", 2f);                    
-                    Invoke("CambioEscena", 4f);                    
+                    Invoke("CambioEscena", 2f);                    
                 }
             }
 
@@ -95,11 +92,6 @@ public class RayCast_Tuercas : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("TerceraIsla2");
-    }
-
-    void IniciarTransición()
-    {
-        transición.SetActive(true);
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
 }

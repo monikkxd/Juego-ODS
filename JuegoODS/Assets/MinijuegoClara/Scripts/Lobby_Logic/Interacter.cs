@@ -1,46 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Interacter : MonoBehaviour
 {
     private Transform interactuador;
 
-    private bool tocandoBotón = false;
+    // Rango de interacción
+    public float rangoInteraccion = 2f;
 
-    public GameObject transición;
+    void Start()
+    {
+        interactuador = transform.Find("Interactuador");
+
+        if (interactuador == null)
+        {
+            Debug.LogError("No se encontró el objeto interactuador. Asegúrate de que el nombre del hijo sea 'Interactuador'.");
+        }
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && tocandoBotón)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            transición.SetActive(true);
-            Invoke("Interactuar", 2f);
+            Interactuar();
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Interactable"))
-        {
-            tocandoBotón = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Interactable"))
-        {
-            tocandoBotón = false;
-        }
-    }
-
 
     void Interactuar()
     {
-        SceneManager.LoadScene("MinigameSelectionClara");
+        RaycastHit hit;
+        if (Physics.Raycast(interactuador.position, interactuador.forward, out hit, rangoInteraccion))
+        {
+            
+            if (hit.collider.CompareTag("Interactable"))
+            {
+                hit.collider.GetComponent<InteractableObject>().Interactuar();
+            }
+        }
     }
 }

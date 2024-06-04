@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player_Manager : MonoBehaviour
 {
     public List<GameObject> gameObjectList = new List<GameObject>();
     public GameObject activador;
-    public GameObject transición;
 
     private void Start()
     {
@@ -25,19 +23,8 @@ public class Player_Manager : MonoBehaviour
             {
                 gameObjectList[i].SetActive(false);
             }
-           
-            Invoke("ActivarTransición", 2f);
-            Invoke("CambiarEscena", 4.5f);
+
         }
-    }
-
-    void CambiarEscena()
-    {
-        SceneManager.LoadScene("SegundaIsla2");
-    }
-
-    void ActivarTransición()
-    {
-        transición.SetActive(true);
+        
     }
 }

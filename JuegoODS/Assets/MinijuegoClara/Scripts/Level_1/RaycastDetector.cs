@@ -59,6 +59,6 @@ public class RaycastDetector : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("Minijuego Clara 2");
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
 }

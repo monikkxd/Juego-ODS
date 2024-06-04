@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CambioEscenas : MonoBehaviour
 {
-    public GameObject transición;
     public void ElegirCanción()
     {
         SceneManager.LoadScene("SeleccionCancion");
@@ -18,22 +17,6 @@ public class CambioEscenas : MonoBehaviour
 
     public void FinishBoulevar()
     {
-        SceneManager.LoadScene("TerceraIsla");
+        SceneManager.LoadScene("SeleccionCancion");
     }
-    public void FinishBoulevar2()
-    {
-        SceneManager.LoadScene("SegundaIsla");
-    }
-    public void Cargarisla2()
-    {
-        transición.SetActive(true);
-        Invoke("FinishBoulevar2", 2.5f);
-    }
-    public void Cargarisla3()
-    {
-        transición.SetActive(true);
-        Invoke("FinishBoulevar", 2.5f);
-    }
-
-    
 }
