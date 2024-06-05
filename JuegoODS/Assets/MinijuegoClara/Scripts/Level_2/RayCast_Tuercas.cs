@@ -59,8 +59,8 @@ public class RayCast_Tuercas : MonoBehaviour
                 {
                     Debug.Log("¡Victoria!");
                     PintarObjeto(colorAUsar);
-                    Invoke("IniciarTransición", 2f);                    
-                    Invoke("CambioEscena", 4f);                    
+                    IniciarTransición();                    
+                    Invoke("CambioEscena", 11f);                    
                 }
             }
 
@@ -95,7 +95,7 @@ public class RayCast_Tuercas : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("TerceraIsla2");
+        SceneManager.LoadScene("MinigameSelectionClara 3");
     }
 
     void IniciarTransición()

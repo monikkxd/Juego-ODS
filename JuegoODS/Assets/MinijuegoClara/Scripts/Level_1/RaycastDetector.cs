@@ -14,6 +14,7 @@ public class RaycastDetector : MonoBehaviour
     [Header("Configuración Raycast 2")]
     public Vector3 raycastDirection2 = Vector3.forward;
     public float raycastDistance2 = 5f;
+    public GameObject transiciónFinal;
 
 
     void Update()
@@ -25,7 +26,8 @@ public class RaycastDetector : MonoBehaviour
         if (detectedByRaycast1 && detectedByRaycast2)
         {
             Debug.Log("¡Victoria!");
-            Invoke("CambioEscena", 2f);
+            transiciónFinal.SetActive(true);
+            Invoke("CambioEscena", 9f);
         }
     }
 
@@ -59,6 +61,6 @@ public class RaycastDetector : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("Minijuego Clara 2");
+        SceneManager.LoadScene("MinigameSelectionClara 2");
     }
 }

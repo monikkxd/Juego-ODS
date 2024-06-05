@@ -26,6 +26,8 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
 
     private Color originalColor;
 
+    public GameObject Tuto;
+
     
 
     void Start()
@@ -36,7 +38,7 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
         SelectTop();
         originalColor = rubikCube.GetComponent<Renderer>().material.color;
 
-        
+        Invoke("DesactivarTuto", 5f);
     }
 
     
@@ -305,5 +307,9 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
         onRotationComplete?.Invoke();
     }
 
+    void DesactivarTuto()
+    {
+        Tuto.SetActive(false);
+    }
     
 }

@@ -39,14 +39,21 @@ public class GameManagerAlex : MonoBehaviour
 
     public BarraPuntuaciónScritp barraPuntuaciónScritp;
 
-    public Slider barraProgresionSlider; 
-    private float tiempoTotal = 140f; 
+    public Slider barraProgresionSlider;
+    private float tiempoTotal = 140f;
     private float tiempoTranscurrido = 0f;
 
-    private bool JuegoEmpezado = false;
+    private bool juegoEmpezado = false;
 
     public GameObject bateríaCargada;
+    public GameObject tuto;
+    public GameObject imagenFlor;
 
+    public int PuntuaciónMínima;
+
+    public string EscenaSiguiente;
+
+    private bool ResultadosActivados = true;
     void Start()
     {
         instance = this;
@@ -57,6 +64,7 @@ public class GameManagerAlex : MonoBehaviour
 
         TotalFichas = FindObjectsOfType<FichasObject>().Length;
         barraPuntuaciónScritp.SetMaxValueSlider(60000);
+
         barraProgresionSlider.value = 0;
         barraProgresionSlider.maxValue = 100;
     }
@@ -64,31 +72,28 @@ public class GameManagerAlex : MonoBehaviour
 
     void Update()
     {
-        if(JuegoEmpezado)
+        if (juegoEmpezado == true)
         {
             tiempoTranscurrido += Time.deltaTime;
             float valorActual = Mathf.Clamp((tiempoTranscurrido / tiempoTotal) * 100, 0, 100);
             barraProgresionSlider.value = valorActual;
         }
-        
-
         if (!Empezarmusica)
         {
             if (Input.anyKeyDown)
             {
                 Destroy(PressButtonStart);
                 Empezarmusica = true;
+                juegoEmpezado = true;
                 bs.StartGame = true;
-                JuegoEmpezado = true;
 
                 Musica.Play();
             }
         }
         else
         {
-            if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy)
+            if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy && ResultadosActivados)
             {
-                Debug.Log("Juego Terminado");
                 VentanaResultados.SetActive(true);
 
                 HitText.text = "" + NormalFichas;
@@ -131,13 +136,14 @@ public class GameManagerAlex : MonoBehaviour
                 RankText.text = RankVal;
 
                 PuntuacionFinalText.text = PuntosActuales.ToString();
+
+                Invoke("FinalDeJuego", 4f);
             }
         }
 
-        if(PuntosActuales >= 60000)
+        if (PuntosActuales >= PuntuaciónMínima)
         {
             bateríaCargada.SetActive(true);
-            Debug.Log("Minijuego Completado");
         }
     }
 
@@ -196,13 +202,21 @@ public class GameManagerAlex : MonoBehaviour
         MissFichas++;
     }
 
-    private void CambiarEscenaIsla1()
+    void FinalDeJuego()
     {
-        SceneManager.LoadScene("SegundaIsla");
+        tuto.SetActive(true);
+        ResultadosActivados = false;
+        VentanaResultados.SetActive(false);
+        Invoke("ActivarFlor", 4f);
     }
-    private void CambiarEscenaIsla2()
+    void ActivarFlor()
     {
-        SceneManager.LoadScene("TerceraIsla");
+        imagenFlor.SetActive(true);
+        Invoke("CambioEscena", 4f);
     }
 
+    void CambioEscena()
+    {
+        SceneManager.LoadScene(EscenaSiguiente);
+    }
 }
