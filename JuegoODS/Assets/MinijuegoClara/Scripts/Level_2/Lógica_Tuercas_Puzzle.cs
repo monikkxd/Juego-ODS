@@ -49,9 +49,9 @@ public class Lógica_Tuercas_Puzzle : MonoBehaviour
             ChangeSelection(1);
         }
 
-        if (!isRotating && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E)))
+        if (!isRotating && (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.E)))
         {
-            targetRotation = selectableObjects[selectedIndex].eulerAngles.y + (Input.GetKeyDown(KeyCode.Q) ? -90f : 90f);
+            targetRotation = selectableObjects[selectedIndex].eulerAngles.y + (Input.GetKeyDown(KeyCode.R) ? -90f : 90f);
             StartCoroutine(RotateObject());
         }
     }

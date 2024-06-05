@@ -51,7 +51,7 @@ public class IslaInteractable : MonoBehaviour
     public void CargarMinijuegoClara()
     {
         transición.SetActive(true);
-        Invoke("CagarMigui", 2.5f);
+        Invoke("CagarClara", 2.5f);
     }
 
     void CagarMigui()
@@ -85,7 +85,7 @@ public class IslaInteractable : MonoBehaviour
     }
     void CagarClara()
     {
-        SceneManager.LoadScene("Minijuego Clara");
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
     void CargarAndrea()
     {

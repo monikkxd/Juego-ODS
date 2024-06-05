@@ -14,6 +14,6 @@ public class InteractableObject : MonoBehaviour
 
     public void CargarMinijuego()
     {
-        SceneManager.LoadScene("Minijuego Clara");
+        SceneManager.LoadScene("MinigameSelectionClara");
     }
 }

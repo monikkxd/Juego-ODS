@@ -66,7 +66,7 @@ public class Lógica_Cubo_Puzzle : MonoBehaviour
         {
             SelectRight();
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             SelectFront();
         }

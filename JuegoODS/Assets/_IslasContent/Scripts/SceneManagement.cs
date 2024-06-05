@@ -7,6 +7,7 @@ public class SceneManagement : MonoBehaviour
 {
     public GameObject transición1;
     public GameObject transición2;
+    public GameObject transición3;
 
     private void LoadLevel1Clara()
     {
@@ -20,7 +21,7 @@ public class SceneManagement : MonoBehaviour
 
     private void LoadLevel3Clara()
     {
-        Debug.Log("Falta por asignar una escena");
+        SceneManager.LoadScene("TerceraIsla");
     }
 
     public void CargarMinijuego1()
@@ -32,5 +33,10 @@ public class SceneManagement : MonoBehaviour
     {
         transición2.SetActive(true);
         Invoke("LoadLevel2Clara", 2f);
+    }
+    public void CargarIsla()
+    {
+        transición3.SetActive(true);
+        Invoke("LoadLevel3Clara", 2f);
     }
 }

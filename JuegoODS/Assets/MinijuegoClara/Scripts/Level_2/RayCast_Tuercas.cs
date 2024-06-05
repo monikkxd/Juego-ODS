@@ -58,9 +58,9 @@ public class RayCast_Tuercas : MonoBehaviour
                 if (lockCountForObject1 >= 3)
                 {
                     Debug.Log("¡Victoria!");
-                    PintarObjeto(colorAUsar);
-                    IniciarTransición();                    
-                    Invoke("CambioEscena", 11f);                    
+                    PintarObjeto(colorAUsar);                   
+                    Invoke("IniciarTransición", 1f);                    
+                    Invoke("CambioEscena", 12f);                    
                 }
             }
 
@@ -95,7 +95,7 @@ public class RayCast_Tuercas : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("MinigameSelectionClara 3");
+        SceneManager.LoadScene("MinigameSelectionClara3");
     }
 
     void IniciarTransición()

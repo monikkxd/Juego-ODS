@@ -322,14 +322,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eder_Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 5894975869677034643, guid: 93e29fe709d6be140917f78c210dd3b4,
+        type: 3}
+      propertyPath: "di\xE1logo"
+      value: 
+      objectReference: {fileID: 2138343193}
+    - target: {fileID: 5894975869677034643, guid: 93e29fe709d6be140917f78c210dd3b4,
+        type: 3}
+      propertyPath: "transici\xF3n"
+      value: 
+      objectReference: {fileID: 1786352984}
+    m_RemovedComponents:
+    - {fileID: 3054007570837664870, guid: 93e29fe709d6be140917f78c210dd3b4, type: 3}
+    - {fileID: 5894975869677034643, guid: 93e29fe709d6be140917f78c210dd3b4, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3865156448052207385, guid: 93e29fe709d6be140917f78c210dd3b4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 782314307604315240, guid: 93e29fe709d6be140917f78c210dd3b4,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1445895402}
+      addedObject: {fileID: 1445895401}
   m_SourcePrefab: {fileID: 100100000, guid: 93e29fe709d6be140917f78c210dd3b4, type: 3}
 --- !u!1 &460956811
 GameObject:
@@ -891,7 +904,7 @@ GameObject:
   - component: {fileID: 813148423}
   m_Layer: 0
   m_Name: "Bot\xF3n Interact (1)"
-  m_TagString: MinijuegoClara
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1136,7 +1149,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 211057733}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1445895402
+--- !u!114 &1445895401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
