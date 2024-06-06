@@ -11051,7 +11051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &850363525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13742,7 +13742,7 @@ PrefabInstance:
     - target: {fileID: 659323249362228529, guid: 4115098a8d2fcda4c9c530b46f182656,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6479338382542904425, guid: 4115098a8d2fcda4c9c530b46f182656,
         type: 3}
@@ -23565,7 +23565,7 @@ MonoBehaviour:
   - {fileID: 730806584}
   activador: {fileID: 551545284}
   "transici\xF3n": {fileID: 2070004288}
-  "transici\xF3nFinal": {fileID: 0}
+  "transici\xF3nFinal": {fileID: 1515611150}
   audioSource: {fileID: 1729732505}
 --- !u!4 &1948779835 stripped
 Transform:

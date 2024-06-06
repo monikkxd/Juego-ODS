@@ -1,10 +1,8 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEditor.PackageManager;
 public class GameManager : MonoBehaviour
 {
     private List<string> tiposDePlatoDisponibles = new List<string>();

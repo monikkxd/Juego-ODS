@@ -22,7 +22,7 @@ public class Player_Manager : MonoBehaviour
         {
             audioSource.SetActive(false);
             activador.SetActive(true);
-            //transiciónFinal.SetActive(true);
+            transiciónFinal.SetActive(true);
 
 
             for(int i = 0; i < gameObjectList.Count; i++)
@@ -30,8 +30,8 @@ public class Player_Manager : MonoBehaviour
                 gameObjectList[i].SetActive(false);
             }
            
-            Invoke("ActivarTransición", 2f);
-            Invoke("CambiarEscena", 4.5f);
+            Invoke("ActivarTransición", 3f);
+            Invoke("CambiarEscena", 5.5f);
         }
     }
 

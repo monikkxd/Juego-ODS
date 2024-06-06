@@ -7,6 +7,6 @@ public class CinemáticaManager : MonoBehaviour
 {
     public void CargarIsla1()
     {
-        SceneManager.LoadScene("PrimeraIsla");
+        SceneManager.LoadScene("PrimeraIsla3");
     }
 }

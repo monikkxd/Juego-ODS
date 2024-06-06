@@ -185,68 +185,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6738792}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &56662713
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 56662714}
-  - component: {fileID: 56662716}
-  - component: {fileID: 56662715}
-  m_Layer: 0
-  m_Name: Silla
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &56662714
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56662713}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.503, y: 0, z: 0.79}
-  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 776305761}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &56662715
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56662713}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &56662716
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56662713}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &81671799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,6 +2309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Transici\xF3n_Out_Estrella"
       objectReference: {fileID: 0}
+    - target: {fileID: 659323249362228529, guid: 4115098a8d2fcda4c9c530b46f182656,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6479338382542904425, guid: 4115098a8d2fcda4c9c530b46f182656,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2887,9 +2830,7 @@ MonoBehaviour:
   - {fileID: 459436913}
   - {fileID: 483432194}
   - {fileID: 1357563764}
-  - {fileID: 56662714}
   - {fileID: 1842623556}
-  - {fileID: 950591269}
   - {fileID: 1480505052}
   - {fileID: 1917119912}
   - {fileID: 1808889069}
@@ -3445,9 +3386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.94794}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 56662714}
   - {fileID: 1842623556}
-  - {fileID: 950591269}
   - {fileID: 1480505052}
   m_Father: {fileID: 389054241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3883,68 +3822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clienteEnMesa: 0
---- !u!1 &950591268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 950591269}
-  - component: {fileID: 950591271}
-  - component: {fileID: 950591270}
-  m_Layer: 0
-  m_Name: Silla (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &950591269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950591268}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 0, z: 0.87}
-  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 776305761}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &950591270
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950591268}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &950591271
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950591268}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1016107649
 GameObject:
   m_ObjectHideFlags: 0
