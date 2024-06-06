@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class EliminarTierra : MonoBehaviour
 {
-    // Referencia al collider que se activará con la tecla E
-    public Collider eliminadorCollider;
-
-    // Referencia al tiempo de espera antes de eliminar los objetos
-    public float tiempoDeEspera = 2f;
+    
 
     // Método para activar el collider cuando se presiona la tecla E
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            eliminadorCollider.enabled = true;
-            Invoke("DesactivarCollider", tiempoDeEspera); // Invocamos el método para desactivar el collider después de 2 segundos
-        }
+        
     }
 
-    // Método para desactivar el collider
-    void DesactivarCollider()
-    {
-        eliminadorCollider.enabled = false;
-    }
+    
+    
 
     // Método que se llama cuando un objeto entra en el collider
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        // Verificamos si el objeto tiene el tag "tierra" antes de eliminarlo
-        if (other.CompareTag("tierra"))
+        Debug.Log(collider.name);
+
+        if (collider.tag == "TIERRA")
         {
-            // Eliminamos el objeto después de 2 segundos
-            Destroy(other.gameObject, tiempoDeEspera);
+            Destroy(collider.gameObject);
+            Debug.Log("Objeto destruido: " + collider.gameObject.name);
+        }
+
+        if (collider.tag == "MetaAgua")
+        {
+            //AQUI VA EL CAMBIO DE ESCENA.
+
+
+            Debug.Log("AGUA AL PUEBLO ");
         }
     }
 }
