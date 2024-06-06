@@ -30,6 +30,8 @@ public class CuentaAtrasTemporal : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
+
+                //METER AQUÍ EL CAMBIO DE ESCENA.
             }
         }
     }

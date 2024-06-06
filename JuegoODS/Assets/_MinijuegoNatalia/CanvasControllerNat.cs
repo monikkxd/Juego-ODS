@@ -9,11 +9,19 @@ public class CanvasControllerNat : MonoBehaviour
     bool abrirMenu = true; // Un indicador para saber si el menú está abierto o cerrado.
     public float tiempo = 0.5f; // El tiempo que tomará la animación de movimiento.
 
+    public GameObject tuto;
+
+    public GameObject pagina2;
+    public GameObject pagina3;
+    public GameObject pagina4;
+
     void Start()
     {
         // El código en el método Start se ejecuta una vez al inicio del script.
         posFinal = Screen.width / 2; // Se calcula la posición final como la mitad del ancho de la pantalla.
         subMenu.position = new Vector3(-posFinal, subMenu.position.y, 0); // Se coloca el submenú fuera de la pantalla al inicio.
+
+
     }
 
     IEnumerator Mover(float time, Vector3 posInit, Vector3 posFin)
@@ -44,5 +52,35 @@ public class CanvasControllerNat : MonoBehaviour
 
         MoverMenu(tiempo, subMenu.position, new Vector3(signo * posFinal, subMenu.position.y, 0)); // Llama al método para mover el menú.
         abrirMenu = !abrirMenu; // Cambia el estado del indicador de menú abierto/cerrado.
+    }
+
+    public void Siguientepagina1()
+    {
+        pagina2.SetActive(true);
+    }
+
+    public void Atraspagina2()
+    {
+        pagina2.SetActive(false);
+    }
+
+    public void Siguientepagina2()
+    {
+        pagina3.SetActive(true);
+    }
+
+    public void Atraspagina3()
+    {
+        pagina3.SetActive(false);
+    }
+
+    public void Siguientepagina3()
+    {
+        pagina4.SetActive(true);
+    }
+
+    public void Atraspagina4()
+    {
+        pagina4.SetActive(false);
     }
 }
