@@ -24,7 +24,7 @@ public class CasillasWinScript : MonoBehaviour
         {
             audioSource.enabled = false;
             Transición.SetActive(true);
-            Invoke("CambioEscena", 1f);
+            Invoke("CambioEscena", 1.5f);
             print("Victoria");
         }
     }

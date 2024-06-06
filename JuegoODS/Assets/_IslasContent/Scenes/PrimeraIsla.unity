@@ -378,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642992179}
   - component: {fileID: 642992180}
+  - component: {fileID: 642992181}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -417,6 +418,102 @@ MonoBehaviour:
   arbolesMal: {fileID: 1563723859}
   arbolesBien: {fileID: 1970389370}
   bolsasBasura: {fileID: 1052865306}
+--- !u!82 &642992181
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642992177}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dc0eaf57bc7c6fb4caef14feed93607d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &727965809
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,12 +998,12 @@ PrefabInstance:
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3203084073860767546, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
       propertyPath: m_TagString
-      value: Minijuego  Alex
+      value: Minijuego Alex
       objectReference: {fileID: 0}
     - target: {fileID: 6349337334037164633, guid: 9a34291df7c8ca44fa39f1941474b000,
         type: 3}
@@ -1445,6 +1542,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3115455293637136445, guid: 73d01f9a81ee5534f9cb2852219af255,
+        type: 3}
+      propertyPath: "di\xE1logo"
+      value: 
+      objectReference: {fileID: 727965809}
+    - target: {fileID: 3115455293637136445, guid: 73d01f9a81ee5534f9cb2852219af255,
+        type: 3}
+      propertyPath: "transici\xF3n"
+      value: 
+      objectReference: {fileID: 1979201779}
     - target: {fileID: 3401757907609453330, guid: 73d01f9a81ee5534f9cb2852219af255,
         type: 3}
       propertyPath: m_Name

@@ -21,7 +21,7 @@ public class SceneManagement : MonoBehaviour
 
     private void LoadLevel3Clara()
     {
-        SceneManager.LoadScene("TerceraIsla");
+        SceneManager.LoadScene("TerceraIsla3");
     }
 
     public void CargarMinijuego1()

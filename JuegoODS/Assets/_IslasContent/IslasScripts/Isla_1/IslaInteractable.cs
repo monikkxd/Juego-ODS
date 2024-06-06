@@ -48,6 +48,11 @@ public class IslaInteractable : MonoBehaviour
         transición.SetActive(true);
         Invoke("CagarMigui", 2.5f);
     }
+    public void CargarMinijuegoMoni()
+    {
+        transición.SetActive(true);
+        Invoke("CagarMoni", 2.5f);
+    }
     public void CargarMinijuegoClara()
     {
         transición.SetActive(true);
@@ -64,7 +69,7 @@ public class IslaInteractable : MonoBehaviour
     }
     void CagarMoni()
     {
-
+        SceneManager.LoadScene("MinijuegoMónicaQ");
     }
     void CagarAlex()
     {

@@ -8,6 +8,8 @@ public class Player_Manager : MonoBehaviour
     public List<GameObject> gameObjectList = new List<GameObject>();
     public GameObject activador;
     public GameObject transición;
+    public GameObject transiciónFinal;
+    public GameObject audioSource;
 
     private void Start()
     {
@@ -18,8 +20,10 @@ public class Player_Manager : MonoBehaviour
     {
         if (other.CompareTag("Victory_Collider"))
         {
-            
+            audioSource.SetActive(false);
             activador.SetActive(true);
+            //transiciónFinal.SetActive(true);
+
 
             for(int i = 0; i < gameObjectList.Count; i++)
             {

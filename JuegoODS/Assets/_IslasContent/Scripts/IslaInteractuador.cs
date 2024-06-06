@@ -44,7 +44,7 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoNatalia();
             }
-            else if (hit.collider.CompareTag("MinijuegoAlex"))
+            else if (hit.collider.CompareTag("Minijuego Alex"))
             {
                 Debug.Log("Cargando Juego Alex");
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoAlex();
@@ -74,11 +74,20 @@ public class IslaInteractuador : MonoBehaviour
             {
                 hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoClara();
             }
+            else if (hit.collider.CompareTag("MinijuegoMoni"))
+            {
+                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoMoni();
+            }
+            else if (hit.collider.CompareTag("Final"))
+            {
+                transición.SetActive(true);
+                Invoke("CambioEscena2", 2f);
+            }
             else if(hit.collider.CompareTag("Mr.Mondongo"))
             {
                 diálogo.SetActive(true);
-                Invoke("Transición", 2f);
-                Invoke("CambioEscena", 4.5f);
+                Invoke("Transición", 7f); 
+                Invoke("CambioEscena", 10f);
             }
         }
     }
@@ -89,6 +98,10 @@ public class IslaInteractuador : MonoBehaviour
     }
     void CambioEscena()
     {
-        SceneManager.LoadScene("TerceraIsla2");
+        SceneManager.LoadScene("TerceraIsla3");
+    }
+    void CambioEscena2()
+    {
+        SceneManager.LoadScene("EscenaFinal");
     }
 }
