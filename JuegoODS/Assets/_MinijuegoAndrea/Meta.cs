@@ -20,7 +20,7 @@ public class Meta : MonoBehaviour
         {
             // Mostrar el texto de "Meta"
             Debug.Log("Meta");
-            SceneManager.LoadScene("PrimeraIsla");
+            SceneManager.LoadScene("PrimeraIsla2");
         }
     }
 }
