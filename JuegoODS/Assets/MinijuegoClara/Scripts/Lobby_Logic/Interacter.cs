@@ -12,6 +12,7 @@ public class Interacter : MonoBehaviour
     private bool tocandoBotón = false;
 
     public GameObject transición;
+    public GameObject Indicador;
 
     void Update()
     {
@@ -26,6 +27,7 @@ public class Interacter : MonoBehaviour
     {
         if(other.CompareTag("Interactable"))
         {
+            Indicador.SetActive(true);
             tocandoBotón = true;
         }
     }
@@ -34,6 +36,7 @@ public class Interacter : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
+            Indicador.SetActive(false);
             tocandoBotón = false;
         }
     }

@@ -27,7 +27,7 @@ public class RaycastDetector : MonoBehaviour
         {
             Debug.Log("¡Victoria!");
             transiciónFinal.SetActive(true);
-            Invoke("CambioEscena", 9f);
+            Invoke("CambioEscena", 11f);
         }
     }
 

@@ -90,7 +90,7 @@ public class IslaInteractable : MonoBehaviour
     }
     void CagarClara()
     {
-        SceneManager.LoadScene("MinigameSelectionClara");
+        SceneManager.LoadScene("Lobby Minijuegos Clara");
     }
     void CargarAndrea()
     {
