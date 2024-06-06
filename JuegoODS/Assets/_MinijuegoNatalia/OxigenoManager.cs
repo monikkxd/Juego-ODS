@@ -37,15 +37,18 @@ public class OxigenoManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Oxigeno"))
+        Debug.Log(collider.name);
+
+        if (collider.name== "Burbuja")
         {
             estaEnOxigeno = true;
+            Debug.Log("recuperando oxígeno");
         }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.CompareTag("Oxigeno"))
+        if (collider.name == "Burbuja")
         {
             estaEnOxigeno = false;
         }
