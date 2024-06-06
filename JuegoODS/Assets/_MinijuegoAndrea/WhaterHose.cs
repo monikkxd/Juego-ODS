@@ -18,12 +18,14 @@ public class WaterHose : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             isLaunching = true;
+            GetComponent<BoxCollider>().enabled = true;
             LaunchWater();
         }
         // Dejar de lanzar agua al soltar la tecla de espacio
         else if (Input.GetKeyUp(KeyCode.R))
         {
             isLaunching = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
 
         // Si se está lanzando agua y ha pasado el intervalo de lanzamiento, lanzar más agua
@@ -62,15 +64,16 @@ public class WaterHose : MonoBehaviour
         }
     }
 
-    // Cuando el agua colisiona con otro objeto
-    void OnCollisionEnter(Collision collision)
+    
+
+    private void OnTriggerEnter(Collider collider)
     {
-        // Verificar si el objeto colisionado tiene que desaparecer
-        if (collision.gameObject.CompareTag("Fire"))
+        Debug.Log(collider.name);
+
+        if (collider.tag == "Fire")
         {
-            // Destruir el objeto que colisionó con el agua
-            Destroy(collision.gameObject);
-            Debug.Log("Objeto destruido: " + collision.gameObject.name);
+            Destroy(collider.gameObject);
+            Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
     }
 }
