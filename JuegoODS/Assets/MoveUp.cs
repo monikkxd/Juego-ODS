@@ -18,7 +18,6 @@ public class MoveUp : MonoBehaviour
 
         if (elapsedTime >= 44f)
         {
-            Debug.Log("Han pasado 12 segundos desde el comienzo del juego.");
             Invoke("CargarMenú", 3f);
         }
     }

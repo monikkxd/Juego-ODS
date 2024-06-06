@@ -40,7 +40,8 @@ public class IslaInteractable : MonoBehaviour
     }
     public void CargarMinijuegoMario()
     {
-        SceneManager.LoadScene("MinijuegoAlex");
+        transición.SetActive(true);
+        Invoke("CargarMario", 2.5f);
     }
     public void CargarMinijuegoMigui()
     {
@@ -94,6 +95,11 @@ public class IslaInteractable : MonoBehaviour
     void CargarAndrea()
     {
         SceneManager.LoadScene("_MontajeEscenaAndrea");
+    }
+
+    void CargarMario()
+    {
+        SceneManager.LoadScene("_MontajeEscenaMario");
     }
     
 }

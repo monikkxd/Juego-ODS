@@ -42,7 +42,8 @@ public class IslaInteractuador : MonoBehaviour
             }
             else if (hit.collider.CompareTag("Minijuego  Natalia"))
             {
-                hit.collider.GetComponent<IslaInteractable>().CargarMinijuegoNatalia();
+                transición.SetActive(true);
+                Invoke("CambioEscenaNatalia", 2f);
             }
             else if (hit.collider.CompareTag("Minijuego Alex"))
             {
@@ -103,5 +104,9 @@ public class IslaInteractuador : MonoBehaviour
     void CambioEscena2()
     {
         SceneManager.LoadScene("EscenaFinal");
+    }
+    void CambioEscenaNatalia()
+    {
+        SceneManager.LoadScene("_MontajeEscenaNatalia");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CuentaAtrásMario : MonoBehaviour
@@ -31,7 +32,7 @@ public class CuentaAtrásMario : MonoBehaviour
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
 
-                //METER AQUÍ EL CAMBIO DE ESCENA.
+                Invoke("CargarEscena", 1f);
             }
         }
     }
@@ -43,5 +44,9 @@ public class CuentaAtrásMario : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    void CargarEscena()
+    {
+        SceneManager.LoadScene("SegundaIsla3");
     }
 }

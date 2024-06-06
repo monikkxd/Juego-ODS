@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CuentaAtrasTemporal : MonoBehaviour
@@ -31,7 +32,8 @@ public class CuentaAtrasTemporal : MonoBehaviour
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
 
-                //METER AQUÍ EL CAMBIO DE ESCENA.
+                Invoke("CargarEscena", 1f);
+
             }
         }
     }
@@ -43,6 +45,11 @@ public class CuentaAtrasTemporal : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void CargarEscena()
+    {
+        SceneManager.LoadScene("PrimeraIsla3");
     }
 }
 
