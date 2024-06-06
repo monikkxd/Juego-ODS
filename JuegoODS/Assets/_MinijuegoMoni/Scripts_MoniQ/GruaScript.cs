@@ -46,17 +46,17 @@ public class MoverObjeto : MonoBehaviour
       
         MoverGrua();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             DescenderObjeto(); 
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             AscenderObjeto();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SoltarObjeto();
         }
@@ -71,12 +71,12 @@ public class MoverObjeto : MonoBehaviour
             AscenderObjeto();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             CogerObjeto();
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && !rotacionActiva)
+        if (Input.GetKeyDown(KeyCode.R) && !rotacionActiva)
         {
             rotacionActiva = true;
         }
