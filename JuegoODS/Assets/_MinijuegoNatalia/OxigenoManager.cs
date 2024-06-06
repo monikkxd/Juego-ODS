@@ -33,6 +33,11 @@ public class OxigenoManager : MonoBehaviour
         }
 
         barraOxigeno.value = oxigenoActual;
+
+        if (oxigenoActual == 0)
+        {
+            Debug.Log("Te has quedado sin oxígeno");
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
