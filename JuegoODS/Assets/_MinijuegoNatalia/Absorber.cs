@@ -9,20 +9,20 @@ public class Absorber : MonoBehaviour
     public float absorberRadius = 5f; // Radio del collider de absorción
     public string objectTag = "Basura"; // Tag de los objetos a absorber
     public Transform targetPosition; // Posición a la que se moverán los objetos absorbidos
-    public GameObject particulas;
+    public GameObject particulas1;
+    public GameObject particulas2;
 
     public Text absorbedObjectsText; // Referencia al componente UI Text
 
-
-
     private bool isAbsorbing = false;
-
     private int absorbedObjectCount = 0; // Contador de objetos absorbidos
+    private float previousScaleZ;
 
     void Start()
     {
         // Inicializa el texto del contador
         UpdateAbsorbedObjectsText();
+        previousScaleZ = transform.localScale.z;
     }
 
     void Update()
@@ -30,28 +30,64 @@ public class Absorber : MonoBehaviour
         // Comprueba si se ha presionado la tecla para activar el absorber
         if (Input.GetKey(absorberKey))
         {
-            ToggleAbsorber();
+            // Solo llama a ToggleAbsorber si no está ya activado
+            if (!isAbsorbing)
+            {
+                ToggleAbsorber(true);
+            }
+            else
+            {
+                // Comprueba si la escala en Z ha cambiado mientras está absorbiendo
+                if (transform.localScale.z != previousScaleZ)
+                {
+                    UpdateParticles();
+                    previousScaleZ = transform.localScale.z;
+                }
+            }
+        }
+        else
+        {
+            // Solo llama a ToggleAbsorber si está activado
+            if (isAbsorbing)
+            {
+                ToggleAbsorber(false);
+            }
         }
     }
 
-    void ToggleAbsorber()
+    void ToggleAbsorber(bool activate)
     {
-        isAbsorbing = !isAbsorbing;
+        isAbsorbing = activate;
 
         if (isAbsorbing)
         {
             // Activa el collider de absorción
             GetComponent<SphereCollider>().enabled = true;
-            // Activa el game object de partículas
-            particulas.SetActive(true);
 
+            // Activa el game object de partículas según la escala en el eje Z
+            UpdateParticles();
         }
         else
         {
             // Desactiva el collider de absorción
             GetComponent<SphereCollider>().enabled = false;
-            // Desactiva el game object de partículas
-            particulas.SetActive(false);
+            // Desactiva ambos game objects de partículas
+            particulas1.SetActive(false);
+            particulas2.SetActive(false);
+        }
+    }
+
+    void UpdateParticles()
+    {
+        if (transform.localScale.z == 1)
+        {
+            particulas1.SetActive(true);
+            particulas2.SetActive(false);
+        }
+        else if (transform.localScale.z == -1)
+        {
+            particulas1.SetActive(false);
+            particulas2.SetActive(true);
         }
     }
 
@@ -60,8 +96,6 @@ public class Absorber : MonoBehaviour
     {
         if (isAbsorbing && other.gameObject.CompareTag(objectTag))
         {
-
-
             // Incrementa el contador de objetos absorbidos
             absorbedObjectCount++;
 
@@ -72,7 +106,6 @@ public class Absorber : MonoBehaviour
             Debug.Log("Objeto absorbido: " + other.gameObject.name);
             Debug.Log("Total de objetos absorbidos: " + absorbedObjectCount);
 
-            
             // Mueve el objeto absorbido a la posición predefinida
             other.transform.position = targetPosition.position;
 
@@ -92,4 +125,3 @@ public class Absorber : MonoBehaviour
         return absorbedObjectCount;
     }
 }
-

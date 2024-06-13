@@ -8,7 +8,7 @@ public class SaltarMinijuegoMoni : MonoBehaviour
     public GameObject Transición;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse1))
         {
             Transición.SetActive(true);
             Invoke("CambioEscena", 1.5f);
