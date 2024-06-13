@@ -30,14 +30,12 @@ public class Absorber : MonoBehaviour
         // Comprueba si se ha presionado la tecla para activar el absorber
         if (Input.GetKey(absorberKey))
         {
-            // Solo llama a ToggleAbsorber si no está ya activado
             if (!isAbsorbing)
             {
                 ToggleAbsorber(true);
             }
             else
             {
-                // Comprueba si la escala en Z ha cambiado mientras está absorbiendo
                 if (transform.localScale.z != previousScaleZ)
                 {
                     UpdateParticles();
@@ -47,7 +45,6 @@ public class Absorber : MonoBehaviour
         }
         else
         {
-            // Solo llama a ToggleAbsorber si está activado
             if (isAbsorbing)
             {
                 ToggleAbsorber(false);
@@ -61,17 +58,13 @@ public class Absorber : MonoBehaviour
 
         if (isAbsorbing)
         {
-            // Activa el collider de absorción
             GetComponent<SphereCollider>().enabled = true;
 
-            // Activa el game object de partículas según la escala en el eje Z
             UpdateParticles();
         }
         else
         {
-            // Desactiva el collider de absorción
             GetComponent<SphereCollider>().enabled = false;
-            // Desactiva ambos game objects de partículas
             particulas1.SetActive(false);
             particulas2.SetActive(false);
         }
@@ -91,7 +84,6 @@ public class Absorber : MonoBehaviour
         }
     }
 
-    // Este método se llama cuando otro objeto entra en el collider de absorción
     void OnTriggerEnter(Collider other)
     {
         if (isAbsorbing && other.gameObject.CompareTag(objectTag))

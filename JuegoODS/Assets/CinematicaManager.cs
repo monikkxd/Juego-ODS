@@ -12,7 +12,6 @@ public class CinematicaManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            //animator.SetBool("FadeIn", true);
             fadeIn.SetActive(true);
             Invoke("CambioEscena", 2.3f);
         }

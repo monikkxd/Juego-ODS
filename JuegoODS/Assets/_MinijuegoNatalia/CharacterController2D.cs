@@ -20,17 +20,14 @@ public class CharacterController2D : MonoBehaviour
         float moveInput = -Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        // Cambiar escala en el eje Z
         if (moveInput > 0)
         {
-            // Moviéndose a la derecha
             Vector3 scaler = transform.localScale;
             scaler.z = -1;
             transform.localScale = scaler;
         }
         else if (moveInput < 0)
         {
-            // Moviéndose a la izquierda
             Vector3 scaler = transform.localScale;
             scaler.z = 1;
             transform.localScale = scaler;
