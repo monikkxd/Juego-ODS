@@ -1,30 +1,11 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-/*
-    This file has a commented version with details about how each line works. 
-    The commented version contains code that is easier and simpler to read. This file is minified.
-*/
-
-
-/// <summary>
-/// Main script for third-person movement of the character in the game.
-/// Make sure that the object that will receive this script (the player) 
-/// has the Player tag and the Character Controller component.
-/// </summary>
 public class ThirdPersonController : MonoBehaviour
 {
-
-    [Tooltip("Speed ​​at which the character moves. It is not affected by gravity or jumping.")]
     public float velocity = 5f;
-    [Tooltip("This value is added to the speed value while the character is sprinting.")]
     public float sprintAdittion = 3.5f;
-    [Tooltip("The higher the value, the higher the character will jump.")]
     public float jumpForce = 18f;
-    [Tooltip("Stay in the air. The higher the value, the longer the character floats before falling.")]
     public float jumpTime = 0.85f;
-    [Space]
-    [Tooltip("Force that pulls the player down. Changing this value causes all movement, jumping and falling to be changed as well.")]
     public float gravity = 9.8f;
 
     float jumpElapsedTime = 0;
@@ -44,7 +25,6 @@ public class ThirdPersonController : MonoBehaviour
     Animator animator;
     CharacterController cc;
 
-
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -55,69 +35,69 @@ public class ThirdPersonController : MonoBehaviour
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
     }
 
-
-    // Update is only being used here to identify keys and trigger animations
     void Update()
     {
-
         // Input checkers
         inputHorizontal = Input.GetAxis("Horizontal");
         inputVertical = Input.GetAxis("Vertical");
-        inputJump = Input.GetAxis("Jump") == 1f;
-        inputSprint = Input.GetAxis("Fire3") == 1f;
-        // Unfortunately GetAxis does not work with GetKeyDown, so inputs must be taken individually
+        inputJump = Input.GetButtonDown("Jump");
+        inputSprint = Input.GetButton("Fire3");
         inputCrouch = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton1);
 
         // Check if you pressed the crouch input key and change the player's state
-        if ( inputCrouch )
+        if (inputCrouch)
             isCrouching = !isCrouching;
 
         // Run and Crouch animation
         // If dont have animator component, this block wont run
-        if ( cc.isGrounded && animator != null )
+        if (cc.isGrounded && animator != null)
         {
-
             // Crouch
             // Note: The crouch animation does not shrink the character's collider
             animator.SetBool("IddleAndrea", isCrouching);
-            
+
             // Run
-            float minimumSpeed = 0.9f;
-            animator.SetBool("AndarAndrea", cc.velocity.magnitude > minimumSpeed );
+            float minimumSpeed = 0.1f;
+            bool isWalking = cc.velocity.magnitude > minimumSpeed;
+            animator.SetBool("isWalking", isWalking);
 
             // Sprint
-            isSprinting = cc.velocity.magnitude > minimumSpeed && inputSprint;
-            animator.SetBool("AndarAndrea", isSprinting );
-
+            isSprinting = isWalking && inputSprint;
+            animator.SetBool("AndarAndrea", isSprinting);
         }
 
         // Jump animation
-        if( animator != null )
-            animator.SetBool("SaltarAndrea", cc.isGrounded == false );
+        if (animator != null)
+        {
+            if (cc.isGrounded)
+            {
+                animator.SetBool("isJumping", false);
+            }
+            else
+            {
+                animator.SetBool("isJumping", true);
+            }
+        }
 
         // Handle can jump or not
-        if ( inputJump && cc.isGrounded )
+        if (inputJump && cc.isGrounded)
         {
             isJumping = true;
             // Disable crounching when jumping
-            //isCrouching = false; 
+            //isCrouching = false;
         }
 
         HeadHittingDetect();
-
     }
 
-
-    // With the inputs and animations defined, FixedUpdate is responsible for applying movements and actions to the player
     private void FixedUpdate()
     {
-
         // Sprinting velocity boost or crounching desacelerate
         float velocityAdittion = 0;
-        if ( isSprinting )
+        if (isSprinting)
             velocityAdittion = sprintAdittion;
         if (isCrouching)
-            velocityAdittion =  - (velocity * 0.50f); // -50% velocity
+            velocityAdittion = -(velocity * 0.50f); // -50% velocity
 
         // Direction movement
         float directionX = inputHorizontal * (velocity + velocityAdittion) * Time.deltaTime;
@@ -125,9 +105,8 @@ public class ThirdPersonController : MonoBehaviour
         float directionY = 0;
 
         // Jump handler
-        if ( isJumping )
+        if (isJumping)
         {
-
             // Apply inertia and smoothness when climbing the jump
             // It is not necessary when descending, as gravity itself will gradually pulls
             directionY = Mathf.SmoothStep(jumpForce, jumpForce * 0.30f, jumpElapsedTime / jumpTime) * Time.deltaTime;
@@ -144,8 +123,7 @@ public class ThirdPersonController : MonoBehaviour
         // Add gravity to Y axis
         directionY = directionY - gravity * Time.deltaTime;
 
-        
-        // --- Character rotation --- 
+        // --- Character rotation ---
 
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -169,17 +147,14 @@ public class ThirdPersonController : MonoBehaviour
 
         // --- End rotation ---
 
-        
         Vector3 verticalDirection = Vector3.up * directionY;
         Vector3 horizontalDirection = forward + right;
 
         Vector3 moviment = verticalDirection + horizontalDirection;
-        cc.Move( moviment );
-
+        cc.Move(moviment);
     }
 
-
-    //This function makes the character end his jump if he hits his head on something
+    // This function makes the character end his jump if he hits his head on something
     void HeadHittingDetect()
     {
         float headHitDistance = 1.1f;
@@ -195,5 +170,4 @@ public class ThirdPersonController : MonoBehaviour
             isJumping = false;
         }
     }
-
 }
