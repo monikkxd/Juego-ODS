@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class CuentaAtrásMario : MonoBehaviour
 {
-    public float timeRemaining = 120f; // 2 minutos en segundos
+    public float timeRemaining = 60f; // 2 minutos en segundos
     public Text timeText; // Referencia al componente Text de la UI
 
     private bool timerIsRunning = false;
+    public GameObject hasGanado;
 
     void Start()
     {
         timerIsRunning = true;
+        hasGanado.SetActive(false);
     }
 
     void Update()
@@ -31,8 +33,14 @@ public class CuentaAtrásMario : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
+                Time.timeScale = 0;
+                hasGanado.SetActive(true);
 
-                Invoke("CargarEscena", 1f);
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    Debug.Log("CargoEscena");
+                    //Invoke("CargarEscena", 1f);
+                }
             }
         }
     }

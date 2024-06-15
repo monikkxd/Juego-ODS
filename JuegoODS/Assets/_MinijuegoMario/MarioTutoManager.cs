@@ -12,8 +12,21 @@ public class MarioTutoManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 0;
         // Start the coroutine that handles the activation and deactivation
-        StartCoroutine(ActivateAndDeactivate());
+        //StartCoroutine(ActivateAndDeactivate());
+
+        targetObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Time.timeScale = 1;
+
+            targetObject.SetActive(false);
+        }
     }
 
     private IEnumerator ActivateAndDeactivate()
