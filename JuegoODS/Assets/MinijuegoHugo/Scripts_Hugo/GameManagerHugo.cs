@@ -13,6 +13,7 @@ public class GameManagerHugo : MonoBehaviour
     public GameObject activador;
 
     public GameObject SueloVerde;
+    public GameObject SueloGris;
 
     public GameObject Vegetación;
 
@@ -22,6 +23,8 @@ public class GameManagerHugo : MonoBehaviour
     public Animator animator_2;
     public Animator animator_3;
     public Animator animator_4;
+
+    public GameObject escenarioSucio;
 
 
 
@@ -36,6 +39,8 @@ public class GameManagerHugo : MonoBehaviour
         {
             StartCoroutine(IncreaseWeight());
             SueloVerde.SetActive(true);
+            SueloGris.SetActive(false);
+            escenarioSucio.SetActive(false);
             Vegetación.SetActive(true);
             animator_1.enabled = true;
             animator_2.enabled = true;

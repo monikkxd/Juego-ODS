@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Movimiento_Horizontal : MonoBehaviour
 {
-    public float velocidadMaxima = 5f; 
-    public float suavidadMovimiento = 5f; 
+    public float velocidadMaxima; 
+    public float suavidadMovimiento; 
     private float mZCoord;
     private Rigidbody rb;
 
@@ -45,10 +45,4 @@ public class Movimiento_Horizontal : MonoBehaviour
         rb.isKinematic = true; 
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Vector3 normalDeColision = collision.contacts[0].normal;
-    }
-
-    
 }
