@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hasPlate
@@ -95,7 +95,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: hasPlate
@@ -123,7 +123,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hasPlate
@@ -176,7 +176,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hasPlate
@@ -204,7 +204,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: hasPlate
@@ -286,18 +286,18 @@ AnimatorController:
   m_Name: EDER_PLATO_1MANO (1)
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isRunning
+  - m_Name: AndarMonicaG
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: hasPlate
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -376,7 +376,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: hasPlate
@@ -404,7 +404,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: hasPlate
@@ -486,7 +486,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isRunning
+    m_ConditionEvent: AndarMonicaG
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: hasPlate

@@ -5,48 +5,95 @@ using UnityEngine.SceneManagement;
 
 public class SelectorNivel : MonoBehaviour
 {
+    public GameObject transición;
    public void JuegoAlex()
-    {
-        SceneManager.LoadScene("Alex");
-    }
+   {
+        transición.SetActive(true);
+        Invoke("CargarAlex", 2.5f);
+   }
 
     public void JuegoMoni()
     {
-        SceneManager.LoadScene("Moni");
+        transición.SetActive(true);
+        Invoke("CargarMoni", 2.5f);
     }
 
     public void JuegoHugo()
     {
-        SceneManager.LoadScene("Hugo");
+        transición.SetActive(true);
+        Invoke("CargarHugo", 2.5f);
     }
 
     public void JuegoAndrea()
     {
-        SceneManager.LoadScene("Andrea");
+        transición.SetActive(true);
+        Invoke("CargarAndrea", 2.5f);
     }
 
     public void JuegoNatalia()
     {
-        SceneManager.LoadScene("Natalia");
+        transición.SetActive(true);
+        Invoke("CargarNatalia", 2.5f);
     }
 
     public void JuegoMario()
     {
-        SceneManager.LoadScene("Mario");
+        transición.SetActive(true);
+        Invoke("CargarMario", 2.5f);
     }
 
     public void JuegoMigui()
     {
-        SceneManager.LoadScene("Migui");
+        transición.SetActive(true);
+        Invoke("CargarMigui", 2.5f);
     }
 
     public void JuegoMonica()
     {
-        SceneManager.LoadScene("Monica");
+        transición.SetActive(true);
+        Invoke("CargarMonicaG", 2.5f);
     }
 
     public void JuegoClara()
     {
-        SceneManager.LoadScene("Clara");
+        transición.SetActive(true);
+        Invoke("CargarClara", 2.5f);
+    }
+
+    void CargarAlex()
+    {
+        SceneManager.LoadScene("MinijuegoAlex");
+    }
+    void CargarMoni()
+    {
+        SceneManager.LoadScene("MinijuegoMónicaQ");
+    }
+    void CargarAndrea()
+    {
+        SceneManager.LoadScene("_MontajeEscenaAndrea");
+    }
+    void CargarMigui()
+    {
+        SceneManager.LoadScene("Minijuego Migui");
+    }
+    void CargarNatalia()
+    {
+        SceneManager.LoadScene("_MontajeEscenaNatalia");
+    }
+    void CargarClara()
+    {
+        SceneManager.LoadScene("Lobby Minijuegos Clara");
+    }
+    void CargarHugo()
+    {
+        SceneManager.LoadScene("MinijuegoHugo");
+    }
+    void CargarMario()
+    {
+        SceneManager.LoadScene("_MontajeEscenaMario");
+    }
+    void CargarMonicaG()
+    {
+        SceneManager.LoadScene("_testmonicag");
     }
 }
