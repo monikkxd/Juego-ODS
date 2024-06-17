@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuPausa : MonoBehaviour
+public class MenuPausaSelectorNiveles : MonoBehaviour
 {
     public static bool JuegoPausado = false;
     public GameObject UIMenu;
@@ -14,40 +13,31 @@ public class MenuPausa : MonoBehaviour
 
     private Vector2 cursorHostpot;
 
-    private bool menúAbierto = false;
 
     void Start()
     {
         UIMenu.SetActive(false);
+
         cursorHostpot = new Vector2(cursorTexture.width, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, cursorHostpot, CursorMode.Auto);
 
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     void Update()
     {
-        Cursor.visible = false;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menúAbierto = false;
-            if (menúAbierto == false)
+            if (JuegoPausado == true)
             {
-                Cursor.visible = true;
-                menúAbierto = true;
-
-                if (JuegoPausado == true)
-                {
-                    Cursor.visible = false;
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
-       
+
     }
 
     public void Resume()
@@ -55,7 +45,6 @@ public class MenuPausa : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
-        Cursor.visible = false;
     }
 
     public void Pause()

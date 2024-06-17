@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class SelectorNivel : MonoBehaviour
 {
     public GameObject transición;
-   public void JuegoAlex()
+    public GameObject transición2;
+    public GameObject transición3;
+    public GameObject transición4;
+
+    public void JuegoAlex()
    {
         transición.SetActive(true);
         Invoke("CargarAlex", 2.5f);
@@ -32,7 +36,7 @@ public class SelectorNivel : MonoBehaviour
 
     public void JuegoNatalia()
     {
-        transición.SetActive(true);
+        transición3.SetActive(true);
         Invoke("CargarNatalia", 2.5f);
     }
 

@@ -38,10 +38,12 @@ public class GameManagerHugo : MonoBehaviour
         if (activador.gameObject.activeSelf)
         {
             StartCoroutine(IncreaseWeight());
+
             SueloVerde.SetActive(true);
             SueloGris.SetActive(false);
             escenarioSucio.SetActive(false);
             Vegetación.SetActive(true);
+
             animator_1.enabled = true;
             animator_2.enabled = true;
             animator_3.enabled = true;

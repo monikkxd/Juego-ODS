@@ -20,8 +20,6 @@ public class CanvasControllerNat : MonoBehaviour
         // El código en el método Start se ejecuta una vez al inicio del script.
         posFinal = Screen.width / 2; // Se calcula la posición final como la mitad del ancho de la pantalla.
         subMenu.position = new Vector3(-posFinal, subMenu.position.y, 0); // Se coloca el submenú fuera de la pantalla al inicio.
-
-
     }
 
     IEnumerator Mover(float time, Vector3 posInit, Vector3 posFin)
