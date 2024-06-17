@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CinemáticaManager : MonoBehaviour
 {
-    public void CargarIsla1()
+    public void CargarSelecciónDeNivel()
     {
-        SceneManager.LoadScene("PrimeraIsla");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 }

@@ -28,6 +28,6 @@ public class CinematicaManager : MonoBehaviour
 
     void CambioEscena()
     {
-        SceneManager.LoadScene("PrimeraIsla");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 }

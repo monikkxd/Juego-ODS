@@ -7,9 +7,18 @@ public class MenuPrincipal : MonoBehaviour
 {
     public Animator transiciónPrefab;
 
+    [SerializeField] private Texture2D cursorTexture;
+    [SerializeField] private float mouseSensitivity = 1.0f;
+
+    private Vector2 cursorHostpot;
     private void Start()
     {
         transiciónPrefab.enabled = false;
+
+        cursorHostpot = new Vector2(cursorTexture.width, cursorTexture.height / 2);
+        Cursor.SetCursor(cursorTexture, cursorHostpot, CursorMode.Auto);
+
+        Cursor.visible = true;
     }
     public void Jugar()
     {

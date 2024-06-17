@@ -18,7 +18,7 @@ public class SelectorNivel : MonoBehaviour
 
     public void JuegoMoni()
     {
-        transición.SetActive(true);
+        transición4.SetActive(true);
         Invoke("CargarMoni", 2.5f);
     }
 
