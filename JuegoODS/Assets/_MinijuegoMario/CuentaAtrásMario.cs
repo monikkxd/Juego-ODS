@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class CuentaAtrásMario : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class CuentaAtrásMario : MonoBehaviour
     private bool timerIsRunning = false;
     public GameObject hasGanado;
 
+    public CharacterController playerController;
+    public FirstPersonController firstPersonController;
+
     void Start()
     {
         timerIsRunning = true;
@@ -20,6 +24,16 @@ public class CuentaAtrásMario : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.K))
+        {
+            Time.timeScale = 10.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+
+        }
+
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
@@ -29,18 +43,16 @@ public class CuentaAtrásMario : MonoBehaviour
             }
             else
             {
+                playerController.enabled = false;
+                firstPersonController.enabled = false;
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
                 Time.timeScale = 0;
                 hasGanado.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    Debug.Log("CargoEscena");
-                    //Invoke("CargarEscena", 1f);
-                }
+                Invoke("CargarEscena", 2.5f);
+                
             }
         }
     }
@@ -55,6 +67,6 @@ public class CuentaAtrásMario : MonoBehaviour
     }
     void CargarEscena()
     {
-        SceneManager.LoadScene("SegundaIsla3");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 }

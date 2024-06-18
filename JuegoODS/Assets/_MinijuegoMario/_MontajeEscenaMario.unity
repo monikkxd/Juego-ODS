@@ -8202,7 +8202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258410794}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45546694087a8d943915e4aff3c577a1, type: 3}
   m_Name: 
@@ -36074,6 +36074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee,
         type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 258410794}
+    - target: {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
       propertyPath: firstPersonController
       value: 
       objectReference: {fileID: 258410796}
@@ -47159,6 +47164,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_UseFovKick
       value: 1
       objectReference: {fileID: 0}
@@ -56919,6 +56928,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &1638192800 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1343507392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1642871511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77064,6 +77079,8 @@ MonoBehaviour:
   timeRemaining: 60
   timeText: {fileID: 2089371766}
   hasGanado: {fileID: 1545814779}
+  playerController: {fileID: 1638192800}
+  firstPersonController: {fileID: 1638192796}
 --- !u!4 &2073449714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1bff553698d7194ab6c5b36e2189476,

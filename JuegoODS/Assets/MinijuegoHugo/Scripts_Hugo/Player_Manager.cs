@@ -36,7 +36,7 @@ public class Player_Manager : MonoBehaviour
 
     void CambiarEscena()
     {
-        SceneManager.LoadScene("SegundaIsla2");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 
     void ActivarTransición()

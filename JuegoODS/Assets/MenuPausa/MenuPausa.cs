@@ -15,7 +15,6 @@ public class MenuPausa : MonoBehaviour
     private Vector2 cursorHostpot;
 
     private bool menúAbierto = false;
-
     void Start()
     {
         UIMenu.SetActive(false);
