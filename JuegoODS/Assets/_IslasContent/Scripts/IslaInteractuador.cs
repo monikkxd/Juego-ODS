@@ -99,7 +99,7 @@ public class IslaInteractuador : MonoBehaviour
     }
     void CambioEscena()
     {
-        SceneManager.LoadScene("SelecciónNivel");
+        SceneManager.LoadScene("SelecciónNivel"); 
     }
     void CambioEscena2()
     {

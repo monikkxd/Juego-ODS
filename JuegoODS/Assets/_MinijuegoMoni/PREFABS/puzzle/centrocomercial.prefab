@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3558090487230382340}
+  - component: {fileID: 1271290025736006609}
   m_Layer: 0
   m_Name: centrocomercial
   m_TagString: Untagged
@@ -206,6 +207,18 @@ Transform:
   - {fileID: 9119964955246882403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!156049354 &1271290025736006609
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4191497611605187518}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 1, y: 1, z: 1}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &4351659411444033087
 GameObject:
   m_ObjectHideFlags: 0
