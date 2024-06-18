@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944a023e0554c534399b0d9855966123, type: 3}
+  m_Name: DataBase
+  m_EditorClassIdentifier: 
+  objectsData:
+  - <Name>k__BackingField: Tienda
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 2, y: 3}
+    <Prefab>k__BackingField: {fileID: 3654906235956572203, guid: 288db3ff8fe47bb46973077447af96bb,
+      type: 3}
+  - <Name>k__BackingField: CentroComercial
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 3, y: 3}
+    <Prefab>k__BackingField: {fileID: 4191497611605187518, guid: 828d7aeb0564c1747a174fc82fb1d9e5,
+      type: 3}
+  - <Name>k__BackingField: Ayuntamiento
+    <ID>k__BackingField: 2
+    <Size>k__BackingField: {x: 3, y: 2}
+    <Prefab>k__BackingField: {fileID: 8067389451239640203, guid: bc9bb179ee1def84ba13d58a5e66fdd7,
+      type: 3}
+  - <Name>k__BackingField: "M\xE9dico"
+    <ID>k__BackingField: 3
+    <Size>k__BackingField: {x: 2, y: 4}
+    <Prefab>k__BackingField: {fileID: 8067389451239640203, guid: bc9bb179ee1def84ba13d58a5e66fdd7,
+      type: 3}
