@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 47965737}
   - component: {fileID: 47965736}
   m_Layer: 5
-  m_Name: Migui
+  m_Name: Clara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 878255208}
         m_TargetAssemblyTypeName: SelectorNivel, Assembly-CSharp
-        m_MethodName: JuegoMigui
+        m_MethodName: JuegoClara
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1207,7 +1207,7 @@ GameObject:
   - component: {fileID: 644272300}
   - component: {fileID: 644272299}
   m_Layer: 5
-  m_Name: Clara
+  m_Name: Migui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 878255208}
         m_TargetAssemblyTypeName: SelectorNivel, Assembly-CSharp
-        m_MethodName: JuegoClara
+        m_MethodName: JuegoMigui
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

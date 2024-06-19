@@ -24,15 +24,7 @@ public class CuentaAtrásMario : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.K))
-        {
-            Time.timeScale = 10.0f;
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-
-        }
+        
 
         if (timerIsRunning)
         {

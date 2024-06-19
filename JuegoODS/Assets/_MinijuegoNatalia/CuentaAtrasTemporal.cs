@@ -20,14 +20,6 @@ public class CuentaAtrasTemporal : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.K))
-        {
-            Time.timeScale = 5f;
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-        }
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
