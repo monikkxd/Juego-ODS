@@ -2448,7 +2448,7 @@ PrefabInstance:
     - target: {fileID: 306450180971421771, guid: c31c2c9d9e21eb94e87a0fa46fdb0d77,
         type: 3}
       propertyPath: m_Name
-      value: MouseIndicator
+      value: MouseIndicatorParent
       objectReference: {fileID: 0}
     - target: {fileID: 667932553656310157, guid: c31c2c9d9e21eb94e87a0fa46fdb0d77,
         type: 3}
@@ -2464,6 +2464,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667932553656310157, guid: c31c2c9d9e21eb94e87a0fa46fdb0d77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 667932553656310157, guid: c31c2c9d9e21eb94e87a0fa46fdb0d77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3852488041976017313, guid: c31c2c9d9e21eb94e87a0fa46fdb0d77,
         type: 3}
