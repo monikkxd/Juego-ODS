@@ -1,108 +1,119 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
 {
-    [SerializeField] GameObject mouseIndicator, cellIndicator;
-    [SerializeField] private InputManager inputManager;
-    [SerializeField] private Grid grid;
-    [SerializeField] private ObjectsDatabaseSO dataBase;
-    private int selectedObjectIndex = -1;
+    [SerializeField]
+    private InputManager inputManager;
+    [SerializeField]
+    private Grid grid;
 
-    [SerializeField] private GameObject gridVisualization;
+    [SerializeField]
+    private ObjectsDatabaseSO database;
+
+    [SerializeField]
+    private GameObject gridVisualization;
+
+    [SerializeField]
+    private AudioClip correctPlacementClip, wrongPlacementClip;
+    [SerializeField]
+    private AudioSource source;
 
     private GridData floorData, furnitureData;
 
-    private Renderer previewRenderer;
+    [SerializeField]
+    private PreviewSystem preview;
 
-    private List<GameObject> placedGameObjects = new();
+    private Vector3Int lastDetectedPosition = Vector3Int.zero;
+
+    [SerializeField]
+    private ObjectPlacer objectPlacer;
+
+    IbuildingState buildingState;
+
+    [SerializeField]
+    //private SoundFeedback soundFeedback;
 
     private void Start()
     {
-        StopPlacement();
-        floorData = new GridData();
+        gridVisualization.SetActive(false);
+        floorData = new();
         furnitureData = new();
-        previewRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
+
     public void StartPlacement(int ID)
     {
         StopPlacement();
-        selectedObjectIndex = dataBase.objectsData.FindIndex(data => data.ID == ID);
-        if(selectedObjectIndex < 0)
-        {
-            Debug.LogError($"No ID found {ID}");
-            return;
-        }
         gridVisualization.SetActive(true);
-        cellIndicator.SetActive(true);
+        buildingState = new PlacementState(ID,
+                                           grid,
+                                           preview,
+                                           database,
+                                           floorData,
+                                           furnitureData,
+                                           objectPlacer);
+        inputManager.OnClicked += PlaceStructure;
+        inputManager.OnExit += StopPlacement;
+    }
+
+    public void StartRemoving()
+    {
+        StopPlacement();
+        gridVisualization.SetActive(true);
+        buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
 
     private void PlaceStructure()
     {
-        if(inputManager.IsPointerOverUI())
+        if (inputManager.IsPointerOverUI())
         {
             return;
         }
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
 
-        bool placemenentValidity = checkPlacementValidity(gridPosition, selectedObjectIndex);
-        if (placemenentValidity == false)
-            return;
-
-        GameObject newObject = Instantiate(dataBase.objectsData[selectedObjectIndex].Prefab);
-        newObject.transform.position = grid.CellToWorld(gridPosition);
-        placedGameObjects.Add(newObject);
-        GridData selectedData = dataBase.objectsData[selectedObjectIndex].ID == 0 ?
-            floorData :
-            furnitureData;
-        selectedData.AddObjectAt(gridPosition,
-                                 dataBase.objectsData[selectedObjectIndex].Size,
-                                 dataBase.objectsData[selectedObjectIndex].ID,
-                                 placedGameObjects.Count - 1);
-
+        buildingState.OnAction(gridPosition);
 
     }
 
-    private bool checkPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    {
-       GridData selectedData = dataBase.objectsData[selectedObjectIndex].ID == 0 ? 
-            floorData : 
-            furnitureData;
+    //private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
+    //{
+    //    GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? 
+    //        floorData : 
+    //        furnitureData;
 
-        return selectedData.CanPlaceObejctAt(gridPosition,
-                                             dataBase.objectsData[selectedObjectIndex].Size);
-
-
-    }
+    //    return selectedData.CanPlaceObejctAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
+    //}
 
     private void StopPlacement()
     {
-        selectedObjectIndex = -1;
+        //soundFeedback.PlaySound(SoundType.Click);
+        if (buildingState == null)
+            return;
         gridVisualization.SetActive(false);
-        cellIndicator.SetActive(false);
+        buildingState.EndState();
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;
+        lastDetectedPosition = Vector3Int.zero;
+        buildingState = null;
     }
 
     private void Update()
     {
-        if(selectedObjectIndex < 0)
-        {
+        if (buildingState == null)
             return;
-        }
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+        if (lastDetectedPosition != gridPosition)
+        {
+            buildingState.UpdateState(gridPosition);
+            lastDetectedPosition = gridPosition;
+        }
 
-        bool placemenentValidity = checkPlacementValidity(gridPosition, selectedObjectIndex);
-        previewRenderer.material.color = placemenentValidity ? Color.white : Color.red;
-
-
-        mouseIndicator.transform.position = mousePosition;
-        cellIndicator.transform.position = grid.CellToWorld(gridPosition);
     }
 }
