@@ -8,6 +8,8 @@ public class CinematicaManager : MonoBehaviour
     public GameObject fadeIn;
 
     public Animator animator;
+
+    public GameObject acelerandoTransición;
     void Update()
     {
         if(Input.GetKey(KeyCode.Space))
@@ -18,10 +20,12 @@ public class CinematicaManager : MonoBehaviour
         
         if(Input.GetKey(KeyCode.E))
         {
+            acelerandoTransición.SetActive(true);
             Time.timeScale = 4f;
         }
         else
         {
+            acelerandoTransición.SetActive(false);
             Time.timeScale = 1.0f;
         }
     }
