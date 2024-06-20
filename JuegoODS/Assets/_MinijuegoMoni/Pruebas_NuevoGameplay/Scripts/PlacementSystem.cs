@@ -34,14 +34,29 @@ public class PlacementSystem : MonoBehaviour
 
     IbuildingState buildingState;
 
+    // Declaración de las variables GameObject
     [SerializeField]
-    //private SoundFeedback soundFeedback;
+    private GameObject gameObject1;
+    [SerializeField]
+    private GameObject gameObject2;
+    [SerializeField]
+    private GameObject gameObject3;
+    [SerializeField]
+    private GameObject gameObject4;
+
+    // Declaración de la variable Animator
+    [SerializeField]
+    private Animator animator;
+
+    // Contador de objetos activados
+    private int activatedObjectsCount = 0;
 
     private void Start()
     {
         gridVisualization.SetActive(false);
-        floorData = new();
-        furnitureData = new();
+        floorData = new GridData();
+        furnitureData = new GridData();
+        animator.enabled = false;
     }
 
     public void StartPlacement(int ID)
@@ -79,16 +94,62 @@ public class PlacementSystem : MonoBehaviour
 
         buildingState.OnAction(gridPosition);
 
+        // Obtención del ID del objeto que se está colocando
+        if (buildingState is PlacementState placementState)
+        {
+            int objectId = placementState.ID;
+            ActivateGameObjectById(objectId);
+        }
     }
 
-    //private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    //{
-    //    GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? 
-    //        floorData : 
-    //        furnitureData;
+    private void ActivateGameObjectById(int ID)
+    {
+        bool objectActivated = false;
 
-    //    return selectedData.CanPlaceObejctAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
-    //}
+        switch (ID)
+        {
+            case 1:
+                if (gameObject1 != null && !gameObject1.activeSelf)
+                {
+                    gameObject1.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 2:
+                if (gameObject2 != null && !gameObject2.activeSelf)
+                {
+                    gameObject2.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 3:
+                if (gameObject3 != null && !gameObject3.activeSelf)
+                {
+                    gameObject3.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 4:
+                if (gameObject4 != null && !gameObject4.activeSelf)
+                {
+                    gameObject4.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            default:
+                Debug.LogWarning($"No GameObject assigned for ID {ID}");
+                break;
+        }
+
+        if (objectActivated)
+        {
+            activatedObjectsCount++;
+            if (activatedObjectsCount == 4 && animator != null)
+            {
+                animator.enabled = true;
+            }
+        }
+    }
 
     private void StopPlacement()
     {
@@ -114,6 +175,5 @@ public class PlacementSystem : MonoBehaviour
             buildingState.UpdateState(gridPosition);
             lastDetectedPosition = gridPosition;
         }
-
     }
 }
