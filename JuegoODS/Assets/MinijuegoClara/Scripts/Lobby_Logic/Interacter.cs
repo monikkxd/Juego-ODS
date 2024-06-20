@@ -30,6 +30,15 @@ public class Interacter : MonoBehaviour
             Indicador.SetActive(true);
             tocandoBotón = true;
         }
+        else if (other.CompareTag("Plato"))
+        {
+            Indicador.SetActive(true);
+        }
+        else if (other.CompareTag("Mesa"))
+        {
+            Indicador.SetActive(true);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,6 +47,14 @@ public class Interacter : MonoBehaviour
         {
             Indicador.SetActive(false);
             tocandoBotón = false;
+        }
+        else if (other.CompareTag("Plato"))
+        {
+            Indicador.SetActive(false);
+        }
+        else if (other.CompareTag("Mesa"))
+        {
+            Indicador.SetActive(false);
         }
     }
 

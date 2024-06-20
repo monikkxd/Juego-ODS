@@ -39,6 +39,7 @@ public class IsometricCharacterController : MonoBehaviour
             // Si no hay entrada de movimiento, desactivar la animación
             animator.SetBool("AndarMonicaG", false);
         }
+
     }
 
     void Move()
