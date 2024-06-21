@@ -2,19 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectorNivel : MonoBehaviour
 {
-    public GameObject transición;
-    public GameObject transición2;
-    public GameObject transición3;
-    public GameObject transición4;
+    [Header("Transiciones")]
+    public GameObject transición, transición2, transición3, transición4;
 
+    [Header("Botones Minijuegos")]
+    public Button botónHugo;
+
+    [Header("Indicadores Juegos Completados")]
+    public GameObject hugoCompletadoObject;
+
+    public static bool hugoCompletado = false;
+
+
+    private void Start()
+    {
+        hugoCompletadoObject.SetActive(false);
+    }
     public void JuegoAlex()
-   {
+    {
         transición.SetActive(true);
         Invoke("CargarAlex", 2.5f);
-   }
+    }
 
     public void JuegoMoni()
     {
@@ -100,4 +112,14 @@ public class SelectorNivel : MonoBehaviour
     {
         SceneManager.LoadScene("_testmonicag");
     }
+
+    private void Update()
+    {
+        if(hugoCompletado == true)
+        {
+            hugoCompletadoObject.SetActive(true);
+            botónHugo.enabled = false;
+        }
+    }
+
 }

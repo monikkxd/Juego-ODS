@@ -11,6 +11,8 @@ public class Player_Manager : MonoBehaviour
     public GameObject transiciónFinal;
     public GameObject audioSource;
 
+    private SelectorNivel selectorNivel;
+
     private void Start()
     {
         activador.SetActive(false);
@@ -27,7 +29,7 @@ public class Player_Manager : MonoBehaviour
             {
                 gameObjectList[i].SetActive(false);
             }
-           
+            SelectorNivel.hugoCompletado = true;
             Invoke("ActivarTransiciónFinal", 1.5f);
             Invoke("ActivarTransición", 5.5f);
             Invoke("CambiarEscena", 8f);

@@ -686,6 +686,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 46626827}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &65268289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6512372669905464878, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 965230790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &66156401
 GameObject:
   m_ObjectHideFlags: 0
@@ -6469,6 +6475,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 785475825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &792596619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 965230790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &792596625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792596619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3472706f30d0a94ab2a1a61d1045a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIMenu: {fileID: 65268289}
+  cursorTexture: {fileID: 2800000, guid: fa34974dc7ab9774f8603e6b531d9e52, type: 3}
+  mouseSensitivity: 1
 --- !u!1001 &800357531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7815,10 +7842,19 @@ PrefabInstance:
       propertyPath: m_OverridePixelPerfect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 792596625}
   m_SourcePrefab: {fileID: 100100000, guid: 64d47c8d72795f04187e9e9a82be5eee, type: 3}
 --- !u!4 &969432080 stripped
 Transform:
