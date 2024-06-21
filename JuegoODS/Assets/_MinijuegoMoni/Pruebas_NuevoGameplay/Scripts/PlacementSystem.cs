@@ -51,6 +51,11 @@ public class PlacementSystem : MonoBehaviour
     // Contador de objetos activados
     private int activatedObjectsCount = 0;
 
+
+    [Header("Tuto Mid-Game")]
+    public GameObject tutoObject;
+    public Animator tutoAnimator;
+
     private void Start()
     {
         gridVisualization.SetActive(false);
@@ -109,16 +114,16 @@ public class PlacementSystem : MonoBehaviour
         switch (ID)
         {
             case 1:
-                if (gameObject1 != null && !gameObject1.activeSelf)
+                if (gameObject2 != null && !gameObject2.activeSelf)
                 {
-                    gameObject1.SetActive(true);
+                    gameObject2.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 2:
-                if (gameObject2 != null && !gameObject2.activeSelf)
+                if (gameObject4 != null && !gameObject4.activeSelf)
                 {
-                    gameObject2.SetActive(true);
+                    gameObject4.SetActive(true);
                     objectActivated = true;
                 }
                 break;
@@ -130,9 +135,9 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 4:
-                if (gameObject4 != null && !gameObject4.activeSelf)
+                if (gameObject1 != null && !gameObject1.activeSelf)
                 {
-                    gameObject4.SetActive(true);
+                    gameObject1.SetActive(true);
                     objectActivated = true;
                 }
                 break;
@@ -147,6 +152,9 @@ public class PlacementSystem : MonoBehaviour
             if (activatedObjectsCount == 4 && animator != null)
             {
                 animator.enabled = true;
+                tutoObject.SetActive(true);
+                tutoAnimator.Play("TutoDestruir&Flechas");
+                
             }
         }
     }
