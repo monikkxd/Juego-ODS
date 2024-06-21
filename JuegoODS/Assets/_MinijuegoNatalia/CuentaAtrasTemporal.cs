@@ -29,6 +29,7 @@ public class CuentaAtrasTemporal : MonoBehaviour
             }
             else
             {
+                SelectorNivel.nataliaCompletado = true;
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;

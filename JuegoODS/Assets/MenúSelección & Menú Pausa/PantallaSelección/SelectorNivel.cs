@@ -11,16 +11,48 @@ public class SelectorNivel : MonoBehaviour
 
     [Header("Botones Minijuegos")]
     public Button botónHugo;
+    public Button botónMoni;
+    public Button botónAlex;
+    public Button botónAndrea;
+    public Button botónMonica;
+    public Button botónMigui;
+    public Button botónMario;
+    public Button botónNatalia;
+    public Button botónClara;
 
     [Header("Indicadores Juegos Completados")]
     public GameObject hugoCompletadoObject;
+    public GameObject moniCompletadoObject;
+    public GameObject alexCompletadoObject;
+    public GameObject andreaCompletadoObject;
+    public GameObject miguiCompletadoObject;
+    public GameObject marioCompletadoObject;
+    public GameObject nataliaCompletadoObject;
+    public GameObject claraCompletadoObject;
+    public GameObject monicaCompletadoObject;
 
     public static bool hugoCompletado = false;
+    public static bool nataliaCompletado = false;
+    public static bool MoniCompletado = false;
+    public static bool AlexCompletado = false;
+    public static bool andreaCompletado = false;
+    public static bool miguiCompletado = false;
+    public static bool marioCompletado = false;
+    public static bool monicaCompletado = false;
+    public static bool claraCompletado = false;
 
 
     private void Start()
     {
         hugoCompletadoObject.SetActive(false);
+        moniCompletadoObject.SetActive(false);
+        alexCompletadoObject.SetActive(false);
+        andreaCompletadoObject.SetActive(false);
+        miguiCompletadoObject.SetActive(false);
+        marioCompletadoObject.SetActive(false);
+        nataliaCompletadoObject.SetActive(false);
+        claraCompletadoObject.SetActive(false);
+        monicaCompletadoObject.SetActive(false);
     }
     public void JuegoAlex()
     {
@@ -119,6 +151,46 @@ public class SelectorNivel : MonoBehaviour
         {
             hugoCompletadoObject.SetActive(true);
             botónHugo.enabled = false;
+        }
+        if(monicaCompletado == true)
+        {
+            monicaCompletadoObject.SetActive(true);
+            botónMonica.enabled = false;
+        }
+        if (MoniCompletado == true)
+        {
+            moniCompletadoObject.SetActive(true);
+            botónMoni.enabled = false;
+        }
+        if (miguiCompletado == true)
+        {
+            miguiCompletadoObject.SetActive(true);
+            botónMigui.enabled = false;
+        }
+        if (claraCompletado == true)
+        {
+            claraCompletadoObject.SetActive(true);
+            botónClara.enabled = false;
+        }
+        if (marioCompletado == true)
+        {
+            marioCompletadoObject.SetActive(true);
+            botónMario.enabled = false;
+        }
+        if (nataliaCompletado == true)
+        {
+            nataliaCompletadoObject.SetActive(true);
+            botónNatalia.enabled = false;
+        }
+        if (AlexCompletado == true)
+        {
+            alexCompletadoObject.SetActive(true);
+            botónAlex.enabled = false;
+        }
+        if (andreaCompletado == true)
+        {
+            andreaCompletadoObject.SetActive(true);
+            botónAndrea.enabled = false;
         }
     }
 

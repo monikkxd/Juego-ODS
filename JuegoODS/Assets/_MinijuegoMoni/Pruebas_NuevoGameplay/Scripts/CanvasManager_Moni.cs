@@ -7,29 +7,23 @@ public class CanvasManager_Moni : MonoBehaviour
     public Animator animator;
 
     private bool interfazCambiada = false;
+    private bool interfazCambiada2 = false;
+    private bool interfazCambiada3 = false;
 
     private void Start()
     {
         animator.enabled = false;
     }
-    public void CambioInterfac()
+    public void CambioInterfaz()
     {
-        if(interfazCambiada == false)
-        {
-            interfazCambiada = true;
+        animator.enabled = true;
 
-            animator.enabled = true;
 
-            animator.SetBool("CambioInterfaz", false);
-        }
-        else if(interfazCambiada == true)
-        {
-            interfazCambiada = false;
+    }
 
-            animator.SetBool("CambioInterfaz", true);
-        }
-
-       
+    public void CambioInterfaz2()
+    {
+        
     }
 
 

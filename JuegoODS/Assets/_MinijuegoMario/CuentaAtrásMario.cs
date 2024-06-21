@@ -35,6 +35,7 @@ public class CuentaAtrásMario : MonoBehaviour
             }
             else
             {
+                SelectorNivel.marioCompletado = true;
                 playerController.enabled = false;
                 firstPersonController.enabled = false;
                 Debug.Log("Time has run out!");
