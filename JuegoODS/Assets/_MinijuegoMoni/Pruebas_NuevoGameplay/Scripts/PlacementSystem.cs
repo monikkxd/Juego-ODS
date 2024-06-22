@@ -40,25 +40,37 @@ public class PlacementSystem : MonoBehaviour
 
     [Header("Edificios Construidos")]
     [SerializeField]
-    private GameObject gameObject1;
+    private GameObject colegioConstruido;
     [SerializeField]
-    private GameObject gameObject2;
+    private GameObject bibliotecaConstruido;
     [SerializeField]
-    private GameObject gameObject3;
+    private GameObject ayuntamientoConstruido;
     [SerializeField]
-    private GameObject gameObject4;
+    private GameObject hospitalConstruido;
     [SerializeField]
-    private GameObject gameObject5;
+    private GameObject tiendaConstruida;
     [SerializeField]
-    private GameObject gameObject6;
+    private GameObject viviendasContruida;
     [SerializeField]
-    private GameObject gameObject7;
+    private GameObject centroComercialConstruido;
     [SerializeField]
-    private GameObject gameObject8;
+    private GameObject comisariaContruida;
+    [SerializeField]
+    private GameObject parqueContruido;
+    [SerializeField]
+    private GameObject jardínConstruido;
+    [SerializeField]
+    private GameObject puestoLimonadaConstruido;
+    [SerializeField]
+    private GameObject carreterasContruido;
+    [SerializeField]
+    private GameObject parqueInfantilConstruido;
+    [SerializeField]
+    private GameObject merenderoConstruido;
 
 
     [SerializeField]
-    private Animator animator;
+    private Animator animatorListasTareas;
 
     private int activatedObjectsCount = 0;
 
@@ -68,21 +80,20 @@ public class PlacementSystem : MonoBehaviour
 
     public GameObject alerta;
 
-    private List<int> destroyedBuildingIDs = new List<int>();  // Lista para almacenar los IDs de los edificios destruidos
+    private List<int> destroyedBuildingIDs = new List<int>();  
 
     private void Start()
     {
         gridVisualization.SetActive(false);
         floorData = new GridData();
         furnitureData = new GridData();
-        animator.enabled = false;
+        animatorListasTareas.enabled = false;
 
      
     }
 
     public void StartPlacement(int ID)
     {
-        // Si hay edificios destruidos y el ID es mayor que 0, solo permite la colocación de esos edificios
         if (destroyedBuildingIDs.Count > 0 && ID > 0 && !destroyedBuildingIDs.Contains(ID))
         {
             StartCoroutine(ActivarDesactivarObjecto());
@@ -123,13 +134,11 @@ public class PlacementSystem : MonoBehaviour
 
         buildingState.OnAction(gridPosition);
 
-        // Obtención del ID del objeto que se está colocando
         if (buildingState is PlacementState placementState)
         {
             int objectId = placementState.ID;
             ActivateGameObjectById(objectId);
 
-            // Si el edificio colocado es uno de los destruidos y su ID es mayor que 0, elimínalo de la lista de destruidos
             if (objectId > 0 && destroyedBuildingIDs.Contains(objectId))
             {
                 destroyedBuildingIDs.Remove(objectId);
@@ -163,59 +172,108 @@ public class PlacementSystem : MonoBehaviour
 
         switch (ID)
         {
-            case 1:
-                if (gameObject1 != null && !gameObject1.activeSelf)
+            case -1:
+                if (carreterasContruido != null && !carreterasContruido.activeSelf)
                 {
-                    gameObject1.SetActive(true);
+                    carreterasContruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case -2:
+                if (carreterasContruido != null && !carreterasContruido.activeSelf)
+                {
+                    carreterasContruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 1:
+                if (colegioConstruido != null && !colegioConstruido.activeSelf)
+                {
+                    colegioConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 2:
-                if (gameObject2 != null && !gameObject2.activeSelf)
+                if (bibliotecaConstruido != null && !bibliotecaConstruido.activeSelf)
                 {
-                    gameObject2.SetActive(true);
+                    bibliotecaConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 3:
-                if (gameObject3 != null && !gameObject3.activeSelf)
+                if (ayuntamientoConstruido != null && !ayuntamientoConstruido.activeSelf)
                 {
-                    gameObject3.SetActive(true);
+                    ayuntamientoConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 4:
-                if (gameObject4 != null && !gameObject4.activeSelf)
+                if (hospitalConstruido != null && !hospitalConstruido.activeSelf)
                 {
-                    gameObject4.SetActive(true);
+                    hospitalConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 7:
-                if (gameObject5 != null && !gameObject5.activeSelf)
+                if (tiendaConstruida != null && !tiendaConstruida.activeSelf)
                 {
-                    gameObject5.SetActive(true);
+                    tiendaConstruida.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 8:
-                if (gameObject6 != null && !gameObject6.activeSelf)
+                if (viviendasContruida != null && !viviendasContruida.activeSelf)
                 {
-                    gameObject6.SetActive(true);
+                    viviendasContruida.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 9:
-                if (gameObject7 != null && !gameObject7.activeSelf)
+                if (centroComercialConstruido != null && !centroComercialConstruido.activeSelf)
                 {
-                    gameObject7.SetActive(true);
+                    centroComercialConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 10:
-                if (gameObject8 != null && !gameObject8.activeSelf)
+                if (comisariaContruida != null && !comisariaContruida.activeSelf)
                 {
-                    gameObject8.SetActive(true);
+                    comisariaContruida.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 11:
+                if (parqueContruido != null && !parqueContruido.activeSelf)
+                {
+                    parqueContruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 12:
+                if (parqueInfantilConstruido != null && !parqueInfantilConstruido.activeSelf)
+                {
+                    parqueInfantilConstruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 13:
+                if (jardínConstruido != null && !jardínConstruido.activeSelf)
+                {
+                    jardínConstruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 14:
+                if (merenderoConstruido != null && !merenderoConstruido.activeSelf)
+                {
+                    merenderoConstruido.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 15:
+                if (puestoLimonadaConstruido != null && !puestoLimonadaConstruido.activeSelf)
+                {
+                    puestoLimonadaConstruido.SetActive(true);
                     objectActivated = true;
                 }
                 break;
@@ -227,11 +285,19 @@ public class PlacementSystem : MonoBehaviour
         if (objectActivated)
         {
             activatedObjectsCount++;
-            if (activatedObjectsCount == 4 && animator != null)
+            if (activatedObjectsCount == 4 && animatorListasTareas != null)
             {
-                animator.enabled = true;
+                animatorListasTareas.enabled = true;
                 tutoObject.SetActive(true);
                 tutoAnimator.Play("TutoDestruir&Flechas");
+            }
+            else if(activatedObjectsCount == 8 && animatorListasTareas != null)
+            {
+                animatorListasTareas.Play("CambioTareas2_Animator");
+            }
+            else if(activatedObjectsCount == 11 && animatorListasTareas != null)
+            {
+                animatorListasTareas.Play("CambioTareas3_Animator");
             }
         }
     }
