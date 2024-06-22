@@ -72,6 +72,7 @@ public class MenuPausa : MonoBehaviour
         JuegoPausado = false;
     }
 
+
     public void QuitGame()
     {
         Debug.Log("Salir del juego");

@@ -25,6 +25,13 @@ public class MenuPrincipal : MonoBehaviour
         transiciónPrefab.enabled = true;
         Invoke("CargarCinemáticaInicial", 2f);
     }
+
+    public void NuevaPartida()
+    {
+        ReiniciarInformaciónPartida();
+        transiciónPrefab.enabled = true;
+        Invoke("CargarCinemáticaInicial", 2f);
+    }
     public void Salir()
     {
         Application.Quit();
@@ -32,6 +39,19 @@ public class MenuPrincipal : MonoBehaviour
     public void CargarCinemáticaInicial()
     {
         SceneManager.LoadScene("CinemáticaInicial");
+    }
+
+    private void ReiniciarInformaciónPartida()
+    {
+        SelectorNivel.hugoCompletado = false;
+        SelectorNivel.nataliaCompletado = false;
+        SelectorNivel.MoniCompletado = false;
+        SelectorNivel.AlexCompletado = false;
+        SelectorNivel.andreaCompletado = false;
+        SelectorNivel.miguiCompletado = false;
+        SelectorNivel.marioCompletado = false;
+        SelectorNivel.monicaCompletado = false;
+        SelectorNivel.claraCompletado = false;
     }
 
 }
