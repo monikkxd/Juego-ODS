@@ -41,6 +41,9 @@ public class SelectorNivel : MonoBehaviour
     public static bool monicaCompletado = false;
     public static bool claraCompletado = false;
 
+    [Header("Transición Final")]
+    public GameObject transiciónFinal;
+
 
     private void Start()
     {
@@ -147,7 +150,21 @@ public class SelectorNivel : MonoBehaviour
 
     private void Update()
     {
-        if(hugoCompletado == true)
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            hugoCompletado = true;
+            nataliaCompletado = true;
+            MoniCompletado = true;
+            AlexCompletado = true;
+            andreaCompletado = true;
+            miguiCompletado = true;
+            marioCompletado = true;
+            monicaCompletado = true;
+            claraCompletado = true;
+
+        }
+
+        if (hugoCompletado == true)
         {
             hugoCompletadoObject.SetActive(true);
             botónHugo.enabled = false;
@@ -192,6 +209,24 @@ public class SelectorNivel : MonoBehaviour
             andreaCompletadoObject.SetActive(true);
             botónAndrea.enabled = false;
         }
+
+        if(AlexCompletado && andreaCompletado && monicaCompletado && MoniCompletado && miguiCompletado && nataliaCompletado && hugoCompletado && claraCompletado && marioCompletado)
+        {
+            StartCoroutine(CargarVictoria());
+        }
+
+        
+    }
+
+    IEnumerator CargarVictoria()
+    {
+        yield return new WaitForSeconds(3f);
+
+        transiciónFinal.SetActive(true);
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("EscenaFinal");
     }
 
 }
