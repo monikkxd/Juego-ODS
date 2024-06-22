@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -54,6 +56,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private GameObject gameObject8;
 
+
     [SerializeField]
     private Animator animator;
 
@@ -63,7 +66,9 @@ public class PlacementSystem : MonoBehaviour
     public GameObject tutoObject;
     public Animator tutoAnimator;
 
-    private int destroyedBuildingID = -1;  // Almacena el ID del edificio destruido
+    public GameObject alerta;
+
+    private List<int> destroyedBuildingIDs = new List<int>();  // Lista para almacenar los IDs de los edificios destruidos
 
     private void Start()
     {
@@ -71,14 +76,17 @@ public class PlacementSystem : MonoBehaviour
         floorData = new GridData();
         furnitureData = new GridData();
         animator.enabled = false;
+
+     
     }
 
     public void StartPlacement(int ID)
     {
-        // Si hay un edificio destruido, solo permite la colocación del mismo edificio
-        if (destroyedBuildingID != -1 && ID != destroyedBuildingID)
+        // Si hay edificios destruidos y el ID es mayor que 0, solo permite la colocación de esos edificios
+        if (destroyedBuildingIDs.Count > 0 && ID > 0 && !destroyedBuildingIDs.Contains(ID))
         {
-            Debug.LogWarning("Debes reconstruir el edificio destruido antes de colocar otros edificios.");
+            StartCoroutine(ActivarDesactivarObjecto());
+            Debug.LogWarning("Debes reconstruir los edificios destruidos antes de colocar otros edificios.");
             return;
         }
 
@@ -121,10 +129,10 @@ public class PlacementSystem : MonoBehaviour
             int objectId = placementState.ID;
             ActivateGameObjectById(objectId);
 
-            // Si el edificio colocado es el mismo que fue destruido, resetea destroyedBuildingID
-            if (destroyedBuildingID == objectId)
+            // Si el edificio colocado es uno de los destruidos y su ID es mayor que 0, elimínalo de la lista de destruidos
+            if (objectId > 0 && destroyedBuildingIDs.Contains(objectId))
             {
-                destroyedBuildingID = -1;
+                destroyedBuildingIDs.Remove(objectId);
             }
         }
     }
@@ -141,10 +149,10 @@ public class PlacementSystem : MonoBehaviour
         if (buildingState is RemovingState removingState)
         {
             int removedObjectId = removingState.OnRemove(gridPosition);
-            if (removedObjectId != -1)
+            if (removedObjectId > 0)
             {
-                destroyedBuildingID = removedObjectId;
-                Debug.Log($"Edificio destruido con ID: {destroyedBuildingID}");
+                destroyedBuildingIDs.Add(removedObjectId);
+                Debug.Log($"Edificio destruido con ID: {removedObjectId}");
             }
         }
     }
@@ -239,6 +247,14 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit -= StopPlacement;
         lastDetectedPosition = Vector3Int.zero;
         buildingState = null;
+    }
+    IEnumerator ActivarDesactivarObjecto()
+    {
+        alerta.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        alerta.SetActive(false);
     }
 
     private void Update()

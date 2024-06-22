@@ -57,7 +57,6 @@ public class RemovingState : IbuildingState
 
         if (selectedData == null)
         {
-            //sound
             //soundFeedback.PlaySound(SoundType.wrongPlacement);
             return -1;
         }
@@ -67,7 +66,6 @@ public class RemovingState : IbuildingState
             gameObjectIndex = selectedData.GetRepresentationIndex(gridPosition);
             if (gameObjectIndex == -1)
                 return -1;
-
             int removedObjectId = selectedData.GetObjectIdAt(gridPosition);
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gameObjectIndex);
@@ -75,15 +73,15 @@ public class RemovingState : IbuildingState
         }
     }
 
-    private bool CheckIfSelectionIsValid(Vector3Int gridPosition)
-    {
-        return !(furnitureData.CanPlaceObejctAt(gridPosition, Vector2Int.one) &&
-            floorData.CanPlaceObejctAt(gridPosition, Vector2Int.one));
-    }
-
     public void UpdateState(Vector3Int gridPosition)
     {
         bool validity = CheckIfSelectionIsValid(gridPosition);
         previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), validity);
+    }
+
+    private bool CheckIfSelectionIsValid(Vector3Int gridPosition)
+    {
+        return !(furnitureData.CanPlaceObejctAt(gridPosition, Vector2Int.one) &&
+            floorData.CanPlaceObejctAt(gridPosition, Vector2Int.one));
     }
 }

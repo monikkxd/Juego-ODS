@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: DataBase
   m_EditorClassIdentifier: 
   objectsData:
+  - <Name>k__BackingField: CarreteraHorizontal
+    <ID>k__BackingField: -2
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 306450180971421771, guid: 2d6b02fcfe5db6c4eb7a217e0f4a7a05,
+      type: 3}
+  - <Name>k__BackingField: CarreteraVertical
+    <ID>k__BackingField: -1
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 306450180971421771, guid: 097d8ab2e14710a4485e9e69fbb672f4,
+      type: 3}
   - <Name>k__BackingField: Suelo
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
@@ -37,16 +47,6 @@ MonoBehaviour:
     <ID>k__BackingField: 4
     <Size>k__BackingField: {x: 2, y: 4}
     <Prefab>k__BackingField: {fileID: 630028435673754538, guid: bff73a332244932419abf787016760e9,
-      type: 3}
-  - <Name>k__BackingField: CarreteraVertical
-    <ID>k__BackingField: 5
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 306450180971421771, guid: 097d8ab2e14710a4485e9e69fbb672f4,
-      type: 3}
-  - <Name>k__BackingField: CarreteraHorizontal
-    <ID>k__BackingField: 6
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 306450180971421771, guid: 2d6b02fcfe5db6c4eb7a217e0f4a7a05,
       type: 3}
   - <Name>k__BackingField: Tienda
     <ID>k__BackingField: 7
