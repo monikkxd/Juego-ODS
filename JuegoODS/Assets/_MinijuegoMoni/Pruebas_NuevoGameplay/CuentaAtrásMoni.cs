@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CuentaAtrasTemporal : MonoBehaviour
+public class CuentaAtrásMoni : MonoBehaviour
 {
-    public float timeRemaining = 120f; // 2 minutos en segundos
-    public Text timeText; // Referencia al componente Text de la UI
+    public float timeRemaining = 120f; 
+    public Text timeText; 
 
     private bool timerIsRunning = false;
 
-    public GameObject transici�n;
+    public GameObject transición;
 
     void Update()
     {
@@ -30,16 +30,23 @@ public class CuentaAtrasTemporal : MonoBehaviour
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
 
-                transici�n.SetActive(true); 
+                transición.SetActive(true);
                 Invoke("CargarEscena", 2f);
 
             }
         }
+
+        if (Input.GetKey(KeyCode.K))
+        {
+            Time.timeScale = 10.0f;
+        }
+        else
+            Time.timeScale = 1.0f;
     }
 
     void UpdateTimeText(float currentTime)
     {
-        currentTime += 1; // Ajuste para mostrar correctamente el tiempo restante
+        currentTime += 1; 
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
@@ -48,7 +55,7 @@ public class CuentaAtrasTemporal : MonoBehaviour
 
     void CargarEscena()
     {
-        SceneManager.LoadScene("Selecci�nNivel");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 
     public void ActivarTimer()

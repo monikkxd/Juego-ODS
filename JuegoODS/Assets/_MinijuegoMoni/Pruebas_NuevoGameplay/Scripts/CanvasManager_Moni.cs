@@ -13,6 +13,7 @@ public class CanvasManager_Moni : MonoBehaviour
 
     public GameObject primerMenu, segundoMenu, tercerMenu;
 
+
     private void Start()
     {
         animator.enabled = false;
@@ -70,6 +71,5 @@ public class CanvasManager_Moni : MonoBehaviour
             tercerMenu.SetActive(false);
         }
     }
-
 
 }
