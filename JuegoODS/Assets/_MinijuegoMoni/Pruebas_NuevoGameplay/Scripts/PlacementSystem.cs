@@ -8,12 +8,14 @@ public class PlacementSystem : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
+    [Space]
     [SerializeField]
     private Grid grid;
 
+    [Header("Base de Datos Edificios")]
     [SerializeField]
     private ObjectsDatabaseSO database;
-
+    [Space]
     [SerializeField]
     private GameObject gridVisualization;
 
@@ -34,7 +36,7 @@ public class PlacementSystem : MonoBehaviour
 
     IbuildingState buildingState;
 
-    // Declaración de las variables GameObject
+    [Header("Edificios Construidos")]
     [SerializeField]
     private GameObject gameObject1;
     [SerializeField]
@@ -43,18 +45,25 @@ public class PlacementSystem : MonoBehaviour
     private GameObject gameObject3;
     [SerializeField]
     private GameObject gameObject4;
+    [SerializeField]
+    private GameObject gameObject5;
+    [SerializeField]
+    private GameObject gameObject6;
+    [SerializeField]
+    private GameObject gameObject7;
+    [SerializeField]
+    private GameObject gameObject8;
 
-    // Declaración de la variable Animator
     [SerializeField]
     private Animator animator;
 
-    // Contador de objetos activados
     private int activatedObjectsCount = 0;
-
 
     [Header("Tuto Mid-Game")]
     public GameObject tutoObject;
     public Animator tutoAnimator;
+
+    private int destroyedBuildingID = -1;  // Almacena el ID del edificio destruido
 
     private void Start()
     {
@@ -66,6 +75,13 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
+        // Si hay un edificio destruido, solo permite la colocación del mismo edificio
+        if (destroyedBuildingID != -1 && ID != destroyedBuildingID)
+        {
+            Debug.LogWarning("Debes reconstruir el edificio destruido antes de colocar otros edificios.");
+            return;
+        }
+
         StopPlacement();
         gridVisualization.SetActive(true);
         buildingState = new PlacementState(ID,
@@ -84,7 +100,7 @@ public class PlacementSystem : MonoBehaviour
         StopPlacement();
         gridVisualization.SetActive(true);
         buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer);
-        inputManager.OnClicked += PlaceStructure;
+        inputManager.OnClicked += RemoveStructure;
         inputManager.OnExit += StopPlacement;
     }
 
@@ -104,6 +120,32 @@ public class PlacementSystem : MonoBehaviour
         {
             int objectId = placementState.ID;
             ActivateGameObjectById(objectId);
+
+            // Si el edificio colocado es el mismo que fue destruido, resetea destroyedBuildingID
+            if (destroyedBuildingID == objectId)
+            {
+                destroyedBuildingID = -1;
+            }
+        }
+    }
+
+    private void RemoveStructure()
+    {
+        if (inputManager.IsPointerOverUI())
+        {
+            return;
+        }
+        Vector3 mousePosition = inputManager.GetSelectedMapPosition();
+        Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+
+        if (buildingState is RemovingState removingState)
+        {
+            int removedObjectId = removingState.OnRemove(gridPosition);
+            if (removedObjectId != -1)
+            {
+                destroyedBuildingID = removedObjectId;
+                Debug.Log($"Edificio destruido con ID: {destroyedBuildingID}");
+            }
         }
     }
 
@@ -114,16 +156,16 @@ public class PlacementSystem : MonoBehaviour
         switch (ID)
         {
             case 1:
-                if (gameObject2 != null && !gameObject2.activeSelf)
+                if (gameObject1 != null && !gameObject1.activeSelf)
                 {
-                    gameObject2.SetActive(true);
+                    gameObject1.SetActive(true);
                     objectActivated = true;
                 }
                 break;
             case 2:
-                if (gameObject4 != null && !gameObject4.activeSelf)
+                if (gameObject2 != null && !gameObject2.activeSelf)
                 {
-                    gameObject4.SetActive(true);
+                    gameObject2.SetActive(true);
                     objectActivated = true;
                 }
                 break;
@@ -135,9 +177,37 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 4:
-                if (gameObject1 != null && !gameObject1.activeSelf)
+                if (gameObject4 != null && !gameObject4.activeSelf)
                 {
-                    gameObject1.SetActive(true);
+                    gameObject4.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 7:
+                if (gameObject5 != null && !gameObject5.activeSelf)
+                {
+                    gameObject5.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 8:
+                if (gameObject6 != null && !gameObject6.activeSelf)
+                {
+                    gameObject6.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 9:
+                if (gameObject7 != null && !gameObject7.activeSelf)
+                {
+                    gameObject7.SetActive(true);
+                    objectActivated = true;
+                }
+                break;
+            case 10:
+                if (gameObject8 != null && !gameObject8.activeSelf)
+                {
+                    gameObject8.SetActive(true);
                     objectActivated = true;
                 }
                 break;
@@ -154,7 +224,6 @@ public class PlacementSystem : MonoBehaviour
                 animator.enabled = true;
                 tutoObject.SetActive(true);
                 tutoAnimator.Play("TutoDestruir&Flechas");
-                
             }
         }
     }

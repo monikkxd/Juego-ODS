@@ -18,7 +18,7 @@ public class RemovingState : IbuildingState
                          GridData floorData,
                          GridData furnitureData,
                          ObjectPlacer objectPlacer)
-                         //SoundFeedback soundFeedback)
+    //SoundFeedback soundFeedback)
     {
         this.grid = grid;
         this.previewSystem = previewSystem;
@@ -36,6 +36,15 @@ public class RemovingState : IbuildingState
 
     public void OnAction(Vector3Int gridPosition)
     {
+        int removedObjectId = OnRemove(gridPosition);
+        if (removedObjectId != -1)
+        {
+            Debug.Log($"Edificio destruido con ID: {removedObjectId}");
+        }
+    }
+
+    public int OnRemove(Vector3Int gridPosition)
+    {
         GridData selectedData = null;
         if (furnitureData.CanPlaceObejctAt(gridPosition, Vector2Int.one) == false)
         {
@@ -50,18 +59,20 @@ public class RemovingState : IbuildingState
         {
             //sound
             //soundFeedback.PlaySound(SoundType.wrongPlacement);
+            return -1;
         }
         else
         {
             //soundFeedback.PlaySound(SoundType.Remove);
             gameObjectIndex = selectedData.GetRepresentationIndex(gridPosition);
             if (gameObjectIndex == -1)
-                return;
+                return -1;
+
+            int removedObjectId = selectedData.GetObjectIdAt(gridPosition);
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gameObjectIndex);
+            return removedObjectId;
         }
-        Vector3 cellPosition = grid.CellToWorld(gridPosition);
-        previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));
     }
 
     private bool CheckIfSelectionIsValid(Vector3Int gridPosition)
