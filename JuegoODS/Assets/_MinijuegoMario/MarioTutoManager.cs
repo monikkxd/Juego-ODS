@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MarioTutoManager : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class MarioTutoManager : MonoBehaviour
             Time.timeScale = 1;
 
             targetObject.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            SceneManager.LoadScene("SelecciónNivel");
         }
     }
 
