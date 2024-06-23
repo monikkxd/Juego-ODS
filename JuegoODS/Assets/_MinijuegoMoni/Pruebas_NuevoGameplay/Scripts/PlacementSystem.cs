@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -104,6 +105,10 @@ public class PlacementSystem : MonoBehaviour
     public GameObject popUpPuntuación100;
 
     public TMP_Text timer;
+
+    private bool listaDeTareas3Completada = false;
+
+    public GameObject transicion;
 
     private void Start()
     {
@@ -417,6 +422,13 @@ public class PlacementSystem : MonoBehaviour
             {
                 animatorListasTareas.Play("CambioTareas3_Animator");
                 objectActivated = false;
+                listaDeTareas3Completada = true;
+
+            }
+
+            if(listaDeTareas3Completada && puestoLimonadaConstruido && merenderoConstruido && carreterasContruido)
+            {
+                StartCoroutine(CambioEscena());   
             }
         }
     }
@@ -442,9 +454,19 @@ public class PlacementSystem : MonoBehaviour
         objeto.SetActive(false);
     }
 
+    IEnumerator CambioEscena()
+    {
+        transicion.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene("SelecciónNivel");
+
+    }
+
     private void Update()
     {
-        puntuaciónText.text = "Puntuación : " + puntuación.ToString();
+        puntuaciónText.text = puntuación.ToString();
 
 
         if (buildingState == null)
