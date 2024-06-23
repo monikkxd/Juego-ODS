@@ -72,6 +72,14 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         Time.timeScale = 1f;
         JuegoPausado = false;
     }
+
+    public void SelectorNiveles()
+    {
+        SceneManager.LoadScene("SelecciónNivel");
+        UIMenu.SetActive(false);
+        Time.timeScale = 1f;
+        JuegoPausado = false;
+    }
     public void QuitGame()
     {
         Debug.Log("Salir del juego");

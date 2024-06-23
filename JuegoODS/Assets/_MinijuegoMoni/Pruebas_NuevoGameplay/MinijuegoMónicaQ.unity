@@ -1870,6 +1870,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 499492340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &500045223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 989429881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &504381456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,10 +4492,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1756437468}
     m_Modifications:
+    - target: {fileID: 338044903960303963, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 989429887}
+    - target: {fileID: 338044903960303963, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 338044903960303963, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuPausaSelectorNiveles, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161295045941159319, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 989429887}
+    - target: {fileID: 1161295045941159319, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161295045941159319, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuPausaSelectorNiveles, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
         type: 3}
       propertyPath: m_Name
       value: MenuPausa
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274049971781023823, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 989429887}
+    - target: {fileID: 4274049971781023823, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectorNiveles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274049971781023823, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuPausaSelectorNiveles, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4641797148066780235, guid: 64d47c8d72795f04187e9e9a82be5eee,
         type: 3}
@@ -4606,10 +4657,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 989429887}
   m_SourcePrefab: {fileID: 100100000, guid: 64d47c8d72795f04187e9e9a82be5eee, type: 3}
 --- !u!224 &989429882 stripped
 RectTransform:
@@ -4617,18 +4673,21 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 989429881}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &989429883 stripped
+--- !u!114 &989429887
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee,
-    type: 3}
-  m_PrefabInstance: {fileID: 989429881}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 500045223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d73c287ed404944c85ca33e76a1dfaf, type: 3}
+  m_Script: {fileID: 11500000, guid: b3472706f30d0a94ab2a1a61d1045a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIMenu: {fileID: 1733039905}
+  cursorTexture: {fileID: 2800000, guid: fa34974dc7ab9774f8603e6b531d9e52, type: 3}
+  mouseSensitivity: 1
 --- !u!1 &1007316632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7912,6 +7971,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724903241}
   m_CullTransparentMesh: 1
+--- !u!1 &1733039905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6512372669905464878, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 989429881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1756437464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8637,7 +8702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 989429883}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: "AbrirMen\xFA"
         m_Mode: 1

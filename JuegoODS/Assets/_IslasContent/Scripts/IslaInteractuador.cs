@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class IslaInteractuador : MonoBehaviour
 
     public GameObject transición;
     public GameObject diálogo;
+    public GameObject popup;
 
     void Start()
     {
@@ -29,6 +31,8 @@ public class IslaInteractuador : MonoBehaviour
         {
             Interactuar();
         }
+
+
     }
 
     void Interactuar()
@@ -86,10 +90,27 @@ public class IslaInteractuador : MonoBehaviour
             }
             else if(hit.collider.CompareTag("Mr.Mondongo"))
             {
+                SelectorNivel.miguiCompletado = true;
                 diálogo.SetActive(true);
                 Invoke("Transición", 7f); 
                 Invoke("CambioEscena", 10f);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Mr.Mondongo"))
+        {
+            popup.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Mr.Mondongo"))
+        {
+            popup.SetActive(false);
         }
     }
 

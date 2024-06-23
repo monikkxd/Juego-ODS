@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MarioTutoManager : MonoBehaviour
+public class AndreaTutoManager : MonoBehaviour
 {
     // Public variable to link the GameObject from the Unity Inspector
     public GameObject targetObject;
 
-    
+
     // Time duration for which the object will stay active
     public float activeDuration = 7.0f;
 
@@ -30,11 +30,6 @@ public class MarioTutoManager : MonoBehaviour
             targetObject.SetActive(false);
         }
 
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            SaltarNivel();
-        }
     }
 
     private IEnumerator ActivateAndDeactivate()

@@ -94,6 +94,7 @@ public class GameManagerAlex : MonoBehaviour
         {
             if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy && ResultadosActivados)
             {
+                SelectorNivel.AlexCompletado = true;
                 VentanaResultados.SetActive(true);
 
                 HitText.text = "" + NormalFichas;
