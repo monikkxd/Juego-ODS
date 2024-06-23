@@ -29,9 +29,9 @@ public class MarioTutoManager : MonoBehaviour
             targetObject.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Y))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("SelecciónNivel");
+            SaltarNivel();
         }
     }
 
@@ -45,6 +45,12 @@ public class MarioTutoManager : MonoBehaviour
 
         // Deactivate the target GameObject
         targetObject.SetActive(false);
+    }
+
+    public void SaltarNivel()
+    {
+        SceneManager.LoadScene("SelecciónNivel");
+        SelectorNivel.monicaCompletado = true;
     }
 }
 
