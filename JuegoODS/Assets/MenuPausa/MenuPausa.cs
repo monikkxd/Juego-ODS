@@ -26,7 +26,7 @@ public class MenuPausa : MonoBehaviour
 
     void Update()
     {
-        Cursor.visible = false;
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             menúAbierto = false;
@@ -37,7 +37,6 @@ public class MenuPausa : MonoBehaviour
 
                 if (JuegoPausado == true)
                 {
-                    Cursor.visible = false;
                     Resume();
                 }
                 else
@@ -47,6 +46,7 @@ public class MenuPausa : MonoBehaviour
             }
         }
        
+       
     }
 
     public void Resume()
@@ -54,7 +54,7 @@ public class MenuPausa : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     public void Pause()
@@ -62,6 +62,7 @@ public class MenuPausa : MonoBehaviour
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
+        Cursor.visible = false;
     }
 
     public void SelectorNivel()
@@ -77,5 +78,10 @@ public class MenuPausa : MonoBehaviour
     {
         Debug.Log("Salir del juego");
         Application.Quit();
+    }
+
+    public void AbrirMenú()
+    {
+        UIMenu.SetActive(true);
     }
 }

@@ -106,7 +106,10 @@ public class PlacementSystem : MonoBehaviour
 
     public TMP_Text timer;
 
+    private bool listaDeTareas1Completada = false;
+    private bool listaDeTareas2Completada = false;
     private bool listaDeTareas3Completada = false;
+    private bool listaDeTareas4Completada = false;
 
     public GameObject transicion;
 
@@ -406,30 +409,35 @@ public class PlacementSystem : MonoBehaviour
         if (objectActivated)
         {
             activatedObjectsCount++;
-            if (activatedObjectsCount == 4 && animatorListasTareas != null && hospitalConstruido.activeSelf && colegioConstruido.activeSelf && ayuntamientoConstruido.activeSelf && bibliotecaConstruido.activeSelf)
+            if (activatedObjectsCount == 4 && animatorListasTareas != null && hospitalConstruido.activeSelf && colegioConstruido.activeSelf && ayuntamientoConstruido.activeSelf && bibliotecaConstruido.activeSelf && listaDeTareas1Completada == false)
             {
+                listaDeTareas1Completada = true;
                 animatorListasTareas.enabled = true;
                 tutoObject.SetActive(true);
                 tutoAnimator.Play("TutoDestruir&Flechas");
                 objectActivated = false;
             }
-            if(activatedObjectsCount == 8 && animatorListasTareas != null && tiendaConstruida.activeSelf && viviendasContruida.activeSelf && centroComercialConstruido.activeSelf && comisariaContruida.activeSelf && hospitalConstruido.activeSelf && colegioConstruido.activeSelf && ayuntamientoConstruido.activeSelf && bibliotecaConstruido.activeSelf)
+            if(activatedObjectsCount >= 8 && animatorListasTareas != null && tiendaConstruida.activeSelf && viviendasContruida.activeSelf && centroComercialConstruido.activeSelf && comisariaContruida.activeSelf && listaDeTareas2Completada == false)
             {
+                listaDeTareas2Completada = true;
                 animatorListasTareas.Play("CambioTareas2_Animator");
                 objectActivated = false;
             }
-            if (activatedObjectsCount == 11 && animatorListasTareas != null && parqueContruido.activeSelf && jardínConstruido.activeSelf && puestoLimonadaConstruido.activeSelf&& tiendaConstruida.activeSelf && viviendasContruida.activeSelf && centroComercialConstruido.activeSelf && comisariaContruida.activeSelf && hospitalConstruido.activeSelf && colegioConstruido.activeSelf && ayuntamientoConstruido.activeSelf && bibliotecaConstruido.activeSelf)
+            if (activatedObjectsCount >= 11 && animatorListasTareas != null && parqueContruido.activeSelf && jardínConstruido.activeSelf && puestoLimonadaConstruido.activeSelf && listaDeTareas3Completada == false)
             {
+                listaDeTareas3Completada = true;
                 animatorListasTareas.Play("CambioTareas3_Animator");
                 objectActivated = false;
-                listaDeTareas3Completada = true;
-
+                
             }
 
-            if(listaDeTareas3Completada && puestoLimonadaConstruido && merenderoConstruido && carreterasContruido)
+            if(parqueInfantilConstruido.activeSelf && merenderoConstruido.activeSelf && carreterasContruido.activeSelf && listaDeTareas4Completada == false)
             {
-                StartCoroutine(CambioEscena());   
+                listaDeTareas4Completada = true;
+                listaDeTareas4Completada = true;
+                objectActivated = false;
             }
+
         }
     }
 
@@ -456,6 +464,8 @@ public class PlacementSystem : MonoBehaviour
 
     IEnumerator CambioEscena()
     {
+        SelectorNivel.MoniCompletado = true;
+
         transicion.SetActive(true);
 
         yield return new WaitForSeconds(2f);
@@ -468,7 +478,6 @@ public class PlacementSystem : MonoBehaviour
     {
         puntuaciónText.text = puntuación.ToString();
 
-
         if (buildingState == null)
             return;
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
@@ -479,8 +488,10 @@ public class PlacementSystem : MonoBehaviour
             lastDetectedPosition = gridPosition;
         }
 
-        
 
-        
+        if (listaDeTareas4Completada)
+        {
+            StartCoroutine(CambioEscena());
+        }
     }
 }

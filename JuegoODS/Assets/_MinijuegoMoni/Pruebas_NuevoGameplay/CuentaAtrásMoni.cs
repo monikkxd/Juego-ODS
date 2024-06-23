@@ -36,13 +36,6 @@ public class CuentaAtrásMoni : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKey(KeyCode.K))
-        {
-            Time.timeScale = 10.0f;
-        }
-        else
-            Time.timeScale = 1.0f;
     }
 
     void UpdateTimeText(float currentTime)
