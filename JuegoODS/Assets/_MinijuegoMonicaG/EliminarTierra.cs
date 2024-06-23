@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EliminarTierra : MonoBehaviour
 {
@@ -29,8 +30,8 @@ public class EliminarTierra : MonoBehaviour
         if (collider.tag == "MetaAgua")
         {
             //AQUI VA EL CAMBIO DE ESCENA.
-
-
+            SelectorNivel.monicaCompletado = true;
+            SceneManager.LoadScene("SelecciónNivel");
             Debug.Log("AGUA AL PUEBLO ");
         }
     }
