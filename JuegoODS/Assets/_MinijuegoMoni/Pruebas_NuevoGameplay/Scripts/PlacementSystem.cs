@@ -113,6 +113,9 @@ public class PlacementSystem : MonoBehaviour
 
     public GameObject transicion;
 
+    public GameObject grupoMondongos_1, grupoMondongos_2, grupoMondongos_3;
+
+    public GameObject finalMoni;
     private void Start()
     {
         gridVisualization.SetActive(false);
@@ -422,13 +425,14 @@ public class PlacementSystem : MonoBehaviour
                 listaDeTareas2Completada = true;
                 animatorListasTareas.Play("CambioTareas2_Animator");
                 objectActivated = false;
+                grupoMondongos_1.SetActive(true);
             }
             if (activatedObjectsCount >= 11 && animatorListasTareas != null && parqueContruido.activeSelf && jardínConstruido.activeSelf && puestoLimonadaConstruido.activeSelf && listaDeTareas3Completada == false)
             {
                 listaDeTareas3Completada = true;
                 animatorListasTareas.Play("CambioTareas3_Animator");
                 objectActivated = false;
-                
+                grupoMondongos_2.SetActive(true);
             }
 
             if(parqueInfantilConstruido.activeSelf && merenderoConstruido.activeSelf && carreterasContruido.activeSelf && listaDeTareas4Completada == false)
@@ -436,6 +440,7 @@ public class PlacementSystem : MonoBehaviour
                 listaDeTareas4Completada = true;
                 listaDeTareas4Completada = true;
                 objectActivated = false;
+                grupoMondongos_3.SetActive(true);
             }
 
         }
@@ -465,6 +470,10 @@ public class PlacementSystem : MonoBehaviour
     IEnumerator CambioEscena()
     {
         SelectorNivel.MoniCompletado = true;
+
+        finalMoni.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
 
         transicion.SetActive(true);
 

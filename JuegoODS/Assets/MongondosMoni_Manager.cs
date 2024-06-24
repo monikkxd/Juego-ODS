@@ -12,9 +12,9 @@ public class MongondosMoni_Manager : MonoBehaviour
     public bool Reproducir_Caer;
     void Update()
     {
-        if(Reproducir_Caer == true)
+        if(Reproducir_MirarCielo == true)
         {
-            animator.Play("Mondongo_Caer");
+            animator.Play("Mirar_Cielo");
         }
         if (Reproducir_Saltar_1 == true)
         {
@@ -26,7 +26,7 @@ public class MongondosMoni_Manager : MonoBehaviour
         }
         if (Reproducir_MirarCielo == true)
         {
-            animator.Play("Mirar_Cielo");
+            animator.Play("Mirar_C");
         }
     }
 }
