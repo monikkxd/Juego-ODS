@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,6 +73,8 @@ public class GameManagerAlex : MonoBehaviour
 
     void Update()
     {
+
+        
         if (juegoEmpezado == true)
         {
             tiempoTranscurrido += Time.deltaTime;
@@ -80,14 +83,10 @@ public class GameManagerAlex : MonoBehaviour
         }
         if (!Empezarmusica)
         {
+            
             if (Input.anyKeyDown)
             {
-                Destroy(PressButtonStart);
-                Empezarmusica = true;
-                juegoEmpezado = true;
-                bs.StartGame = true;
-
-                Musica.Play();
+                StartCoroutine(Delay(3));
             }
         }
         else
@@ -213,11 +212,23 @@ public class GameManagerAlex : MonoBehaviour
     void ActivarFlor()
     {
         imagenFlor.SetActive(true);
-        Invoke("CambioEscena", 4f);
+        Invoke("CambioEscena", 2f);
     }
 
     void CambioEscena()
     {
         SceneManager.LoadScene(EscenaSiguiente);
+    }
+
+    IEnumerator Delay(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        Destroy(PressButtonStart);
+        Empezarmusica = true;
+        juegoEmpezado = true;
+        bs.StartGame = true;
+
+        Musica.Play();
     }
 }

@@ -8,7 +8,8 @@ public class MarioTutoManager : MonoBehaviour
     // Public variable to link the GameObject from the Unity Inspector
     public GameObject targetObject;
 
-    
+    public bool MinijuegoMario;
+    public bool MinijuegoMónica;
     // Time duration for which the object will stay active
     public float activeDuration = 7.0f;
 
@@ -52,7 +53,15 @@ public class MarioTutoManager : MonoBehaviour
     public void SaltarNivel()
     {
         SceneManager.LoadScene("SelecciónNivel");
-        SelectorNivel.monicaCompletado = true;
+        if (MinijuegoMario)
+        {
+            SelectorNivel.marioCompletado = true;
+        }
+        if(MinijuegoMónica)
+        {
+            SelectorNivel.monicaCompletado = true;
+        }
+        
     }
 }
 
