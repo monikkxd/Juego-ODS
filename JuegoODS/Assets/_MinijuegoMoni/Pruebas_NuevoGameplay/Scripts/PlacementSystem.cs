@@ -116,6 +116,9 @@ public class PlacementSystem : MonoBehaviour
     public GameObject grupoMondongos_1, grupoMondongos_2, grupoMondongos_3;
 
     public GameObject finalMoni;
+
+    private int cantidadCarreteras;
+
     private void Start()
     {
         gridVisualization.SetActive(false);
@@ -209,28 +212,41 @@ public class PlacementSystem : MonoBehaviour
             case -1:
                 if (carreterasContruido != null && !carreterasContruido.activeSelf)
                 {
-                    StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
+                    cantidadCarreteras++;
+                    
 
-                    tareaCarreteras = true;
-                    if(tareaCarreteras == true)
+                    if (cantidadCarreteras == 5)
                     {
-                        puntuación += 100;
+                        StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
+                        carreterasContruido.SetActive(true);
+                        tareaCarreteras = true;
+                        carreterasContruido.SetActive(true);
+                        if (tareaCarreteras == true)
+                        {
+                            puntuación += 100;
+                        }
                     }
-                    carreterasContruido.SetActive(true);
+                    
                     objectActivated = true;
                 }
                 break;
             case -2:
                 if (carreterasContruido != null && !carreterasContruido.activeSelf)
                 {
-                    StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
-
-                    tareaCarreteras = true;
-                    if (tareaCarreteras == true)
+                    cantidadCarreteras++;
+                    
+                    if (cantidadCarreteras == 5)
                     {
-                        puntuación += 100;
+                        StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
+                        carreterasContruido.SetActive(true);
+                        tareaCarreteras = true;
+                        carreterasContruido.SetActive(true);
+                        if (tareaCarreteras == true)
+                        {
+                            puntuación += 100;
+                        }
                     }
-                    carreterasContruido.SetActive(true);
+
                     objectActivated = true;
                 }
                 break;
