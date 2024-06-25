@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class CuentaAtrásMoni : MonoBehaviour
 {
     public float timeRemaining = 120f; 
-    public Text timeText; 
+    public TMP_Text timeText; 
 
     private bool timerIsRunning = false;
 
@@ -24,7 +25,7 @@ public class CuentaAtrásMoni : MonoBehaviour
             }
             else
             {
-                SelectorNivel.nataliaCompletado = true;
+                SelectorNivel.monicaCompletado = true;
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
@@ -35,13 +36,6 @@ public class CuentaAtrásMoni : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKey(KeyCode.K))
-        {
-            Time.timeScale = 10.0f;
-        }
-        else
-            Time.timeScale = 1.0f;
     }
 
     void UpdateTimeText(float currentTime)

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,6 +73,8 @@ public class GameManagerAlex : MonoBehaviour
 
     void Update()
     {
+
+        
         if (juegoEmpezado == true)
         {
             tiempoTranscurrido += Time.deltaTime;
@@ -80,20 +83,17 @@ public class GameManagerAlex : MonoBehaviour
         }
         if (!Empezarmusica)
         {
+            
             if (Input.anyKeyDown)
             {
-                Destroy(PressButtonStart);
-                Empezarmusica = true;
-                juegoEmpezado = true;
-                bs.StartGame = true;
-
-                Musica.Play();
+                StartCoroutine(Delay(3));
             }
         }
         else
         {
             if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy && ResultadosActivados)
             {
+                SelectorNivel.AlexCompletado = true;
                 VentanaResultados.SetActive(true);
 
                 HitText.text = "" + NormalFichas;
@@ -137,7 +137,17 @@ public class GameManagerAlex : MonoBehaviour
 
                 PuntuacionFinalText.text = PuntosActuales.ToString();
 
-                Invoke("FinalDeJuego", 4f);
+                //Invoke("FinalDeJuego", 4f);
+
+                if (PuntosActuales >= PuntuaciónMínima) //He hecho esto Hugo pensando en que si tiene mas puntos de los necesarios si te pasas el juego, si no los tienes lo reinicia
+                {
+                    bateríaCargada.SetActive(true);
+                    Invoke("FinalDeJuego", 4f);
+                }
+                else if(PuntosActuales <= PuntuaciónMínima)
+                {
+                    Invoke("ReiniciarJuego", 4f);
+                }
             }
         }
 
@@ -209,14 +219,34 @@ public class GameManagerAlex : MonoBehaviour
         VentanaResultados.SetActive(false);
         Invoke("ActivarFlor", 4f);
     }
+
+    void ReiniciarJuego() //He hecho esto Hugo como un método para recarhar la escena por si no llegas al mínimo de puntuacion
+    {
+        ResultadosActivados = false;
+        VentanaResultados.SetActive(false);
+        SceneManager.LoadScene("");
+    }
+
     void ActivarFlor()
     {
         imagenFlor.SetActive(true);
-        Invoke("CambioEscena", 4f);
+        Invoke("CambioEscena", 2f);
     }
 
     void CambioEscena()
     {
         SceneManager.LoadScene(EscenaSiguiente);
+    }
+
+    IEnumerator Delay(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        Destroy(PressButtonStart);
+        Empezarmusica = true;
+        juegoEmpezado = true;
+        bs.StartGame = true;
+
+        Musica.Play();
     }
 }

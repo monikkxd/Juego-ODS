@@ -9,6 +9,12 @@ public class SceneManagement : MonoBehaviour
     public GameObject transición2;
     public GameObject transición3;
 
+    private void Update()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     private void LoadLevel1Clara()
     {
         SceneManager.LoadScene("Minijuego Clara");
@@ -21,6 +27,7 @@ public class SceneManagement : MonoBehaviour
 
     private void LoadLevel3Clara()
     {
+        SelectorNivel.claraCompletado = true;   
         SceneManager.LoadScene("SelecciónNivel");
     }
 

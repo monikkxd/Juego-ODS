@@ -19,20 +19,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         UIMenu.SetActive(false);
 
         Cursor.lockState = CursorLockMode.None;
-
-        if (SelectorNivel.andreaCompletado == true)
-        {
-            Cursor.visible = true;
-            Debug.Log("Andrea Completado");
-        }
-        else
-        {
-            cursorHostpot = new Vector2(cursorTexture.width, cursorTexture.height / 2);
-            Cursor.SetCursor(cursorTexture, cursorHostpot, CursorMode.Auto);
-            Cursor.visible = true;
-        }
-        
-        
+        Cursor.visible = true;
 
     }
 
@@ -68,6 +55,14 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
     public void MenuPrincipal()
     {
         SceneManager.LoadScene("MenuPrincipal");
+        UIMenu.SetActive(false);
+        Time.timeScale = 1f;
+        JuegoPausado = false;
+    }
+
+    public void SelectorNiveles()
+    {
+        SceneManager.LoadScene("SelecciónNivel");
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;

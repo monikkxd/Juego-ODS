@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MarioTutoManager : MonoBehaviour
 {
     // Public variable to link the GameObject from the Unity Inspector
     public GameObject targetObject;
 
+    public bool MinijuegoMario;
+    public bool MinijuegoMónica;
     // Time duration for which the object will stay active
     public float activeDuration = 7.0f;
 
@@ -27,6 +30,12 @@ public class MarioTutoManager : MonoBehaviour
 
             targetObject.SetActive(false);
         }
+
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            SaltarNivel();
+        }
     }
 
     private IEnumerator ActivateAndDeactivate()
@@ -39,6 +48,20 @@ public class MarioTutoManager : MonoBehaviour
 
         // Deactivate the target GameObject
         targetObject.SetActive(false);
+    }
+
+    public void SaltarNivel()
+    {
+        SceneManager.LoadScene("SelecciónNivel");
+        if (MinijuegoMario)
+        {
+            SelectorNivel.marioCompletado = true;
+        }
+        if(MinijuegoMónica)
+        {
+            SelectorNivel.monicaCompletado = true;
+        }
+        
     }
 }
 
