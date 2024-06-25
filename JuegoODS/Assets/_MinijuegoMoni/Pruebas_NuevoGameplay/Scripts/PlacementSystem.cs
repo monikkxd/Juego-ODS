@@ -112,21 +112,35 @@ public class PlacementSystem : MonoBehaviour
     private bool listaDeTareas4Completada = false;
 
     public GameObject transicion;
+    public GameObject fadeOut;
 
     public GameObject grupoMondongos_1, grupoMondongos_2, grupoMondongos_3;
+    public GameObject grupoEdificios_1, grupoEdificios_2, grupoEdificios_3;
+    public GameObject edificiosFinal;
 
     public GameObject finalMoni;
 
     private int cantidadCarreteras;
 
+    public Animator cameraAnimator;
+
+    public List<GameObject> basuras;
+
+    public GameObject BuildingSystemParent;
+
+    public GameObject canvas;
+
+    public GameObject cuidadMal;
+
+    public GameObject luzMal;
+    public GameObject luzBien;
     private void Start()
     {
         gridVisualization.SetActive(false);
         floorData = new GridData();
         furnitureData = new GridData();
         animatorListasTareas.enabled = false;
-
-     
+        cameraAnimator.enabled = false;
     }
 
     public void StartPlacement(int ID)
@@ -442,6 +456,7 @@ public class PlacementSystem : MonoBehaviour
                 animatorListasTareas.Play("CambioTareas2_Animator");
                 objectActivated = false;
                 grupoMondongos_1.SetActive(true);
+                grupoEdificios_1.SetActive(true);
             }
             if (activatedObjectsCount >= 11 && animatorListasTareas != null && parqueContruido.activeSelf && jardínConstruido.activeSelf && puestoLimonadaConstruido.activeSelf && listaDeTareas3Completada == false)
             {
@@ -449,14 +464,21 @@ public class PlacementSystem : MonoBehaviour
                 animatorListasTareas.Play("CambioTareas3_Animator");
                 objectActivated = false;
                 grupoMondongos_2.SetActive(true);
+                grupoEdificios_2.SetActive(true);
             }
 
             if(parqueInfantilConstruido.activeSelf && merenderoConstruido.activeSelf && carreterasContruido.activeSelf && listaDeTareas4Completada == false)
             {
+                for (int i = 0; i < basuras.Count; i++)
+                {
+                    basuras[i].SetActive(false);
+                }
+
                 listaDeTareas4Completada = true;
                 listaDeTareas4Completada = true;
                 objectActivated = false;
                 grupoMondongos_3.SetActive(true);
+                grupoEdificios_3.SetActive(true);
             }
 
         }
@@ -491,12 +513,30 @@ public class PlacementSystem : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
+        Cursor.visible = false;
         transicion.SetActive(true);
 
+        StartCoroutine(SecuenciaFinal());
+
+    }
+
+    IEnumerator SecuenciaFinal()
+    {
         yield return new WaitForSeconds(2f);
+        canvas.SetActive(false);
+        fadeOut.SetActive(true);
+        transicion.SetActive(false);
+        finalMoni.SetActive(false);
+        BuildingSystemParent.SetActive(false);
+        cuidadMal.SetActive(false);
+        luzMal.SetActive(false);
+        luzBien.SetActive(true);
+
+        cameraAnimator.enabled = true;
+
+        yield return new WaitForSeconds(8f);
 
         SceneManager.LoadScene("SelecciónNivel");
-
     }
 
     private void Update()
@@ -513,6 +553,7 @@ public class PlacementSystem : MonoBehaviour
             lastDetectedPosition = gridPosition;
         }
 
+        
 
         if (listaDeTareas4Completada)
         {

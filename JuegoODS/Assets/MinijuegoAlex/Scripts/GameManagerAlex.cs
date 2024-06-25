@@ -137,7 +137,17 @@ public class GameManagerAlex : MonoBehaviour
 
                 PuntuacionFinalText.text = PuntosActuales.ToString();
 
-                Invoke("FinalDeJuego", 4f);
+                //Invoke("FinalDeJuego", 4f);
+
+                if (PuntosActuales >= PuntuaciónMínima) //He hecho esto Hugo pensando en que si tiene mas puntos de los necesarios si te pasas el juego, si no los tienes lo reinicia
+                {
+                    bateríaCargada.SetActive(true);
+                    Invoke("FinalDeJuego", 4f);
+                }
+                else if(PuntosActuales <= PuntuaciónMínima)
+                {
+                    Invoke("ReiniciarJuego", 4f);
+                }
             }
         }
 
@@ -209,6 +219,14 @@ public class GameManagerAlex : MonoBehaviour
         VentanaResultados.SetActive(false);
         Invoke("ActivarFlor", 4f);
     }
+
+    void ReiniciarJuego() //He hecho esto Hugo como un método para recarhar la escena por si no llegas al mínimo de puntuacion
+    {
+        ResultadosActivados = false;
+        VentanaResultados.SetActive(false);
+        SceneManager.LoadScene("");
+    }
+
     void ActivarFlor()
     {
         imagenFlor.SetActive(true);
