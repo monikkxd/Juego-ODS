@@ -39,12 +39,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Density: 100
+    - _Noise: 5
+    - _OlasSpeed: 0.15
     - _Power: 8
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 5
     m_Colors:
     - _ColorOndas: {r: 0.27058816, g: 0.5921568, b: 1, a: 0}
+    - _Tiling: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _WaterColor: {r: 0.17647055, g: 0.36862746, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3737330151218270132
