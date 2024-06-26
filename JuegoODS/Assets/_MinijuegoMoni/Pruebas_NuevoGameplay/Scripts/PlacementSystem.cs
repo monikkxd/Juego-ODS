@@ -479,6 +479,7 @@ public class PlacementSystem : MonoBehaviour
                 objectActivated = false;
                 grupoMondongos_3.SetActive(true);
                 grupoEdificios_3.SetActive(true);
+                edificiosFinal.SetActive(true);
             }
 
         }
