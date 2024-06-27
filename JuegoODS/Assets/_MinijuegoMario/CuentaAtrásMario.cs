@@ -28,7 +28,7 @@ public class CuentaAtrásMario : MonoBehaviour
 
         if (timerIsRunning)
         {
-            if (timeRemaining > 0)
+            if (timeRemaining > -1)
             {
                 timeRemaining -= Time.deltaTime;
                 UpdateTimeText(timeRemaining);
