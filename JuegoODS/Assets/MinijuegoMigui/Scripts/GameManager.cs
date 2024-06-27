@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public GameObject dinero;
     public GameObject dinero2;
 
+    public GameObject textoDerrota;
+    public GameObject fadeIn;
+
     void Start()
     {
         cámaraBarra.SetActive(false);
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
                 timeRemaining = Mathf.Clamp(timeRemaining, 0, Mathf.Infinity);
                 UpdateTimerText();
             }
-            else
+            else if (numerosPedidos >= 180)
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
@@ -72,6 +75,10 @@ public class GameManager : MonoBehaviour
                 Invoke("CargarCallejónMigui", 10.5f);
                 UpdateTimerText();
                 Debug.Log("Time has run out!");
+            }
+            else if(numerosPedidos <= 179)
+            {
+                StartCoroutine(SecuenciaDerrota());
             }
         }
     }
@@ -149,6 +156,19 @@ public class GameManager : MonoBehaviour
         cámaraBarra.SetActive(true);
         dinero.SetActive(true);
         dinero2.SetActive(true);
+    }
+
+    IEnumerator SecuenciaDerrota()
+    {
+        textoDerrota.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+
+        fadeIn.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene("Minijuego Migui");
     }
 
     void ActivarTuto()
