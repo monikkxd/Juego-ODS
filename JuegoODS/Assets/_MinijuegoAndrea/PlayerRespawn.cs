@@ -23,8 +23,8 @@ public class PlayerRespawn : MonoBehaviour
         {
             // Mostrar el texto de "Meta"
             Debug.Log("Muerte");
-
-            SceneManager.LoadScene("_MontajeEscenaAndrea");
+            transform.position = respawnPosition;
+            //SceneManager.LoadScene("_MontajeEscenaAndrea");
         }
     }
 }
