@@ -25,6 +25,8 @@ public class GameManagerHugo : MonoBehaviour
     public Animator animator_4;
 
     public GameObject escenarioSucio;
+    public GameObject escenarioLimpio;
+
 
 
 
@@ -42,6 +44,7 @@ public class GameManagerHugo : MonoBehaviour
             SueloVerde.SetActive(true);
             SueloGris.SetActive(false);
             escenarioSucio.SetActive(false);
+            escenarioLimpio.SetActive(true);
             Vegetación.SetActive(true);
 
             animator_1.enabled = true;
