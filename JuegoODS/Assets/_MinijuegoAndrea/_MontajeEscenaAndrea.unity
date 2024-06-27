@@ -343,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13494414}
   - component: {fileID: 13494413}
+  - component: {fileID: 13494415}
   m_Layer: 0
   m_Name: Muerte
   m_TagString: muerte
@@ -386,6 +387,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &13494415
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13494412}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!4 &38877848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6624864802583717561, guid: b827d0586b30d5845b4690c8334686f1,
@@ -1033,7 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &99915641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1221,7 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &100141708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8687208287617866662, guid: d9c25d02542f82a42be60428fcf1ca39,
@@ -2826,7 +2854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &234300266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4286,7 +4314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &366042402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4792,7 +4820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &386473734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5211,7 +5239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &498128760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4699395593344144079, guid: d31f0c2ed5b59b948a302b1f91248f0d,
@@ -5411,7 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1 &519632770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7000a1591c117444fa0446bf7b404da4,
@@ -5841,7 +5869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1 &536846267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c08ac0b056270c34e9a426f763c33948,
@@ -6688,7 +6716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &624653923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3184993367905543391, guid: 983333ece5d893444a05dd22a6941a2c,
@@ -7096,7 +7124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &664744508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7498,7 +7526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &697415246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1203479755258059379, guid: 7587dd398e75e4a488097f8770288a10,
@@ -8049,7 +8077,6 @@ Transform:
   - {fileID: 1563176651}
   - {fileID: 887786348}
   - {fileID: 143023188}
-  - {fileID: 1078223906}
   - {fileID: 1643798858}
   - {fileID: 753204964}
   - {fileID: 38877848}
@@ -8739,7 +8766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &760560535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9961,7 +9988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &795053091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10149,7 +10176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &798500197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10996,7 +11023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1 &864537891
 GameObject:
   m_ObjectHideFlags: 0
@@ -11494,7 +11521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &907215366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6321717867606305950, guid: ab310f1ae02c47245b0c4f619c7365b7,
@@ -11761,7 +11788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &918985109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12151,7 +12178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &946425895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12563,7 +12590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &987327171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13371,12 +13398,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be126181de562dc4e90557452b74727d, type: 3}
---- !u!4 &1078223906 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1108485716}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1083334768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13637,7 +13658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1094390483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13717,79 +13738,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1094390483}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1108485716
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 750405558}
-    m_Modifications:
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -42.259903
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.041045547
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -16.594515
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480697134060017792, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999825315410887226, guid: b42b37bcb26b20c4eb69ab68026573a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Seta1 Variant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b42b37bcb26b20c4eb69ab68026573a8, type: 3}
 --- !u!4 &1152506817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5029381887564814033, guid: 63824295ce73ca84fbf7722aa6256761,
@@ -14132,7 +14080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1200448088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14528,7 +14476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1220702994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15805,7 +15753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1339712912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16277,7 +16225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1348200924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16877,7 +16825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1395472641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17383,7 +17331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1404283792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17949,7 +17897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1433740178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18137,7 +18085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &1443458535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5979791489097474891, guid: 8d294ae6fea546f4fb4abdbb793e9e97,
@@ -18331,7 +18279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1 &1448770677
 GameObject:
   m_ObjectHideFlags: 0
@@ -18852,7 +18800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1484076530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19310,7 +19258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1497008770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19841,7 +19789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1540130576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20102,7 +20050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &1548638883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1203479755258059379, guid: 7587dd398e75e4a488097f8770288a10,
@@ -20296,7 +20244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!4 &1563176651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8687208287617866662, guid: d9c25d02542f82a42be60428fcf1ca39,
@@ -20563,7 +20511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1590707710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21027,7 +20975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1617963567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21932,7 +21880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1718381898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22851,7 +22799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1811976248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23039,7 +22987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1 &1826583279
 GameObject:
   m_ObjectHideFlags: 0
@@ -23810,7 +23758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1895299760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24470,7 +24418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &1987980189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25217,7 +25165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &2049243558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26233,7 +26181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4e47d31a28f2498e8495cd5186666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBarController: {fileID: 0}
+  progressBarController: {fileID: 139141359}
 --- !u!1001 &2130210642
 PrefabInstance:
   m_ObjectHideFlags: 0

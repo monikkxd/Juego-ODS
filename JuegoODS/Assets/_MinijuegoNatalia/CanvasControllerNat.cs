@@ -22,6 +22,14 @@ public class CanvasControllerNat : MonoBehaviour
         subMenu.position = new Vector3(-posFinal, subMenu.position.y, 0); // Se coloca el submenú fuera de la pantalla al inicio.
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.M))
+        {
+            BUTTON_Sub_Menu();
+        }
+    }
+
     IEnumerator Mover(float time, Vector3 posInit, Vector3 posFin)
     {
         float elapsedTime = 0; // El tiempo que ha transcurrido durante la animación.

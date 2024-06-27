@@ -27,13 +27,12 @@ public class ProgressBarController : MonoBehaviour
     // Llama a esta función para eliminar un objeto
     public void DestroyObject(GameObject obj)
     {
-        if (objectsToDestroy.Contains(obj))
-        {
-            objectsToDestroy.Remove(obj);
-            Destroy(obj);
-            objectsDestroyedCount++;
-            UpdateProgressBar();
-        }
+        Debug.Log("progresbar");
+         //objectsToDestroy.Remove(obj);
+         Destroy(obj);
+         objectsDestroyedCount++;
+         UpdateProgressBar();
+        
     }
 
     // Actualiza la barra de progreso

@@ -22,7 +22,7 @@ public class Apagador : MonoBehaviour
 
         if (collider.tag == "Fire")
         {
-            Destroy(collider.gameObject);
+            collider.gameObject.GetComponent<FuegoController>().DestroyFuego();
             Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
 
