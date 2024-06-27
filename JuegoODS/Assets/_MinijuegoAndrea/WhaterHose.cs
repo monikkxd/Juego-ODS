@@ -14,15 +14,15 @@ public class WaterHose : MonoBehaviour
 
     void Update()
     {
-        // Lanzar agua al presionar y mantener la tecla de espacio
-        if (Input.GetKeyDown(KeyCode.R))
+        // Lanzar agua al presionar y mantener el botón izquierdo del mouse
+        if (Input.GetMouseButtonDown(0)) // 0 es el botón izquierdo del mouse
         {
             isLaunching = true;
             GetComponent<BoxCollider>().enabled = true;
             LaunchWater();
         }
-        // Dejar de lanzar agua al soltar la tecla de espacio
-        else if (Input.GetKeyUp(KeyCode.R))
+        // Dejar de lanzar agua al soltar el botón izquierdo del mouse
+        else if (Input.GetMouseButtonUp(0)) // 0 es el botón izquierdo del mouse
         {
             isLaunching = false;
             GetComponent<BoxCollider>().enabled = false;
