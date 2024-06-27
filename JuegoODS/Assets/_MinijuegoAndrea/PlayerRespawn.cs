@@ -23,6 +23,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             // Mostrar el texto de "Meta"
             Debug.Log("Muerte");
+            //GetComponent<ThirdPersonController>().enabled(false);
             transform.position = respawnPosition;
             //SceneManager.LoadScene("_MontajeEscenaAndrea");
         }
