@@ -18,7 +18,6 @@ public class RemovingState : IbuildingState
                          GridData floorData,
                          GridData furnitureData,
                          ObjectPlacer objectPlacer)
-    //SoundFeedback soundFeedback)
     {
         this.grid = grid;
         this.previewSystem = previewSystem;

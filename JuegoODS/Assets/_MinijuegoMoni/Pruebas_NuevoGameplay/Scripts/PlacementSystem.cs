@@ -22,12 +22,12 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private GameObject gridVisualization;
 
-    [SerializeField]
-    private AudioClip correctPlacementClip, wrongPlacementClip;
-    [SerializeField]
-    private AudioSource source;
-
     private GridData floorData, furnitureData;
+
+    [SerializeField] 
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip CanPlaceClip, DemolishClip, CantPlaceClip;
 
     [SerializeField]
     private PreviewSystem preview;
@@ -143,6 +143,7 @@ public class PlacementSystem : MonoBehaviour
         cameraAnimator.enabled = false;
     }
 
+    
     public void StartPlacement(int ID)
     {
         if (destroyedBuildingIDs.Count > 0 && ID > 0 && !destroyedBuildingIDs.Contains(ID))
@@ -195,6 +196,10 @@ public class PlacementSystem : MonoBehaviour
                 destroyedBuildingIDs.Remove(objectId);
             }
         }
+        else
+        {
+            source.PlayOneShot(CantPlaceClip);
+        }
     }
 
     private void RemoveStructure()
@@ -211,6 +216,7 @@ public class PlacementSystem : MonoBehaviour
             int removedObjectId = removingState.OnRemove(gridPosition);
             if (removedObjectId > 0)
             {
+                source.PlayOneShot(DemolishClip);
                 destroyedBuildingIDs.Add(removedObjectId);
                 Debug.Log($"Edificio destruido con ID: {removedObjectId}");
             }
@@ -224,11 +230,10 @@ public class PlacementSystem : MonoBehaviour
         switch (ID)
         {
             case -1:
+                source.PlayOneShot(CanPlaceClip);
                 if (carreterasContruido != null && !carreterasContruido.activeSelf)
                 {
                     cantidadCarreteras++;
-                    
-
                     if (cantidadCarreteras == 5)
                     {
                         StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -245,10 +250,10 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case -2:
+                source.PlayOneShot(CanPlaceClip);
                 if (carreterasContruido != null && !carreterasContruido.activeSelf)
                 {
                     cantidadCarreteras++;
-                    
                     if (cantidadCarreteras == 5)
                     {
                         StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -265,8 +270,10 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 1:
+                source.PlayOneShot(CanPlaceClip);
                 if (colegioConstruido != null && !colegioConstruido.activeSelf)
                 {
+                    
                     tareaColegio = true;
                     if (tareaColegio == true)
                     {
@@ -278,6 +285,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 2:
+                source.PlayOneShot(CanPlaceClip);
                 if (bibliotecaConstruido != null && !bibliotecaConstruido.activeSelf)
                 {
                     tareabiblioteca = true;
@@ -291,6 +299,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 3:
+                source.PlayOneShot(CanPlaceClip);
                 if (ayuntamientoConstruido != null && !ayuntamientoConstruido.activeSelf)
                 {
                     tareaayuntamiento = true;
@@ -304,6 +313,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 4:
+                source.PlayOneShot(CanPlaceClip);
                 if (hospitalConstruido != null && !hospitalConstruido.activeSelf)
                 {
                     tareaHospital = true;
