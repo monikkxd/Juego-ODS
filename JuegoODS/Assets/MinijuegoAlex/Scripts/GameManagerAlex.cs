@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class GameManagerAlex : MonoBehaviour
 {
     public AudioSource Musica;
 
-    public bool Empezarmusica;
+    public bool Empezarmusica = false;
 
     public BeatScroller bs;
 
@@ -55,6 +56,10 @@ public class GameManagerAlex : MonoBehaviour
     public string EscenaSiguiente;
 
     private bool ResultadosActivados = true;
+
+    public bool tutorialAcabado = false;
+
+    private bool juegoFinalizado = false;
     void Start()
     {
         instance = this;
@@ -72,26 +77,33 @@ public class GameManagerAlex : MonoBehaviour
 
 
     void Update()
-    {
-
-        
+    {   
         if (juegoEmpezado == true)
         {
             tiempoTranscurrido += Time.deltaTime;
             float valorActual = Mathf.Clamp((tiempoTranscurrido / tiempoTotal) * 100, 0, 100);
             barraProgresionSlider.value = valorActual;
-        }
-        if (!Empezarmusica)
-        {
-            
-            if (Input.anyKeyDown)
+            if(tiempoTranscurrido >= 135)
             {
-                StartCoroutine(Delay(3));
+                juegoFinalizado = true;
+            }
+            
+        }
+        if (Empezarmusica == false)
+        {
+            if (Input.anyKeyDown & tutorialAcabado)
+            {
+                Destroy(PressButtonStart);
+                Empezarmusica = true;
+                juegoEmpezado = true;
+                bs.StartGame = true;
+
+                Musica.Play();
             }
         }
         else
         {
-            if (!Musica.isPlaying && !VentanaResultados.activeInHierarchy && ResultadosActivados)
+            if (!VentanaResultados.activeInHierarchy && juegoFinalizado)
             {
                 SelectorNivel.AlexCompletado = true;
                 VentanaResultados.SetActive(true);
@@ -137,16 +149,15 @@ public class GameManagerAlex : MonoBehaviour
 
                 PuntuacionFinalText.text = PuntosActuales.ToString();
 
-                //Invoke("FinalDeJuego", 4f);
 
-                if (PuntosActuales >= PuntuaciónMínima) //He hecho esto Hugo pensando en que si tiene mas puntos de los necesarios si te pasas el juego, si no los tienes lo reinicia
+                if (PuntosActuales >= PuntuaciónMínima) 
                 {
                     bateríaCargada.SetActive(true);
                     Invoke("FinalDeJuego", 4f);
                 }
                 else if(PuntosActuales <= PuntuaciónMínima)
                 {
-                    Invoke("ReiniciarJuego", 4f);
+                    StartCoroutine(ReiniciarJuego());
                 }
             }
         }
@@ -220,11 +231,19 @@ public class GameManagerAlex : MonoBehaviour
         Invoke("ActivarFlor", 4f);
     }
 
-    void ReiniciarJuego() //He hecho esto Hugo como un método para recarhar la escena por si no llegas al mínimo de puntuacion
+
+    IEnumerator ReiniciarJuego()
     {
+
+        yield return new WaitForSeconds(6f);
+
         ResultadosActivados = false;
-        VentanaResultados.SetActive(false);
-        SceneManager.LoadScene("");
+
+        imagenFlor.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("MinijuegoAlex");
     }
 
     void ActivarFlor()
@@ -238,15 +257,8 @@ public class GameManagerAlex : MonoBehaviour
         SceneManager.LoadScene(EscenaSiguiente);
     }
 
-    IEnumerator Delay(int seconds)
+    public void TutorialAcabado()
     {
-        yield return new WaitForSeconds(seconds);
-
-        Destroy(PressButtonStart);
-        Empezarmusica = true;
-        juegoEmpezado = true;
-        bs.StartGame = true;
-
-        Musica.Play();
+        tutorialAcabado = true;
     }
 }
