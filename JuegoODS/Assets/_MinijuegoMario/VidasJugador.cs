@@ -87,6 +87,7 @@ public class VidasJugador : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Debug.Log("CargoEscena");
+                //AQUÍ IRÍA EL CAMBIO DE ESCENA
                 //SceneManager.LoadScene("...");
             }
         }
