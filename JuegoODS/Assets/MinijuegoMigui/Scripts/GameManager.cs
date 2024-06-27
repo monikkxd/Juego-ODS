@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene("Minijuego Migui");
+        SceneManager.LoadScene("SelecciónNivel");
     }
 
     void ActivarTuto()

@@ -55,7 +55,7 @@ public class PlacementState : IbuildingState
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
         if (placementValidity == false)
         {
-            
+
             return;
         }
         int index = objectPlacer.PlaceObject(database.objectsData[selectedObjectIndex].Prefab,

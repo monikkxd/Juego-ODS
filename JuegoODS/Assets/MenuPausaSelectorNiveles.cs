@@ -69,7 +69,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
     }
     public void QuitGame()
     {
-        Debug.Log("Salir del juego");
         Application.Quit();
+        Debug.Log("Salir del juego");
     }
 }
