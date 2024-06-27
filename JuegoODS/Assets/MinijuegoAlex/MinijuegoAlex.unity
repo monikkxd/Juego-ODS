@@ -13672,6 +13672,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1605572182}
     m_Modifications:
+    - target: {fileID: 1747069894867077840, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
         type: 3}
       propertyPath: m_Name
@@ -13792,10 +13797,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7837273632811697114, guid: 64d47c8d72795f04187e9e9a82be5eee, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125107088}
   m_SourcePrefab: {fileID: 100100000, guid: 64d47c8d72795f04187e9e9a82be5eee, type: 3}
 --- !u!224 &522305890 stripped
 RectTransform:
@@ -22270,6 +22280,7 @@ GameObject:
   - component: {fileID: 835826857}
   - component: {fileID: 835826856}
   - component: {fileID: 835826858}
+  - component: {fileID: 835826859}
   m_Layer: 5
   m_Name: Tuto
   m_TagString: Untagged
@@ -22356,6 +22367,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &835826859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835826854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5440bf275c213394eab66b1e6f972bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerAlex: {fileID: 1066455775}
 --- !u!1 &840175077
 GameObject:
   m_ObjectHideFlags: 0
@@ -25039,6 +25063,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &955698438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6512372669905464878, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 522305889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &960748144
 GameObject:
   m_ObjectHideFlags: 0
@@ -27339,6 +27369,7 @@ MonoBehaviour:
   imagenFlor: {fileID: 2533803}
   "Puntuaci\xF3nM\xEDnima": 60000
   EscenaSiguiente: "Selecci\xF3nNivel"
+  tutorialAcabado: 0
 --- !u!4 &1066455776
 Transform:
   m_ObjectHideFlags: 0
@@ -28794,6 +28825,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1125107083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850089152992896397, guid: 64d47c8d72795f04187e9e9a82be5eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 522305889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1125107088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125107083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e9402aa216cc34993d5e4b38586abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIMenu: {fileID: 955698438}
+  cursorTexture: {fileID: 2800000, guid: fa34974dc7ab9774f8603e6b531d9e52, type: 3}
+  mouseSensitivity: 1
+  source: {fileID: 2056094004}
 --- !u!1 &1133609675
 GameObject:
   m_ObjectHideFlags: 0
@@ -41435,7 +41488,6 @@ GameObject:
   - component: {fileID: 1665987928}
   - component: {fileID: 1665987927}
   - component: {fileID: 1665987926}
-  - component: {fileID: 1665987929}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -41493,19 +41545,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1665987929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665987925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc517afd9d959f42a511e67cbbb0cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "transici\xF3n": {fileID: 0}
 --- !u!1 &1668497120
 GameObject:
   m_ObjectHideFlags: 0
@@ -44919,7 +44958,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1665987929}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CambioEscenas, Assembly-CSharp
         m_MethodName: Cargarisla2
         m_Mode: 1
