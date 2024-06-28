@@ -37,8 +37,10 @@ public class GameManager : MonoBehaviour
         dinero2.SetActive(false);
 
         Invoke("ComenzarMinijuego", 6f);
-        Invoke("ActivarTuto", 1f); 
-        timerIsRunning = true;
+        Invoke("ActivarTuto", 1f);
+
+
+        StartCoroutine(IniciarTimer());
 
         numeroPedidosText.text = numerosPedidos.ToString();
         Plato_Class[] platosEnEscena = FindObjectsOfType<Plato_Class>();
@@ -174,5 +176,12 @@ public class GameManager : MonoBehaviour
     void ActivarTuto()
     {
         tuto.SetActive(true);
+    }
+
+    IEnumerator IniciarTimer()
+    {
+        yield return new WaitForSeconds(6);
+
+        timerIsRunning = true;
     }
 }
