@@ -7,6 +7,7 @@ public class FuegoController : MonoBehaviour
 
     // Referencia al controlador de la barra de progreso
     public ProgressBarController progressBarController;
+    public ParticleSystem destructionParticles;
 
     public void DestroyFuego()
     {
@@ -15,6 +16,11 @@ public class FuegoController : MonoBehaviour
         {
             Debug.Log("fuegoCiontroller");
             progressBarController.DestroyObject(gameObject);
+            ParticleSystem instantiatedParticles = Instantiate(destructionParticles, transform.position, transform.rotation);
+            instantiatedParticles.Play();
+
+            // Optionally, destroy the particle system after it has played
+            Destroy(instantiatedParticles.gameObject, instantiatedParticles.main.duration);
         }
     }
 
