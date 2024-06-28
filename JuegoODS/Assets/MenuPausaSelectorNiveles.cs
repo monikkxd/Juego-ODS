@@ -25,6 +25,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
 
     void Update()
     {
+        Cursor.visible = true;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (JuegoPausado == true)
@@ -44,6 +45,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
+        Cursor.visible = true;
     }
 
     public void Pause()
@@ -51,6 +53,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
+        Cursor.visible = true;
     }
     public void MenuPrincipal()
     {
