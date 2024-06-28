@@ -143,10 +143,14 @@ public class PlacementSystem : MonoBehaviour
         cameraAnimator.enabled = false;
     }
 
-    
+
     public void StartPlacement(int ID)
     {
-        if (destroyedBuildingIDs.Count > 0 && ID > 0 && !destroyedBuildingIDs.Contains(ID))
+        if (destroyedBuildingIDs.Count > 0 && ID > 0 && destroyedBuildingIDs.Exists(destroyedID => destroyedID == ID))
+        {
+            destroyedBuildingIDs.RemoveAll(destroyedID => destroyedID == ID); // Remove all instances of the ID
+        }
+        else if (destroyedBuildingIDs.Count > 0 && ID > 0 && !destroyedBuildingIDs.Contains(ID))
         {
             StartCoroutine(ActivarDesactivarObjecto(alerta));
             Debug.LogWarning("Debes reconstruir los edificios destruidos antes de colocar otros edificios.");
@@ -165,6 +169,8 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
+
+
 
     public void StartRemoving()
     {
@@ -217,7 +223,7 @@ public class PlacementSystem : MonoBehaviour
             if (removedObjectId > 0)
             {
                 source.PlayOneShot(DemolishClip);
-                destroyedBuildingIDs.Add(removedObjectId);
+                destroyedBuildingIDs.Add(removedObjectId); // Add the removed ID to the list
                 Debug.Log($"Edificio destruido con ID: {removedObjectId}");
             }
         }

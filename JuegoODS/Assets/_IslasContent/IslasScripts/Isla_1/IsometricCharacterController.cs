@@ -33,11 +33,13 @@ public class IsometricCharacterController : MonoBehaviour
 
             // Activar la animación "CorrerPrincipal"
             animator.SetBool("AndarMonicaG", true);
+            animator.SetBool("isRunning", true);
         }
         else
         {
             // Si no hay entrada de movimiento, desactivar la animación
             animator.SetBool("AndarMonicaG", false);
+            animator.SetBool("isRunning", false);
         }
 
     }

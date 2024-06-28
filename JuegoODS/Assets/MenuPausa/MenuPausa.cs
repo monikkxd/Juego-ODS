@@ -30,6 +30,7 @@ public class MenuPausa : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             menúAbierto = false;
+            Cursor.visible = true;
             if (menúAbierto == false)
             {
                 Cursor.visible = true;
@@ -54,7 +55,7 @@ public class MenuPausa : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
-        Cursor.visible = true;
+        Cursor.visible = false;
     }
 
     public void Pause()
@@ -62,7 +63,7 @@ public class MenuPausa : MonoBehaviour
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     public void SelectorNivel()
