@@ -8,6 +8,8 @@ public class ProgressBarController : MonoBehaviour
     // La barra de progreso (Slider)
     public Slider progressBar;
 
+    public GameObject meta;
+
     // Lista de objetos a eliminar
     public List<GameObject> objectsToDestroy;
 
@@ -41,6 +43,11 @@ public class ProgressBarController : MonoBehaviour
         if (progressBar != null)
         {
             progressBar.value = objectsDestroyedCount;
+        }
+
+        if (objectsDestroyedCount >= objectsToDestroy.Count)
+        {
+            meta.SetActive(true);
         }
     }
 }
