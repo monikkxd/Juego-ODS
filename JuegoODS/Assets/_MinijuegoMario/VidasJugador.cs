@@ -15,6 +15,8 @@ public class VidasJugador : MonoBehaviour
     public GameObject hasPerdido;
     public GameObject raton;
 
+    public GameObject spawner1, spawner2, spawner3;
+
     void Start()
     {
         vidas = 4f;
@@ -69,7 +71,7 @@ public class VidasJugador : MonoBehaviour
             VidaMal3.SetActive(true);
             VidaBn4.SetActive(true);
         }
-        if (vidas == 0)
+        if (vidas <= 0)
         {
             VidaBn1.SetActive(false);
             VidaMal1.SetActive(true);
@@ -80,16 +82,16 @@ public class VidasJugador : MonoBehaviour
             VidaBn4.SetActive(false);
             VidaMal4.SetActive(true);
 
-            Time.timeScale = 0;
+            spawner1.SetActive(false );
+            spawner2.SetActive(false );
+            spawner3.SetActive(false );
+
+            //Time.timeScale = 0;
             hasPerdido.SetActive(true);
             raton.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Debug.Log("CargoEscena");
-                //AQUÍ IRÍA EL CAMBIO DE ESCENA
-                //SceneManager.LoadScene("...");
-            }
+            StartCoroutine(CargarEscenaAlPerder());
+            Debug.Log("CargoEscena");
+           
         }
 
     }
@@ -107,4 +109,11 @@ public class VidasJugador : MonoBehaviour
             Debug.Log(vidas);
         }
     }
+
+   IEnumerator CargarEscenaAlPerder()
+   {
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("SelecciónNivel");
+   }
 }
