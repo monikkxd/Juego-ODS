@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class RayCastShootComplete : MonoBehaviour {
 
@@ -13,10 +14,18 @@ public class RayCastShootComplete : MonoBehaviour {
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);	// WaitForSeconds object used by our ShotEffect coroutine, determines time laser line will remain visible
 	private AudioSource gunAudio;										// Reference to the audio source which will play our shooting sound effect
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
-	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
+	private float nextFire;                                             // Float to store the time the player will be allowed to fire again, after firing
 
+    public GameObject Niebla;
+    public float alpha = 0.5f;
 
-	void Start () 
+    public GameObject vfxmuerte;
+
+    MoverYEliminar vfx;
+
+    public float kills = 0f;
+    public Text contadorkills;
+    void Start () 
 	{
 		// Get and store a reference to our LineRenderer component
 		laserLine = GetComponent<LineRenderer>();
@@ -63,14 +72,23 @@ public class RayCastShootComplete : MonoBehaviour {
 				{
 					// Call the damage function of that script, passing in our gunDamage variable
 					health.Damage (gunDamage);
-				}
+                    //vfx.VFXfondo();
+                    kills++;
+                    Debug.Log(kills);
+                    contadorkills.text = kills.ToString();
+                }
 
 				// Check if the object we hit has a rigidbody attached
 				if (hit.rigidbody != null)
 				{
 					// Add force to the rigidbody we hit, in the direction from which it was hit
 					hit.rigidbody.AddForce (-hit.normal * hitForce);
-				}
+                    //alpha = alpha - 0.5f;
+                    //vfx.VFXfondo();
+                    kills++;
+                    Debug.Log(kills);
+                    contadorkills.text = kills.ToString();
+                }
 			}
 			else
 			{
@@ -95,4 +113,11 @@ public class RayCastShootComplete : MonoBehaviour {
 		// Deactivate our line renderer after waiting
 		laserLine.enabled = false;
 	}
+
+    void CambiarOpacidad(Material mat, float alphaVal)
+    {
+        Color oldColor = mat.color;
+        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaVal);
+        mat.SetColor("_Color", newColor);
+    }
 }
