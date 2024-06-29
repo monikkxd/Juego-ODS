@@ -12,28 +12,34 @@ public class WaterHose : MonoBehaviour
     private bool isLaunching = false; // Indica si se está lanzando agua
     private float lastLaunchTime; // Último momento en que se lanzó agua
 
+    public GameObject menuPausa;
+
     void Update()
     {
-        // Lanzar agua al presionar y mantener el botón izquierdo del mouse
-        if (Input.GetMouseButtonDown(0)) // 0 es el botón izquierdo del mouse
+        if(menuPausa.activeInHierarchy == false)
         {
-            isLaunching = true;
-            GetComponent<BoxCollider>().enabled = true;
-            LaunchWater();
-        }
-        // Dejar de lanzar agua al soltar el botón izquierdo del mouse
-        else if (Input.GetMouseButtonUp(0)) // 0 es el botón izquierdo del mouse
-        {
-            isLaunching = false;
-            GetComponent<BoxCollider>().enabled = false;
-        }
+            // Lanzar agua al presionar y mantener el botón izquierdo del mouse
+            if (Input.GetMouseButtonDown(0)) // 0 es el botón izquierdo del mouse
+            {
+                isLaunching = true;
+                GetComponent<BoxCollider>().enabled = true;
+                LaunchWater();
+            }
+            // Dejar de lanzar agua al soltar el botón izquierdo del mouse
+            else if (Input.GetMouseButtonUp(0)) // 0 es el botón izquierdo del mouse
+            {
+                isLaunching = false;
+                GetComponent<BoxCollider>().enabled = false;
+            }
 
-        // Si se está lanzando agua y ha pasado el intervalo de lanzamiento, lanzar más agua
-        if (isLaunching && Time.time - lastLaunchTime > launchInterval)
-        {
-            LaunchWater();
-            lastLaunchTime = Time.time;
+            // Si se está lanzando agua y ha pasado el intervalo de lanzamiento, lanzar más agua
+            if (isLaunching && Time.time - lastLaunchTime > launchInterval)
+            {
+                LaunchWater();
+                lastLaunchTime = Time.time;
+            }
         }
+        
     }
 
     void LaunchWater()

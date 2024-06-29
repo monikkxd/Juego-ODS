@@ -31,6 +31,8 @@ public class CameraController : MonoBehaviour
 
     Transform player;
 
+    public GameObject menuPausa;
+
     void Start()
     {
 
@@ -49,27 +51,31 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if(menuPausa.activeInHierarchy == false)
+        {
+            // Follow player - camera offset
+            transform.position = player.position + new Vector3(0, offsetDistanceY, 0);
 
-        // Follow player - camera offset
-        transform.position = player.position + new Vector3(0, offsetDistanceY, 0);
+            // Set camera zoom when mouse wheel is scrolled
+            if (canZoom && Input.GetAxis("Mouse ScrollWheel") != 0)
+                Camera.main.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * sensitivity * 2;
+            // You can use Mathf.Clamp to set limits on the field of view
 
-        // Set camera zoom when mouse wheel is scrolled
-        if( canZoom && Input.GetAxis("Mouse ScrollWheel") != 0 )
-            Camera.main.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * sensitivity * 2;
-        // You can use Mathf.Clamp to set limits on the field of view
+            // Checker for right click to move camera
+            if (clickToMoveCamera)
+                if (Input.GetAxisRaw("Fire2") == 0)
+                    return;
 
-        // Checker for right click to move camera
-        if ( clickToMoveCamera )
-            if (Input.GetAxisRaw("Fire2") == 0)
-                return;
-            
-        // Calculate new position
-        mouseX += Input.GetAxis("Mouse X") * sensitivity;
-        mouseY += Input.GetAxis("Mouse Y") * sensitivity;
-        // Apply camera limts
-        mouseY = Mathf.Clamp(mouseY, cameraLimit.x, cameraLimit.y);
+            // Calculate new position
+            mouseX += Input.GetAxis("Mouse X") * sensitivity;
+            mouseY += Input.GetAxis("Mouse Y") * sensitivity;
+            // Apply camera limts
+            mouseY = Mathf.Clamp(mouseY, cameraLimit.x, cameraLimit.y);
 
-        transform.rotation = Quaternion.Euler(-mouseY, mouseX, 0);
+            transform.rotation = Quaternion.Euler(-mouseY, mouseX, 0);
+        }
+        
+        
 
     }
 }
