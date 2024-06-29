@@ -10,9 +10,16 @@ public class MenuPausaNuevo : MonoBehaviour
     public GameObject UIMenu;
     public bool CursorVisible = true;
 
+    public bool enMenuPrincipal;
+
     void Start()
     {
         UIMenu.SetActive(false);
+
+        if(enMenuPrincipal)
+        {
+            Cursor.visible = true;
+        }
     }
 
     void Update()
@@ -67,6 +74,11 @@ public class MenuPausaNuevo : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
+    }
+
+    public void MenuPrincipal()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
     public void QuitGame()

@@ -5,27 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausaSelectorNiveles : MonoBehaviour
 {
-    public static bool JuegoPausado = false;
+   public static bool JuegoPausado = false;
     public GameObject UIMenu;
-
-    [SerializeField] private Texture2D cursorTexture;
-    [SerializeField] private float mouseSensitivity = 1.0f;
-
-    private Vector2 cursorHostpot;
-
+    public bool CursorVisible = true;
 
     void Start()
     {
         UIMenu.SetActive(false);
-
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
     }
 
     void Update()
     {
-        Cursor.visible = true;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (JuegoPausado == true)
@@ -42,10 +33,12 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
 
     public void Resume()
     {
+        
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
-        Cursor.visible = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -54,25 +47,20 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         Time.timeScale = 0f;
         JuegoPausado = true;
         Cursor.visible = true;
-    }
-    public void MenuPrincipal()
-    {
-        SceneManager.LoadScene("MenuPrincipal");
-        UIMenu.SetActive(false);
-        Time.timeScale = 1f;
-        JuegoPausado = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
-    public void SelectorNiveles()
+    public void SelectorNivel()
     {
         SceneManager.LoadScene("SelecciónNivel");
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
     }
+
     public void QuitGame()
     {
-        Application.Quit();
         Debug.Log("Salir del juego");
+        Application.Quit();
     }
 }
