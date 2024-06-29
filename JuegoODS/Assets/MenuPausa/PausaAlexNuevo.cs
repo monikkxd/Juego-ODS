@@ -4,11 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuPausaNuevo : MonoBehaviour
+public class PausaAlexNuevo : MonoBehaviour
 {
     public static bool JuegoPausado = false;
     public GameObject UIMenu;
     public bool CursorVisible = true;
+
+    public AudioSource source;
 
     void Start()
     {
@@ -41,14 +43,14 @@ public class MenuPausaNuevo : MonoBehaviour
             {
                 CursorVisible = true;
                 Cursor.visible = true;
-                Cursor.lockState= CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
 
     public void Resume()
     {
-        
+        source.Play();
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
@@ -56,6 +58,7 @@ public class MenuPausaNuevo : MonoBehaviour
 
     public void Pause()
     {
+        source.Pause();
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
