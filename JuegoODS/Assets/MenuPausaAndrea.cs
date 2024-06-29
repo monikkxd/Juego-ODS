@@ -46,16 +46,12 @@ public class MenuPausaAndrea : MonoBehaviour
                 CursorVisible = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                CameraController.enabled = true;
-                WaterHose.enabled = true;
             }
             else
             {
                 CursorVisible = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                CameraController.enabled = false;
-                WaterHose.enabled = false;
             }
         }
     }
@@ -69,8 +65,6 @@ public class MenuPausaAndrea : MonoBehaviour
         CursorVisible = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        CameraController.enabled = true;
-        WaterHose.enabled = true;
     }
 
     public void Pause()
@@ -81,8 +75,6 @@ public class MenuPausaAndrea : MonoBehaviour
         CursorVisible = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        CameraController.enabled = false;
-        WaterHose.enabled = false;
     }
 
     public void SelectorNivel()
