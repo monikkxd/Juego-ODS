@@ -34,6 +34,12 @@ public class EliminarTierra : MonoBehaviour
             SceneManager.LoadScene("SelecciónNivel");
             Debug.Log("AGUA AL PUEBLO ");
         }
+
+        if (collider.tag == "ALTERADORCALIDAD")
+        {
+            
+            Debug.Log("Objeto destruido: " + collider.gameObject.name);
+        }
     }
 }
 

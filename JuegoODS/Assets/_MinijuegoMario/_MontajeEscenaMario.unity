@@ -11365,6 +11365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIMenu: {fileID: 473805776}
   CursorVisible: 1
+  enMenuPrincipal: 0
 --- !u!224 &336611797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48102,6 +48103,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 473805776}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_UseFovKick
       value: 1
