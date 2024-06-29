@@ -35,7 +35,7 @@ public class EliminarTierra : MonoBehaviour
             Debug.Log("AGUA AL PUEBLO ");
         }
 
-        if (collider.tag == "AGUA CONTAMINADA")
+        if (collider.tag == "ALTERADORCALIDAD")
         {
             
             Debug.Log("Objeto destruido: " + collider.gameObject.name);
