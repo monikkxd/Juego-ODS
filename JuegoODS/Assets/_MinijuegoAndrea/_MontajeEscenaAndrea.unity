@@ -9838,6 +9838,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1000505036}
   launchForce: 10
   launchInterval: 0.1
+  menuPausa: {fileID: 179236530}
 --- !u!1001 &791981499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25351,6 +25352,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 2011549197}
   launchForce: 10
   launchInterval: 0.1
+  menuPausa: {fileID: 0}
 --- !u!136 &2011549202
 CapsuleCollider:
   m_ObjectHideFlags: 0
