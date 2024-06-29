@@ -54,6 +54,9 @@ public class PausaAlexNuevo : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
+        CursorVisible = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Pause()
@@ -62,6 +65,9 @@ public class PausaAlexNuevo : MonoBehaviour
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
+        CursorVisible = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void SelectorNivel()
@@ -70,6 +76,9 @@ public class PausaAlexNuevo : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
+        CursorVisible = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void QuitGame()

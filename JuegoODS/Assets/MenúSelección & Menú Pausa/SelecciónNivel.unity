@@ -3642,8 +3642,8 @@ RectTransform:
   m_Children:
   - {fileID: 1917190216}
   - {fileID: 1905603731}
-  - {fileID: 1558080823}
   - {fileID: 1518422674}
+  - {fileID: 1558080823}
   - {fileID: 1360607264}
   - {fileID: 1439009284}
   - {fileID: 1979025797}
@@ -4254,7 +4254,7 @@ RectTransform:
   m_GameObject: {fileID: 1518422673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.558859, y: 31.233393, z: 18.543018}
+  m_LocalScale: {x: 12.480251, y: 28.748775, z: 17.06792}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1684421744}
@@ -4262,7 +4262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 45}
+  m_AnchoredPosition: {x: 4, y: 40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518422675
@@ -4281,7 +4281,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1905603728}
-    m_SelectOnDown: {fileID: 1905603728}
+    m_SelectOnDown: {fileID: 1558080820}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -4516,7 +4516,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1905603728}
+    m_SelectOnUp: {fileID: 1518422675}
     m_SelectOnDown: {fileID: 1905603728}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -4604,7 +4604,7 @@ RectTransform:
   m_GameObject: {fileID: 1558080819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6400262, y: 2.8700457, z: 1.6400262}
+  m_LocalScale: {x: 1.8140329, y: 3.1745574, z: 1.8140329}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1142910840}
@@ -4612,7 +4612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -23}
+  m_AnchoredPosition: {x: 0, y: -54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1574852922
@@ -5763,7 +5763,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1558080820}
-    m_SelectOnDown: {fileID: 1558080820}
+    m_SelectOnDown: {fileID: 1518422675}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
