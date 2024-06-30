@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OxigenoManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class OxigenoManager : MonoBehaviour
     public Slider barraOxigeno;
     public float decrementoVelocidad = 5f;
     public float incrementoVelocidad = 10f; 
-    public float oxigenoMaximo = 100f;
+    public float oxigenoMaximo = 20f;
 
     public GameObject tutoOxigeno;
 
@@ -36,9 +37,10 @@ public class OxigenoManager : MonoBehaviour
 
         barraOxigeno.value = oxigenoActual;
 
-        if (oxigenoActual == 0)
+        if (oxigenoActual <= 0)
         {
             Debug.Log("Te has quedado sin oxígeno");
+            SceneManager.LoadScene("SelecciónNivel");
         }
     }
 

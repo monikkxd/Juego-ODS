@@ -15765,7 +15765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraOxigeno: {fileID: 546911285}
   decrementoVelocidad: 1
-  incrementoVelocidad: 1
+  incrementoVelocidad: 10
   oxigenoMaximo: 100
   tutoOxigeno: {fileID: 1522809464}
 --- !u!82 &768538181
@@ -16580,7 +16580,6 @@ MonoBehaviour:
   pagina2: {fileID: 922394468}
   pagina3: {fileID: 1001109414}
   pagina4: {fileID: 793908352}
-  CuentaAtrasTemporal: {fileID: 796717311}
 --- !u!1 &804388974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5078010a367f8f5478c6f866077256d6,

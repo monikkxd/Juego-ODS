@@ -15,11 +15,11 @@ public class CanvasControllerNat : MonoBehaviour
     public GameObject pagina3;
     public GameObject pagina4;
 
-    public CuentaAtrasTemporal CuentaAtrasTemporal;
+    //public CuentaAtrasTemporal CuentaAtrasTemporal;
 
     void Start()
     {
-        CuentaAtrasTemporal.enabled = false;
+        //CuentaAtrasTemporal.enabled = false;
         // El código en el método Start se ejecuta una vez al inicio del script.
         posFinal = Screen.width / 2; // Se calcula la posición final como la mitad del ancho de la pantalla.
         subMenu.position = new Vector3(-posFinal, subMenu.position.y, 0); // Se coloca el submenú fuera de la pantalla al inicio.
@@ -97,6 +97,6 @@ public class CanvasControllerNat : MonoBehaviour
 
     public void ActivarCuentaAtrás()
     {
-        CuentaAtrasTemporal.enabled = true;
+        //CuentaAtrasTemporal.enabled = true;
     }
 }
