@@ -14,6 +14,8 @@ public class EliminarTierra : MonoBehaviour
 
         if (collider.tag == "TIERRA")
         {
+
+            // ANIMACION CAVAR
             Destroy(collider.gameObject);
             Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
@@ -24,6 +26,12 @@ public class EliminarTierra : MonoBehaviour
             SelectorNivel.monicaCompletado = true;
             SceneManager.LoadScene("SelecciónNivel");
             Debug.Log("AGUA AL PUEBLO ");
+        }
+
+        if (collider.tag == "ALTERADORCALIDAD")
+        {
+            
+            Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
     }
 }

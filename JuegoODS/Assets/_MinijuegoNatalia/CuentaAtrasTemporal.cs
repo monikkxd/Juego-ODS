@@ -15,7 +15,7 @@ public class CuentaAtrasTemporal : MonoBehaviour
 
     void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning==true)
         {
             if (timeRemaining >= 0)
             {
