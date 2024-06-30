@@ -17,16 +17,22 @@ public class MarioTutoManager : MonoBehaviour
 
     public List <ObjectSpawner> objectSpawners = new List<ObjectSpawner>();
 
+    
+
     private void Start()
     {
-        CuentaAtrásMario.enabled = false;
+        if(MinijuegoMario)
+        {
+            CuentaAtrásMario.enabled = false;
+            Invoke("ActivarJuegoMario", 4.5f);
+        }
 
         for(int i = 0; i < objectSpawners.Count; i++)
         {
             objectSpawners[i].enabled = false;
         }
 
-        Invoke("ActivarJuegoMario", 4.5f);
+        
     }
     private void Update()
     {
@@ -51,6 +57,7 @@ public class MarioTutoManager : MonoBehaviour
 
     public void ActivarJuegoMario()
     {
+        
         CuentaAtrásMario.enabled = true;
 
         for (int i = 0; i < objectSpawners.Count; i++)
