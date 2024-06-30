@@ -1950,7 +1950,6 @@ Transform:
   - {fileID: 712787509}
   - {fileID: 81671800}
   - {fileID: 412497893}
-  - {fileID: 776305761}
   - {fileID: 1398251946}
   - {fileID: 1930252330}
   - {fileID: 365061088}
@@ -2306,7 +2305,7 @@ PrefabInstance:
     - target: {fileID: 2565567453021695732, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585834637315175010, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -2341,7 +2340,7 @@ PrefabInstance:
     - target: {fileID: 2951212477828945279, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2998210748563430989, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -2361,7 +2360,7 @@ PrefabInstance:
     - target: {fileID: 2998210748563430989, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3108559885417845547, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -2701,7 +2700,7 @@ PrefabInstance:
     - target: {fileID: 6460323222434496495, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465191592745738594, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -2806,7 +2805,7 @@ PrefabInstance:
     - target: {fileID: 6848404589197037761, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6909496190135586227, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -2891,7 +2890,7 @@ PrefabInstance:
     - target: {fileID: 7497316750452921927, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7509565459653531496, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
@@ -3061,7 +3060,7 @@ PrefabInstance:
     - target: {fileID: 9197991976267905281, guid: 4b26b3156c628b746aaed1bb538079f3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4220,8 +4219,6 @@ MonoBehaviour:
   - {fileID: 459436913}
   - {fileID: 483432194}
   - {fileID: 1357563764}
-  - {fileID: 1842623556}
-  - {fileID: 1480505052}
   - {fileID: 1917119912}
   - {fileID: 1808889069}
   - {fileID: 1096370024}
@@ -5486,39 +5483,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c2c5b62d5cc4347b9b1cc998c4d62e, type: 3}
---- !u!1 &776305760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 776305761}
-  m_Layer: 0
-  m_Name: "Mesa_5_Posici\xF3n (3)"
-  m_TagString: Mesa
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &776305761
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776305760}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.07, y: -1.57, z: 8.06}
-  m_LocalScale: {x: 1, y: 1, z: 0.94794}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1842623556}
-  - {fileID: 1480505052}
-  m_Father: {fileID: 389054241}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778236177
 GameObject:
   m_ObjectHideFlags: 0
@@ -9395,68 +9359,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1467710312}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1480505051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1480505052}
-  - component: {fileID: 1480505054}
-  - component: {fileID: 1480505053}
-  m_Layer: 0
-  m_Name: Silla (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1480505052
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480505051}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.62, y: 0, z: -1.277}
-  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 776305761}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1480505053
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480505051}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1480505054
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480505051}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1489905071
 GameObject:
   m_ObjectHideFlags: 0
@@ -11419,68 +11321,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808889068}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1842623555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1842623556}
-  - component: {fileID: 1842623558}
-  - component: {fileID: 1842623557}
-  m_Layer: 0
-  m_Name: Silla
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1842623556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842623555}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: -1.296}
-  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 776305761}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1842623557
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842623555}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1842623558
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842623555}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1844120475
 GameObject:
