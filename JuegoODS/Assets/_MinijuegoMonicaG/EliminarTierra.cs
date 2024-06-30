@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EliminarTierra : MonoBehaviour
 {
-    
+    public Slider healthSlider; // Referencia al Slider
+    public float damageAmount = 10f; // Cantidad de decremento en cada colisión
+
+    // Inicializa el Slider al máximo al comienzo del juego
+    void Start()
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = 80; // Establecer el valor máximo del Slider
+            healthSlider.value = healthSlider.maxValue;
+        }
+    }
 
     // Método que se llama cuando un objeto entra en el collider
     private void OnTriggerEnter(Collider collider)
@@ -30,8 +42,17 @@ public class EliminarTierra : MonoBehaviour
 
         if (collider.tag == "ALTERADORCALIDAD")
         {
+            // Disminuir el valor del Slider
+            healthSlider.value -= damageAmount;
+            Debug.Log("Objeto afectado: " + collider.gameObject.name);
+
+
+            // Asegurarse de que el Slider no baje de 0
+            if (healthSlider.value < 0)
+            {
+                healthSlider.value = 0;
+            }
             
-            Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
     }
 }
