@@ -74,7 +74,7 @@ public class GameManagerAlex : MonoBehaviour
         barraProgresionSlider.value = 0;
         barraProgresionSlider.maxValue = 100;
 
-        Invoke("ActivarBotónInicial", 6f);
+        Invoke("ActivarBotónInicial", 7f);
     }
 
 
