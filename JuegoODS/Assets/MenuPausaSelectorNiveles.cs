@@ -13,6 +13,7 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
     {
         UIMenu.SetActive(false);
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()
@@ -37,8 +38,6 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         UIMenu.SetActive(false);
         Time.timeScale = 1f;
         JuegoPausado = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -46,8 +45,6 @@ public class MenuPausaSelectorNiveles : MonoBehaviour
         UIMenu.SetActive(true);
         Time.timeScale = 0f;
         JuegoPausado = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void SelectorNivel()

@@ -42,7 +42,6 @@ public class CuentaAtrásMario : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 UpdateTimeText(timeRemaining);
-                Time.timeScale = 0;
                 hasGanado.SetActive(true);
                 Invoke("CargarEscena", 2.5f);
                 
