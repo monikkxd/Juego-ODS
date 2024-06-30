@@ -8,6 +8,8 @@ public class EliminarTierra : MonoBehaviour
 {
     public Slider healthSlider; // Referencia al Slider
     public float damageAmount = 10f; // Cantidad de decremento en cada colisión
+    // Referencia a la imagen que queremos activar
+    public Image imageToActivate;
 
     // Inicializa el Slider al máximo al comienzo del juego
     void Start()
@@ -34,10 +36,9 @@ public class EliminarTierra : MonoBehaviour
 
         if (collider.tag == "MetaAgua")
         {
-            //AQUI VA EL CAMBIO DE ESCENA.
-            SelectorNivel.monicaCompletado = true;
-            SceneManager.LoadScene("SelecciónNivel");
-            Debug.Log("AGUA AL PUEBLO ");
+            StartCoroutine(ActivateImageRoutine());
+
+            
         }
 
         if (collider.tag == "ALTERADORCALIDAD")
@@ -54,6 +55,26 @@ public class EliminarTierra : MonoBehaviour
             }
             
         }
+
+        
+    }
+    
+    // Corrutina que activa la imagen y espera 5 segundos
+    private IEnumerator ActivateImageRoutine()
+    {
+        // Activar la imagen
+        imageToActivate.gameObject.SetActive(true);
+
+        // Esperar 5 segundos
+        yield return new WaitForSeconds(5f);
+
+        //AQUI VA EL CAMBIO DE ESCENA.
+        SelectorNivel.monicaCompletado = true;
+        SceneManager.LoadScene("SelecciónNivel");
+        Debug.Log("AGUA AL PUEBLO ");
+
+        // Aquí puedes agregar la acción que deseas realizar después de los 5 segundos
+        Debug.Log("5 segundos han pasado. Puedes realizar otra acción aquí.");
     }
 }
 
