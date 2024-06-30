@@ -7,15 +7,6 @@ public class EliminarTierra : MonoBehaviour
 {
     
 
-    // Método para activar el collider cuando se presiona la tecla E
-    void Update()
-    {
-        
-    }
-
-    
-    
-
     // Método que se llama cuando un objeto entra en el collider
     private void OnTriggerEnter(Collider collider)
     {

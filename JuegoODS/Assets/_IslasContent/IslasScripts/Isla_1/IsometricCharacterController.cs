@@ -42,6 +42,14 @@ public class IsometricCharacterController : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            animator.SetBool("Cavando", true);
+        }
+        else
+        {
+            animator.SetBool("Cavando", false);
+        }
     }
 
     void Move()
