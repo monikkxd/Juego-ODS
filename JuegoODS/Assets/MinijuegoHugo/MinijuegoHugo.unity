@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: m_Mass
@@ -899,6 +904,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2771621236490071732, guid: fd2eff7bd708f5043a9e15b7ad525f07,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4852329928522537821, guid: fd2eff7bd708f5043a9e15b7ad525f07,
         type: 3}
       propertyPath: m_Size.x
@@ -1350,8 +1360,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1932460998}
-        m_TargetAssemblyTypeName: MenuPausaNuevo, Assembly-CSharp
+      - m_Target: {fileID: 1932461003}
+        m_TargetAssemblyTypeName: MenuPausaSelectorNiveles, Assembly-CSharp
         m_MethodName: SelectorNivel
         m_Mode: 1
         m_Arguments:
@@ -3756,6 +3766,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: m_Mass
@@ -5670,6 +5685,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2771621236490071732, guid: fd2eff7bd708f5043a9e15b7ad525f07,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4852329928522537821, guid: fd2eff7bd708f5043a9e15b7ad525f07,
         type: 3}
       propertyPath: m_Size.x
@@ -5760,6 +5780,11 @@ PrefabInstance:
     - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: velocidadMaxima
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
@@ -6849,6 +6874,11 @@ PrefabInstance:
     - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: velocidadMaxima
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
@@ -8444,6 +8474,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2771621236490071732, guid: fd2eff7bd708f5043a9e15b7ad525f07,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4852329928522537821, guid: fd2eff7bd708f5043a9e15b7ad525f07,
         type: 3}
       propertyPath: m_Size.x
@@ -9907,9 +9942,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1932460997}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10388,6 +10423,11 @@ PrefabInstance:
     - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: velocidadMaxima
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
@@ -12308,6 +12348,11 @@ PrefabInstance:
       propertyPath: velocidadMaxima
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1360814093792491890, guid: e909b1f9592392846b1d49a3533bcf26,
+        type: 3}
+      propertyPath: suavidadMovimiento
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1077153189656814786, guid: e909b1f9592392846b1d49a3533bcf26,
         type: 3}
       propertyPath: m_Mass
@@ -13494,8 +13539,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1932460998}
-        m_TargetAssemblyTypeName: MenuPausaNuevo, Assembly-CSharp
+      - m_Target: {fileID: 1932461003}
+        m_TargetAssemblyTypeName: MenuPausaSelectorNiveles, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -16269,7 +16314,7 @@ GameObject:
   - component: {fileID: 1932461002}
   - component: {fileID: 1932461001}
   - component: {fileID: 1932461000}
-  - component: {fileID: 1932460998}
+  - component: {fileID: 1932461003}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -16277,20 +16322,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1932460998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932460997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9eda55e0618b044b90509336430d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIMenu: {fileID: 1717229216}
-  CursorVisible: 1
 --- !u!224 &1932460999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16374,6 +16405,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1932461003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932460997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3472706f30d0a94ab2a1a61d1045a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIMenu: {fileID: 1717229216}
+  CursorVisible: 1
 --- !u!1001 &1932900080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16825,8 +16870,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1932460998}
-        m_TargetAssemblyTypeName: MenuPausaNuevo, Assembly-CSharp
+      - m_Target: {fileID: 1932461003}
+        m_TargetAssemblyTypeName: MenuPausaSelectorNiveles, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
