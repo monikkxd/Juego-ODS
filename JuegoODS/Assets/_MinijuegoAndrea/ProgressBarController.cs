@@ -47,6 +47,7 @@ public class ProgressBarController : MonoBehaviour
 
         if (objectsDestroyedCount >= objectsToDestroy.Count)
         {
+            Debug.Log("apagaooooo");
             meta.SetActive(true);
         }
     }
