@@ -150,20 +150,6 @@ public class SelectorNivel : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            hugoCompletado = true;
-            nataliaCompletado = true;
-            MoniCompletado = true;
-            AlexCompletado = true;
-            andreaCompletado = true;
-            miguiCompletado = true;
-            marioCompletado = true;
-            monicaCompletado = true;
-            claraCompletado = true;
-
-        }
-
         if (hugoCompletado == true)
         {
             hugoCompletadoObject.SetActive(true);
@@ -214,8 +200,6 @@ public class SelectorNivel : MonoBehaviour
         {
             StartCoroutine(CargarVictoria());
         }
-
-        
     }
 
     IEnumerator CargarVictoria()
