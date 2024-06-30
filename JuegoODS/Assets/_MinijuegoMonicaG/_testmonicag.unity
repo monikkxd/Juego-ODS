@@ -6196,6 +6196,53 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7117533, y: 2.252948, z: 0.45957187}
   m_Center: {x: 0.00000016391276, y: -0.000000655651, z: 0.0000000298024}
+--- !u!1 &162671303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162671305}
+  - component: {fileID: 162671304}
+  m_Layer: 0
+  m_Name: spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &162671304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162671303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e498a29b0ec1b464aaba9d4c545d6b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 577882342992078743, guid: 22c5708eea2a31e44bd4672afe43e6aa, type: 3}
+  spawnInterval: 2
+  launchForce: 10
+--- !u!4 &162671305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162671303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 84.19, y: 4.41, z: -39.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166007415
 GameObject:
   m_ObjectHideFlags: 0
@@ -58756,6 +58803,111 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.78808326, y: 2.595408, z: 0.3915786}
   m_Center: {x: -0.00000023841854, y: 0.0000015497211, z: 0.00000005215412}
+--- !u!1 &1283034632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283034636}
+  - component: {fileID: 1283034635}
+  - component: {fileID: 1283034634}
+  - component: {fileID: 1283034633}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1283034633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283034632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1283034634
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283034632}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1283034635
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283034632}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1283034636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283034632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 85.48, y: 0.3, z: -45.67}
+  m_LocalScale: {x: 22.659311, y: 1, z: 5.2395}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285244995
 GameObject:
   m_ObjectHideFlags: 0
@@ -64746,54 +64898,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.87352425, y: 2.2588112, z: 0.4897113}
   m_Center: {x: 0.00000047683716, y: 0.0000018477443, z: 0.000000059604442}
---- !u!1 &1461889286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1461889288}
-  - component: {fileID: 1461889287}
-  m_Layer: 0
-  m_Name: Spawner agua Rio
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1461889287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461889286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e498a29b0ec1b464aaba9d4c545d6b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 7156525191889806235, guid: 22c5708eea2a31e44bd4672afe43e6aa,
-    type: 3}
-  spawnInterval: 0.2
-  spawnForce: 10
---- !u!4 &1461889288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461889286}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.002618361, y: 0.000000015093496, z: 0.0000000015266429, w: 0.9999966}
-  m_LocalPosition: {x: 82.08, y: 0.72, z: -37.82}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.3, y: 0, z: 0}
 --- !u!1 &1463590915
 GameObject:
   m_ObjectHideFlags: 0
@@ -76262,54 +76366,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7880832, y: 2.5954075, z: 0.39157817}
   m_Center: {x: 1.5248795e-16, y: 0.0000034570696, z: 0.000000052154014}
---- !u!1 &1800834285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1800834287}
-  - component: {fileID: 1800834286}
-  m_Layer: 0
-  m_Name: Spawner agua Rio (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1800834286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800834285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e498a29b0ec1b464aaba9d4c545d6b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 7156525191889806235, guid: 22c5708eea2a31e44bd4672afe43e6aa,
-    type: 3}
-  spawnInterval: 0.2
-  spawnForce: 10
---- !u!4 &1800834287
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800834285}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.0026152686, y: -0.47923014, z: -0.00012732584, w: 0.87768537}
-  m_LocalPosition: {x: 93.63, y: 0.67, z: -20.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.256, y: -57.271, z: -0.156}
 --- !u!1 &1806796774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2238249416642749085, guid: 2b4e79c18319854498c98dfec9fafdcb,
@@ -77072,54 +77128,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.78808326, y: 2.595408, z: 0.3915786}
   m_Center: {x: 4.832693e-14, y: -0.00000035762753, z: 0.00000004470354}
---- !u!1 &1819903930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1819903932}
-  - component: {fileID: 1819903931}
-  m_Layer: 0
-  m_Name: Spawner agua Rio (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1819903931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819903930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e498a29b0ec1b464aaba9d4c545d6b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 7156525191889806235, guid: 22c5708eea2a31e44bd4672afe43e6aa,
-    type: 3}
-  spawnInterval: 0.2
-  spawnForce: 20
---- !u!4 &1819903932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819903930}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.002552037, y: -0.22365737, z: 0.00058561895, w: 0.97466433}
-  m_LocalPosition: {x: 92.5, y: 0.7, z: -26.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.3, y: -25.848, z: 0}
 --- !u!1 &1824106166
 GameObject:
   m_ObjectHideFlags: 0
@@ -92342,9 +92350,6 @@ SceneRoots:
   - {fileID: 23452811}
   - {fileID: 714314246}
   - {fileID: 684562998}
-  - {fileID: 1461889288}
-  - {fileID: 1819903932}
-  - {fileID: 1800834287}
   - {fileID: 1666626342}
   - {fileID: 1195527005}
   - {fileID: 537224345}
@@ -92352,3 +92357,5 @@ SceneRoots:
   - {fileID: 452015534}
   - {fileID: 1181247873}
   - {fileID: 1979084650}
+  - {fileID: 1283034636}
+  - {fileID: 162671305}

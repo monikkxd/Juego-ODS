@@ -108,7 +108,7 @@ public class Absorber : MonoBehaviour
 
     void UpdateAbsorbedObjectsText()
     {
-        absorbedObjectsText.text = "Objetos absorbidos: " + absorbedObjectCount;
+        absorbedObjectsText.text = "Basura recogida: " + absorbedObjectCount;
     }
 
     // Función opcional para obtener el número de objetos absorbidos

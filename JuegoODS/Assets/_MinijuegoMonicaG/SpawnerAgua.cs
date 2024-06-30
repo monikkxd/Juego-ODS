@@ -2,59 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnerAgua : MonoBehaviour
 {
-    // Prefab que queremos spawnear
-    public GameObject prefabToSpawn;
+    public GameObject prefab; // El prefab que se instanciará
+    public float spawnInterval = 1.0f; // Intervalo entre cada instancia
+    public float launchForce = 10.0f; // Fuerza con la que se lanzará el prefab hacia adelante
+    private bool spawn = true;
 
-    // Intervalo de tiempo en segundos entre cada spawn
-    public float spawnInterval = 2f;
-
-    // Fuerza con la que se expulsa el prefab hacia adelante
-    public float spawnForce = 10f;
-
-    // Variable para almacenar la referencia al coroutine
-    private Coroutine spawnCoroutine;
-
-    // Método para iniciar el spawneo continuo
-    void Start()
+    private void Start()
     {
-        // Inicia el coroutine de spawneo
-        spawnCoroutine = StartCoroutine(SpawnRoutine());
+        // Iniciar la coroutine que instancia el prefab continuamente
+        StartCoroutine(SpawnPrefab());
     }
 
-    // Coroutine que se ejecuta continuamente para spawnear el prefab
-    IEnumerator SpawnRoutine()
+    private IEnumerator SpawnPrefab()
     {
-        // Loop infinito para spawnear continuamente
-        while (true)
+        while (spawn==true)
         {
-            // Instancia el prefab en la posición y rotación del spawner
-            GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, transform.rotation);
+            // Instanciar el prefab en la posición y rotación del spawner
+            Debug.Log("instanciatee");
+            GameObject spawnedObject = Instantiate(prefab, transform.position, transform.rotation);
 
-            // Obtén el Rigidbody del prefab para aplicar la fuerza
+            // Obtener el componente Rigidbody del prefab
+            Debug.Log("rb");
             Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
+
+            // Si el prefab tiene un Rigidbody, aplicarle una fuerza hacia adelante
             if (rb != null)
             {
-                // Aplica una fuerza hacia adelante
-                rb.AddForce(transform.forward * spawnForce, ForceMode.Impulse);
+                
+                rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
+                Debug.Log("if");
             }
 
-            // Espera el intervalo de tiempo especificado antes de spawnear el siguiente prefab
+            // Esperar el intervalo especificado antes de instanciar el siguiente prefab
             yield return new WaitForSeconds(spawnInterval);
         }
     }
-
-    // Método para detener el spawneo
-    public void StopSpawning()
-    {
-        // Detiene el coroutine de spawneo
-        if (spawnCoroutine != null)
-        {
-            StopCoroutine(spawnCoroutine);
-            spawnCoroutine = null;
-        }
-    }
 }
+
 
 

@@ -23,6 +23,8 @@ public class EliminarTierra : MonoBehaviour
 
         if (collider.tag == "TIERRA")
         {
+
+            // ANIMACION CAVAR
             Destroy(collider.gameObject);
             Debug.Log("Objeto destruido: " + collider.gameObject.name);
         }
