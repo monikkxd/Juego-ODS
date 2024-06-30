@@ -10,6 +10,8 @@ public class OxigenoManager : MonoBehaviour
     public float incrementoVelocidad = 10f; 
     public float oxigenoMaximo = 100f;
 
+    public GameObject tutoOxigeno;
+
     private float oxigenoActual;
     private bool estaEnOxigeno = false;
 
@@ -46,6 +48,7 @@ public class OxigenoManager : MonoBehaviour
 
         if (collider.name== "Burbuja")
         {
+            tutoOxigeno.SetActive(true);
             estaEnOxigeno = true;
             Debug.Log("recuperando oxígeno");
         }
@@ -55,6 +58,8 @@ public class OxigenoManager : MonoBehaviour
     {
         if (collider.name == "Burbuja")
         {
+
+            tutoOxigeno.SetActive(false);
             estaEnOxigeno = false;
         }
     }
