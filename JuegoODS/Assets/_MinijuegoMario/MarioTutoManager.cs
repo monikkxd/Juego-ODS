@@ -13,41 +13,27 @@ public class MarioTutoManager : MonoBehaviour
     // Time duration for which the object will stay active
     public float activeDuration = 7.0f;
 
+    public CuentaAtrásMario CuentaAtrásMario;
+
+    public List <ObjectSpawner> objectSpawners = new List<ObjectSpawner>();
+
     private void Start()
     {
-        Time.timeScale = 0;
-        // Start the coroutine that handles the activation and deactivation
-        //StartCoroutine(ActivateAndDeactivate());
+        CuentaAtrásMario.enabled = false;
 
-        targetObject.SetActive(true);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        for(int i = 0; i < objectSpawners.Count; i++)
         {
-            Time.timeScale = 1;
-
-            targetObject.SetActive(false);
+            objectSpawners[i].enabled = false;
         }
 
-
+        Invoke("ActivarJuegoMario", 4.5f);
+    }
+    private void Update()
+    {
         if(Input.GetKeyDown(KeyCode.E))
         {
             SaltarNivel();
         }
-    }
-
-    private IEnumerator ActivateAndDeactivate()
-    {
-        // Activate the target GameObject
-        targetObject.SetActive(true);
-
-        // Wait for the specified duration
-        yield return new WaitForSeconds(activeDuration);
-
-        // Deactivate the target GameObject
-        targetObject.SetActive(false);
     }
 
     public void SaltarNivel()
@@ -60,8 +46,17 @@ public class MarioTutoManager : MonoBehaviour
         if(MinijuegoMónica)
         {
             SelectorNivel.monicaCompletado = true;
+        }   
+    }
+
+    public void ActivarJuegoMario()
+    {
+        CuentaAtrásMario.enabled = true;
+
+        for (int i = 0; i < objectSpawners.Count; i++)
+        {
+            objectSpawners[i].enabled = true;
         }
-        
     }
 }
 

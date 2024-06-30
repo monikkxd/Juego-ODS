@@ -12,42 +12,26 @@ public class AndreaTutoManager : MonoBehaviour
     // Time duration for which the object will stay active
     public float activeDuration = 7.0f;
 
+    public WaterHose waterHose;
+    public ThirdPersonController ThirdPersonController;
+    public CameraController cameraController;
+
     private void Start()
     {
-        Time.timeScale = 0;
-        // Start the coroutine that handles the activation and deactivation
-        //StartCoroutine(ActivateAndDeactivate());
-
-        targetObject.SetActive(true);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Time.timeScale = 1;
-
-            targetObject.SetActive(false);
-        }
-
-    }
-
-    private IEnumerator ActivateAndDeactivate()
-    {
-        // Activate the target GameObject
+        ThirdPersonController.enabled = false;
+        waterHose.enabled = false;
+        cameraController.enabled = false;
         targetObject.SetActive(true);
 
-        // Wait for the specified duration
-        yield return new WaitForSeconds(activeDuration);
+        Invoke("ActivateCharacter", 4);
+    }
 
-        // Deactivate the target GameObject
+    public void ActivateCharacter()
+    {
+        ThirdPersonController.enabled = true;
+        waterHose.enabled = true;
+        cameraController.enabled = true;
         targetObject.SetActive(false);
-    }
-
-    public void SaltarNivel()
-    {
-        SceneManager.LoadScene("SelecciónNivel");
-        SelectorNivel.monicaCompletado = true;
     }
 }
 

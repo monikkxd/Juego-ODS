@@ -16448,13 +16448,13 @@ RectTransform:
   - {fileID: 19852237}
   - {fileID: 924950946}
   - {fileID: 1307134234}
-  - {fileID: 1646999602}
   - {fileID: 1114388184}
   - {fileID: 1513058484}
   - {fileID: 725171770}
   - {fileID: 1196241770}
   - {fileID: 1699894888}
   - {fileID: 1480069830}
+  - {fileID: 1646999602}
   - {fileID: 1768088228984217819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16496,6 +16496,7 @@ MonoBehaviour:
   pagina2: {fileID: 922394468}
   pagina3: {fileID: 1001109414}
   pagina4: {fileID: 793908352}
+  CuentaAtrasTemporal: {fileID: 796717311}
 --- !u!1 &804388974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5078010a367f8f5478c6f866077256d6,
@@ -22511,7 +22512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Basura recogida: 0'
 --- !u!222 &1114388186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32267,7 +32268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
