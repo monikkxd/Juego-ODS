@@ -333,6 +333,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 7:
+                source.PlayOneShot(CanPlaceClip);
                 if (tiendaConstruida != null && !tiendaConstruida.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación75));
@@ -347,6 +348,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 8:
+                source.PlayOneShot(CanPlaceClip);
                 if (viviendasContruida != null && !viviendasContruida.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación75));
@@ -360,6 +362,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 9:
+                source.PlayOneShot(CanPlaceClip);
                 if (centroComercialConstruido != null && !centroComercialConstruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación75));
@@ -373,6 +376,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 10:
+                source.PlayOneShot(CanPlaceClip);
                 if (comisariaContruida != null && !comisariaContruida.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación75));
@@ -386,6 +390,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 11:
+                source.PlayOneShot(CanPlaceClip);
                 if (parqueContruido != null && !parqueContruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -399,6 +404,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 12:
+                source.PlayOneShot(CanPlaceClip);
                 if (parqueInfantilConstruido != null && !parqueInfantilConstruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -412,6 +418,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 13:
+                source.PlayOneShot(CanPlaceClip);
                 if (jardínConstruido != null && !jardínConstruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -425,6 +432,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 14:
+                source.PlayOneShot(CanPlaceClip);
                 if (merenderoConstruido != null && !merenderoConstruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));
@@ -438,6 +446,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 break;
             case 15:
+                source.PlayOneShot(CanPlaceClip);
                 if (puestoLimonadaConstruido != null && !puestoLimonadaConstruido.activeSelf)
                 {
                     StartCoroutine(ActivarDesactivarObjecto(popUpPuntuación100));

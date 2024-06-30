@@ -49,13 +49,13 @@ public class GameManagerAlex : MonoBehaviour
 
     public GameObject bateríaCargada;
     public GameObject tuto;
-    public GameObject imagenFlor;
+    public GameObject imagenFlor, imagenDerrota;
 
     public int PuntuaciónMínima;
 
     public string EscenaSiguiente;
 
-    private bool ResultadosActivados = true;
+    private bool ResultadosActivados = false;
 
     public bool tutorialAcabado = false;
 
@@ -63,7 +63,7 @@ public class GameManagerAlex : MonoBehaviour
     void Start()
     {
         instance = this;
-
+        PressButtonStart.SetActive(false);
         PuntosActuales = 0;
         MultiActual = 1;
         PuntosTexto.text = "Puntuación: 0";
@@ -73,6 +73,8 @@ public class GameManagerAlex : MonoBehaviour
 
         barraProgresionSlider.value = 0;
         barraProgresionSlider.maxValue = 100;
+
+        Invoke("ActivarBotónInicial", 6f);
     }
 
 
@@ -83,7 +85,7 @@ public class GameManagerAlex : MonoBehaviour
             tiempoTranscurrido += Time.deltaTime;
             float valorActual = Mathf.Clamp((tiempoTranscurrido / tiempoTotal) * 100, 0, 100);
             barraProgresionSlider.value = valorActual;
-            if(tiempoTranscurrido >= 135)
+            if(tiempoTranscurrido >= 140)
             {
                 juegoFinalizado = true;
             }
@@ -105,9 +107,11 @@ public class GameManagerAlex : MonoBehaviour
         {
             if (!VentanaResultados.activeInHierarchy && juegoFinalizado)
             {
+                if(ResultadosActivados == false)
+                {
+                    VentanaResultados.SetActive(true);
+                }
                 SelectorNivel.AlexCompletado = true;
-                VentanaResultados.SetActive(true);
-
                 HitText.text = "" + NormalFichas;
                 GoodText.text = "" + GoodFichas;
                 PerfeText.text = "" + PerfeFichas;
@@ -227,23 +231,25 @@ public class GameManagerAlex : MonoBehaviour
     {
         tuto.SetActive(true);
         ResultadosActivados = false;
-        VentanaResultados.SetActive(false);
         Invoke("ActivarFlor", 4f);
     }
 
 
     IEnumerator ReiniciarJuego()
     {
+        yield return new WaitForSeconds(4);
 
-        yield return new WaitForSeconds(6f);
+        imagenDerrota.SetActive(true);
 
-        ResultadosActivados = false;
+        yield return new WaitForSeconds(4f);
+
+        ResultadosActivados = true;
 
         imagenFlor.SetActive(true);
 
         yield return new WaitForSeconds(2);
 
-        SceneManager.LoadScene("MinijuegoAlex");
+        SceneManager.LoadScene(EscenaSiguiente);
     }
 
     void ActivarFlor()
@@ -260,5 +266,10 @@ public class GameManagerAlex : MonoBehaviour
     public void TutorialAcabado()
     {
         tutorialAcabado = true;
+    }
+
+    public void ActivarBotónInicial()
+    {
+        PressButtonStart.SetActive(true);
     }
 }

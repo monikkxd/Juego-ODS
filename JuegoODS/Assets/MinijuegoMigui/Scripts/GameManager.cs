@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        numeroPedidosText.text = numerosPedidos.ToString();
+        numeroPedidosText.text = numerosPedidos.ToString() + " / 200";
 
         if (timerIsRunning)
         {

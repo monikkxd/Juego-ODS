@@ -173,7 +173,7 @@ public class Cliente : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Mesa") && condición == true)
+        if (other.CompareTag("Mesa"))
         {
             animator.SetBool("SubirSilla", true);
         }
@@ -181,7 +181,6 @@ public class Cliente : MonoBehaviour
 
     public void ClienteSeLevanta()
     {
-        condición = false;
         animator.SetBool("SubirSilla", false);
     }
 }
