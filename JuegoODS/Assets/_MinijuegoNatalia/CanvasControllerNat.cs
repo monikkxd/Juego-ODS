@@ -29,7 +29,7 @@ public class CanvasControllerNat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.E))
         {
             BUTTON_Sub_Menu();
         }
