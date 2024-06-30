@@ -15,25 +15,21 @@ public class CuentaAtrasTemporal : MonoBehaviour
 
     void Update()
     {
-        if (timerIsRunning==true)
+        if (timeRemaining >= 0)
         {
-            if (timeRemaining >= 0)
-            {
-                timeRemaining -= Time.deltaTime;
-                UpdateTimeText(timeRemaining);
-            }
-            else
-            {
-                SelectorNivel.nataliaCompletado = true;
-                Debug.Log("Time has run out!");
-                timeRemaining = 0;
-                timerIsRunning = false;
-                UpdateTimeText(timeRemaining);
+            timeRemaining -= Time.deltaTime;
+            UpdateTimeText(timeRemaining);
+        }
+        else
+        {
+            SelectorNivel.nataliaCompletado = true;
+            Debug.Log("Time has run out!");
+            timeRemaining = 0;
+            timerIsRunning = false;
+            UpdateTimeText(timeRemaining);
 
-                transición.SetActive(true); 
-                Invoke("CargarEscena", 2f);
-
-            }
+            transición.SetActive(true);
+            Invoke("CargarEscena", 2f);
         }
     }
 
