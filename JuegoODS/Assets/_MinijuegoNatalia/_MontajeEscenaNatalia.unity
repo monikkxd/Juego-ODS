@@ -855,7 +855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &19852235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15684,6 +15684,9 @@ MonoBehaviour:
   particulas1: {fileID: 1644537271}
   particulas2: {fileID: 108156339}
   absorbedObjectsText: {fileID: 1114388185}
+  maxbasura: 20
+  imageToActivate: {fileID: 709695569}
+  "transici\xF3n": {fileID: 1768088228984217818}
 --- !u!54 &768538174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16550,7 +16553,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796717306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef51969eebe9e14cb616af957ef7ba7, type: 3}
   m_Name: 

@@ -68,7 +68,7 @@ public class CuentaAtrasTemporal : MonoBehaviour
         UpdateTimeText(timeRemaining);
 
         transición.SetActive(true);
-        Invoke("CargarEscena", 2f);
+        SceneManager.LoadScene("SelecciónNivel");
 
         // Aquí puedes agregar la acción que deseas realizar después de los 5 segundos
         Debug.Log("5 segundos han pasado. Puedes realizar otra acción aquí.");

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; // Necesario para trabajar con UI
 
 public class Absorber : MonoBehaviour
@@ -14,9 +15,22 @@ public class Absorber : MonoBehaviour
 
     public Text absorbedObjectsText; // Referencia al componente UI Text
 
+    public int maxbasura = 5;
+
     private bool isAbsorbing = false;
     private int absorbedObjectCount = 0; // Contador de objetos absorbidos
     private float previousScaleZ;
+
+    
+
+    // Referencia a la imagen que queremos activar
+    public Image imageToActivate;
+
+
+
+    
+
+    public GameObject transición;
 
     void Start()
     {
@@ -49,6 +63,11 @@ public class Absorber : MonoBehaviour
             {
                 ToggleAbsorber(false);
             }
+        }
+
+        if (absorbedObjectCount >= maxbasura)
+        {
+            StartCoroutine(ActivateImageRoutine());
         }
     }
 
@@ -108,12 +127,30 @@ public class Absorber : MonoBehaviour
 
     void UpdateAbsorbedObjectsText()
     {
-        absorbedObjectsText.text = "Basura recogida: " + absorbedObjectCount;
+        absorbedObjectsText.text = "Basura recogida: " + absorbedObjectCount + "/" + maxbasura;
     }
 
     // Función opcional para obtener el número de objetos absorbidos
     public int GetAbsorbedObjectCount()
     {
         return absorbedObjectCount;
+    }
+
+    private IEnumerator ActivateImageRoutine()
+    {
+        // Activar la imagen
+        imageToActivate.gameObject.SetActive(true);
+
+        // Esperar 5 segundos
+        yield return new WaitForSeconds(5f);
+
+        SelectorNivel.nataliaCompletado = true;
+        
+
+        transición.SetActive(true);
+        SceneManager.LoadScene("SelecciónNivel");
+
+        // Aquí puedes agregar la acción que deseas realizar después de los 5 segundos
+        Debug.Log("5 segundos han pasado. Puedes realizar otra acción aquí.");
     }
 }
